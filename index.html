@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DuoOrbit | Couple Compatibility & Relationship Quiz</title>
+  <meta name="description" content="Discover your relationship orbit score. Take the free Couple Compatibility Quiz on DuoOrbit and explore your emotional, lifestyle, and communication connection.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-dark: #0a0a14;
+      --card-bg: rgba(22, 22, 38, 0.75);
+      --card-border: rgba(255, 255, 255, 0.1);
+      --accent-pink: #ff4b72;
+      --accent-purple: #7928ca;
+      --text-main: #f3f4f6;
+      --text-muted: #9ca3af;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+    }
+
+    body {
+      background: radial-gradient(circle at 50% 0%, #1e113a, var(--bg-dark) 70%);
+      color: var(--text-main);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 24px 16px;
+    }
+
+    header {
+      width: 100%;
+      max-width: 680px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 36px;
+    }
+
+    .brand {
+      font-size: 1.5rem;
+      font-weight: 800;
+      letter-spacing: -0.5px;
+      background: linear-gradient(135deg, #ff758c 0%, #ff7eb3 50%, #7928ca 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .card {
+      background: var(--card-bg);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid var(--card-border);
+      border-radius: 24px;
+      padding: 36px 28px;
+      width: 100%;
+      max-width: 680px;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+      transition: all 0.3s ease;
+    }
+
+    .hero-title {
+      font-size: 2rem;
+      font-weight: 800;
+      line-height: 1.25;
+      margin-bottom: 14px;
+      text-align: center;
+    }
+
+    .hero-subtitle {
+      color: var(--text-muted);
+      font-size: 1rem;
+      text-align: center;
+      line-height: 1.6;
+      margin-bottom: 28px;
+    }
+
+    .btn {
+      display: block;
+      width: 100%;
+      padding: 16px 24px;
+      border: none;
+      border-radius: 14px;
+      font-size: 1rem;
+      font-weight: 700;
+      cursor: pointer;
+      background: linear-gradient(135deg, var(--accent-pink), var(--accent-purple));
+      color: #fff;
+      box-shadow: 0 8px 24px rgba(255, 75, 114, 0.35);
+      transition: transform 0.2s, box-shadow 0.2s;
+      text-align: center;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 30px rgba(255, 75, 114, 0.5);
+    }
+
+    .progress-bar-container {
+      width: 100%;
+      height: 8px;
+      background: rgba(255, 255, 255, 0.08);
+      border-radius: 99px;
+      margin-bottom: 24px;
+      overflow: hidden;
+    }
+
+    .progress-bar {
+      height: 100%;
+      width: 0%;
+      background: linear-gradient(90deg, var(--accent-pink), var(--accent-purple));
+      transition: width 0.3s ease;
+    }
+
+    .q-step {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      font-weight: 700;
+      letter-spacing: 1px;
+      margin-bottom: 8px;
+    }
+
+    .q-title {
+      font-size: 1.35rem;
+      font-weight: 700;
+      margin-bottom: 24px;
+      line-height: 1.4;
+    }
+
+    .options {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .option-btn {
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid var(--card-border);
+      padding: 16px 20px;
+      border-radius: 14px;
+      color: var(--text-main);
+      font-size: 0.95rem;
+      font-weight: 600;
+      text-align: left;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .option-btn:hover {
+      background: rgba(255, 255, 255, 0.09);
+      border-color: rgba(255, 255, 255, 0.25);
+      transform: translateX(4px);
+    }
+
+    .result-score-circle {
+      width: 140px;
+      height: 140px;
+      border-radius: 50%;
+      border: 4px solid var(--accent-pink);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 24px auto;
+      background: rgba(255, 75, 114, 0.08);
+      box-shadow: 0 0 30px rgba(255, 75, 114, 0.25);
+    }
+
+    .score-number {
+      font-size: 2.75rem;
+      font-weight: 800;
+      line-height: 1;
+    }
+
+    .score-label {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      letter-spacing: 1px;
+      margin-top: 4px;
+    }
+
+    .result-title {
+      font-size: 1.6rem;
+      font-weight: 800;
+      text-align: center;
+      margin-bottom: 12px;
+    }
+
+    .result-desc {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      line-height: 1.6;
+      text-align: center;
+      margin-bottom: 28px;
+    }
+
+    footer {
+      margin-top: auto;
+      padding-top: 48px;
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 16px;
+    }
+
+    .footer-links a {
+      color: var(--text-muted);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .footer-links a:hover {
+      color: var(--text-main);
+    }
+
+    .hidden {
+      display: none !important;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="brand">DuoOrbit</div>
+    <div style="font-size: 0.85rem; color: var(--text-muted);">Beta v1.0</div>
+  </header>
+
+  <!-- INTRO SCREEN -->
+  <main id="screen-intro" class="card">
+    <h1 class="hero-title">Are Your Orbits Truly in Sync?</h1>
+    <p class="hero-subtitle">
+      Explore emotional intimacy, communication styles, and shared core values with our scientific compatibility assessment.
+    </p>
+    <button class="btn" onclick="startQuiz()">Launch Quiz (2 Mins)</button>
+  </main>
+
+  <!-- QUIZ SCREEN -->
+  <main id="screen-quiz" class="card hidden">
+    <div class="progress-bar-container">
+      <div id="progress-bar" class="progress-bar"></div>
+    </div>
+    <div id="q-step" class="q-step">Question 1 of 5</div>
+    <div id="q-title" class="q-title"></div>
+    <div id="options-container" class="options"></div>
+  </main>
+
+  <!-- RESULTS SCREEN -->
+  <main id="screen-result" class="card hidden">
+    <div class="result-score-circle">
+      <div id="score-number" class="score-number">88%</div>
+      <div class="score-label">Orbit Sync</div>
+    </div>
+    <h2 id="result-title" class="result-title">Harmonic Resonance</h2>
+    <p id="result-desc" class="result-desc"></p>
+    <button class="btn" onclick="restartQuiz()">Retake Quiz</button>
+  </main>
+
+  <footer>
+    <div class="footer-links">
+      <a href="#about">About</a>
+      <a href="#privacy">Privacy Policy</a>
+      <a href="#terms">Terms of Service</a>
+      <a href="#contact">Contact</a>
+    </div>
+    <div>&copy; 2026 DuoOrbit.com. All rights reserved.</div>
+  </footer>
+
+  <script>
+    const quizData = [
+      {
+        question: "How do you and your partner typically navigate unexpected conflict?",
+        options: [
+          { text: "We de-escalate immediately and communicate openly.", points: 20 },
+          { text: "We take a few cooling hours before finding common ground.", points: 16 },
+          { text: "One of us withdraws while the other seeks closure.", points: 10 },
+          { text: "Arguments often leave lingering unresolved tension.", points: 5 }
+        ]
+      },
+      {
+        question: "When envisioning your 5-year lifestyle trajectory, how aligned are your visions?",
+        options: [
+          { text: "Identical priorities in career, geography, and family goals.", points: 20 },
+          { text: "Mostly synchronized with a few adaptable compromises.", points: 17 },
+          { text: "We share values, but our concrete roadmaps diverge.", points: 12 },
+          { text: "We rarely discuss long-term future alignment.", points: 6 }
+        ]
+      },
+      {
+        question: "What is your shared emotional dynamic during high-stress periods?",
+        options: [
+          { text: "We act as an integrated support anchor for each other.", points: 20 },
+          { text: "We grant each other space and reconvene gently.", points: 16 },
+          { text: "Stress from outside occasionally creates friction between us.", points: 11 },
+          { text: "We tend to unintentionally amplify each other's anxiety.", points: 5 }
+        ]
+      },
+      {
+        question: "How would you describe your shared financial philosophies and habits?",
+        options: [
+          { text: "Complete financial transparency with shared budget goals.", points: 20 },
+          { text: "Independent accounts but total alignment on shared expenses.", points: 18 },
+          { text: "Occasional minor disagreements regarding saving vs spending.", points: 12 },
+          { text: "Distinctly opposed financial mindsets and habits.", points: 5 }
+        ]
+      },
+      {
+        question: "How naturally do both of you celebrate each other's individual independence?",
+        options: [
+          { text: "Effortlessly—we thrive as independent individuals together.", points: 20 },
+          { text: "We cultivate healthy solo hobbies alongside quality time.", points: 17 },
+          { text: "Occasionally one of us feels left out when the other pursues solo goals.", points: 10 },
+          { text: "We struggle with codependency or setting personal boundaries.", points: 5 }
+        ]
+      }
+    ];
+
+    let currentQuestion = 0;
+    let totalScore = 0;
+
+    function startQuiz() {
+      document.getElementById("screen-intro").classList.add("hidden");
+      document.getElementById("screen-quiz").classList.remove("hidden");
+      currentQuestion = 0;
+      totalScore = 0;
+      loadQuestion();
+    }
+
+    function loadQuestion() {
+      const q = quizData[currentQuestion];
+      document.getElementById("q-step").innerText = `Question ${currentQuestion + 1} of ${quizData.length}`;
+      document.getElementById("q-title").innerText = q.question;
+      
+      const progressPercent = ((currentQuestion + 1) / quizData.length) * 100;
+      document.getElementById("progress-bar").style.width = `${progressPercent}%`;
+
+      const optionsContainer = document.getElementById("options-container");
+      optionsContainer.innerHTML = "";
+
+      q.options.forEach(opt => {
+        const btn = document.createElement("button");
+        btn.className = "option-btn";
+        btn.innerText = opt.text;
+        btn.onclick = () => selectOption(opt.points);
+        optionsContainer.appendChild(btn);
+      });
+    }
+
+    function selectOption(points) {
+      totalScore += points;
+      currentQuestion++;
+      if (currentQuestion < quizData.length) {
+        loadQuestion();
+      } else {
+        showResults();
+      }
+    }
+
+    function showResults() {
+      document.getElementById("screen-quiz").classList.add("hidden");
+      document.getElementById("screen-result").classList.remove("hidden");
+
+      document.getElementById("score-number").innerText = `${totalScore}%`;
+      const titleElem = document.getElementById("result-title");
+      const descElem = document.getElementById("result-desc");
+
+      if (totalScore >= 85) {
+        titleElem.innerText = "Harmonic Orbit (Deep Alignment)";
+        descElem.innerText = "Your relationship reflects exceptional psychological safety, cohesive communication, and synchronized long-term visions. You elevate each other without diminishing individual autonomy.";
+      } else if (totalScore >= 65) {
+        titleElem.innerText = "Stable Trajectory (Balanced Orbit)";
+        descElem.innerText = "You possess a resilient foundation of shared empathy and values. Addressing minor differences in conflict styles or boundary-setting will seamlessly elevate your connection.";
+      } else {
+        titleElem.innerText = "Gravitational Shift (Growth Opportunity)";
+        descElem.innerText = "Your orbits experience tension from contrasting communication styles or divergent future priorities. Intentional dialogue and transparent boundary calibration will help realign your mutual bond.";
+      }
+    }
+
+    function restartQuiz() {
+      document.getElementById("screen-result").classList.add("hidden");
+      document.getElementById("screen-intro").classList.remove("hidden");
+    }
+  </script>
+</body>
+</html>
