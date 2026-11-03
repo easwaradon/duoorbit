@@ -52,6 +52,8 @@
       background: linear-gradient(135deg, #ff758c 0%, #ff7eb3 50%, #7928ca 100%);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
+      text-decoration: none;
+      cursor: pointer;
     }
 
     .card {
@@ -212,22 +214,87 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      gap: 10px;
+      gap: 12px;
     }
 
     .footer-links {
       display: flex;
-      gap: 16px;
+      gap: 18px;
     }
 
     .footer-links a {
       color: var(--text-muted);
       text-decoration: none;
+      cursor: pointer;
       transition: color 0.2s;
     }
 
     .footer-links a:hover {
       color: var(--text-main);
+    }
+
+    /* MODAL POPUP */
+    .modal-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.75);
+      backdrop-filter: blur(8px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      z-index: 1000;
+    }
+
+    .modal-content {
+      background: #141424;
+      border: 1px solid var(--card-border);
+      border-radius: 20px;
+      width: 100%;
+      max-width: 600px;
+      max-height: 80vh;
+      overflow-y: auto;
+      padding: 32px 28px;
+      position: relative;
+      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.7);
+    }
+
+    .modal-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 20px;
+      border-bottom: 1px solid var(--card-border);
+      padding-bottom: 12px;
+    }
+
+    .modal-title {
+      font-size: 1.35rem;
+      font-weight: 700;
+    }
+
+    .modal-close {
+      background: transparent;
+      border: none;
+      color: var(--text-muted);
+      font-size: 1.5rem;
+      cursor: pointer;
+      line-height: 1;
+    }
+
+    .modal-body {
+      color: var(--text-muted);
+      font-size: 0.9rem;
+      line-height: 1.7;
+    }
+
+    .modal-body h4 {
+      color: var(--text-main);
+      margin: 16px 0 6px 0;
+    }
+
+    .modal-body p {
+      margin-bottom: 12px;
     }
 
     .hidden {
@@ -238,7 +305,7 @@
 <body>
 
   <header>
-    <div class="brand">DuoOrbit</div>
+    <a href="/" class="brand">DuoOrbit</a>
     <div style="font-size: 0.85rem; color: var(--text-muted);">Beta v1.0</div>
   </header>
 
@@ -272,15 +339,27 @@
     <button class="btn" onclick="restartQuiz()">Retake Quiz</button>
   </main>
 
+  <!-- FOOTER -->
   <footer>
     <div class="footer-links">
-      <a href="#about">About</a>
-      <a href="#privacy">Privacy Policy</a>
-      <a href="#terms">Terms of Service</a>
-      <a href="#contact">Contact</a>
+      <a onclick="openModal('about')">About</a>
+      <a onclick="openModal('privacy')">Privacy Policy</a>
+      <a onclick="openModal('terms')">Terms of Service</a>
+      <a onclick="openModal('contact')">Contact</a>
     </div>
     <div>&copy; 2026 DuoOrbit.com. All rights reserved.</div>
   </footer>
+
+  <!-- MODAL CONTAINER -->
+  <div id="legal-modal" class="modal-overlay hidden" onclick="closeModalOnOverlay(event)">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3 id="modal-title" class="modal-title">Notice</h3>
+        <button class="modal-close" onclick="closeModal()">&times;</button>
+      </div>
+      <div id="modal-body" class="modal-body"></div>
+    </div>
+  </div>
 
   <script>
     const quizData = [
@@ -395,6 +474,66 @@
     function restartQuiz() {
       document.getElementById("screen-result").classList.add("hidden");
       document.getElementById("screen-intro").classList.remove("hidden");
+    }
+
+    /* LEGAL CONTENT MODALS (ADSENSE COMPLIANT) */
+    const legalData = {
+      about: {
+        title: "About DuoOrbit",
+        content: `
+          <p><strong>DuoOrbit</strong> is a digital relationship assessment application designed to help couples understand their emotional dynamics, communication styles, and lifestyle synchronization.</p>
+          <h4>Our Mission</h4>
+          <p>We provide accessible, intuitive tools designed to inspire constructive conversations and deepen mutual understanding between partners worldwide.</p>
+        `
+      },
+      privacy: {
+        title: "Privacy Policy",
+        content: `
+          <p>Last updated: November 2026. At DuoOrbit.com, protecting visitor privacy is our core priority.</p>
+          <h4>Data Collection & Storage</h4>
+          <p>DuoOrbit does not store personal names, relationship answers, or assessment scores on external databases. All assessment interactions occur entirely client-side in your local web browser session.</p>
+          <h4>Cookies & Advertising Partners</h4>
+          <p>We may collaborate with trusted third-party advertising vendors, including Google AdSense. Google utilizes cookies (such as the DoubleClick cookie) to serve relevant advertisements based on visits to this and other websites across the Internet.</p>
+          <p>Users may opt out of personalized advertising by visiting Google's Ads Settings.</p>
+        `
+      },
+      terms: {
+        title: "Terms of Service",
+        content: `
+          <p>By accessing DuoOrbit.com, you agree to comply with our Terms of Service.</p>
+          <h4>Informational Purpose Only</h4>
+          <p>DuoOrbit's compatibility assessments are provided solely for educational, self-reflection, and entertainment purposes. They do not constitute formal couples therapy, psychological diagnoses, or licensed medical counsel.</p>
+          <h4>Limitation of Liability</h4>
+          <p>DuoOrbit shall not be held liable for personal relationship decisions or disputes arising from assessments taken on this platform.</p>
+        `
+      },
+      contact: {
+        title: "Contact DuoOrbit",
+        content: `
+          <p>Have inquiries, feedback, or partnership requests?</p>
+          <h4>Inquiries</h4>
+          <p>Feel free to reach out to our team directly via email: <strong>support@duoorbit.com</strong></p>
+          <p>We strive to respond to all authentic inquiries within 24 to 48 business hours.</p>
+        `
+      }
+    };
+
+    function openModal(type) {
+      const data = legalData[type];
+      if (!data) return;
+      document.getElementById("modal-title").innerText = data.title;
+      document.getElementById("modal-body").innerHTML = data.content;
+      document.getElementById("legal-modal").classList.remove("hidden");
+    }
+
+    function closeModal() {
+      document.getElementById("legal-modal").classList.add("hidden");
+    }
+
+    function closeModalOnOverlay(e) {
+      if (e.target.id === "legal-modal") {
+        closeModal();
+      }
     }
   </script>
 </body>
