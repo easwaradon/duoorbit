@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>DuoOrbit - Are Your Orbits Truly in Sync?</title>
-    <!-- Playful Rounded Font for 3D Cartoon Vibe -->
+    <!-- Rounded 3D Font -->
     <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
@@ -31,12 +31,11 @@
             overflow-x: hidden;
             background-image: url('hero-bg.jpg');
             background-size: cover;
-            background-position: right center; /* දකුණු පස ඇති යුවළ හොඳින් පෙනීමට */
+            background-position: right center;
             background-repeat: no-repeat;
             background-attachment: fixed;
         }
 
-        /* Ambient subtle dark overlay for readability while keeping graphics clear */
         body::before {
             content: '';
             position: fixed;
@@ -54,28 +53,11 @@
             z-index: 1;
         }
 
-        /* 3D Navigation Bar */
         header {
             padding: 20px 5%;
             display: flex;
-            justify-content: space-between;
+            justify-content: flex-end;
             align-items: center;
-        }
-
-        .logo-placeholder {
-            font-size: 1.8rem;
-            font-weight: 700;
-            color: #ffffff;
-            text-shadow: 0 4px 0 var(--primary-purple), 0 8px 15px rgba(0, 0, 0, 0.5);
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            cursor: pointer;
-            text-decoration: none;
-        }
-
-        .logo-placeholder span {
-            color: var(--primary-pink);
         }
 
         .nav-tabs {
@@ -119,7 +101,6 @@
             transform: translateY(-2px);
         }
 
-        /* 3D Main Section Hero Box - Left-aligned */
         main {
             flex: 1;
             display: flex;
@@ -130,20 +111,15 @@
         .hero-container {
             max-width: 550px;
             width: 100%;
-            background: rgba(20, 15, 45, 0.65);
-            backdrop-filter: blur(15px);
-            -webkit-backdrop-filter: blur(15px);
-            border: 2px solid rgba(255, 255, 255, 0.1);
+            background: rgba(20, 15, 45, 0.75);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 2px solid rgba(255, 255, 255, 0.12);
             border-radius: 32px;
-            padding: 40px;
-            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.5), 
+            padding: 38px;
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.55), 
                         inset 0 1px 0 rgba(255, 255, 255, 0.2);
-            animation: bobbing 6s ease-in-out infinite alternate;
-        }
-
-        @keyframes bobbing {
-            0% { transform: translateY(0px); }
-            100% { transform: translateY(-10px); }
+            position: relative;
         }
 
         .tagline {
@@ -161,9 +137,9 @@
         }
 
         h1 {
-            font-size: 2.8rem;
+            font-size: 2.7rem;
             line-height: 1.15;
-            margin-bottom: 18px;
+            margin-bottom: 16px;
             text-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
         }
 
@@ -174,13 +150,12 @@
         }
 
         .description {
-            font-size: 1.1rem;
+            font-size: 1.05rem;
             color: rgba(255, 255, 255, 0.85);
             line-height: 1.5;
-            margin-bottom: 30px;
+            margin-bottom: 28px;
         }
 
-        /* 3D Interactive Start Button */
         .btn-3d {
             display: inline-flex;
             align-items: center;
@@ -189,42 +164,27 @@
             width: 100%;
             background: linear-gradient(135deg, #ff4e7c 0%, #d91b5c 100%);
             color: white;
-            font-size: 1.3rem;
+            font-size: 1.25rem;
             font-weight: 700;
-            padding: 18px 36px;
+            padding: 16px 32px;
             border-radius: 24px;
             text-decoration: none;
-            box-shadow: 0 0px 0 #a10c3b, 
-                        0 8px 0 #80052a, 
-                        0 15px 30px rgba(255, 78, 124, 0.4);
+            box-shadow: 0 6px 0 #80052a, 0 15px 30px rgba(255, 78, 124, 0.4);
             border: none;
-            transform: translateY(0);
-            transition: all 0.15s ease-out;
             cursor: pointer;
-            position: relative;
-            outline: none;
+            transition: all 0.15s ease-out;
         }
 
         .btn-3d:hover {
             transform: translateY(-2px);
-            box-shadow: 0 2px 0 #a10c3b, 
-                        0 10px 0 #80052a, 
-                        0 20px 35px rgba(255, 78, 124, 0.5);
+            box-shadow: 0 8px 0 #80052a, 0 20px 35px rgba(255, 78, 124, 0.5);
         }
 
         .btn-3d:active {
-            transform: translateY(8px);
-            box-shadow: 0 0px 0 #a10c3b, 
-                        0 0px 0 #80052a, 
-                        0 5px 15px rgba(0, 0, 0, 0.4);
+            transform: translateY(6px);
+            box-shadow: 0 0px 0 #80052a, 0 5px 15px rgba(0, 0, 0, 0.4);
         }
 
-        .btn-icon {
-            font-size: 1.5rem;
-            filter: drop-shadow(0 2px 2px rgba(0, 0, 0, 0.3));
-        }
-
-        /* 3D Mini Info Cards */
         .info-cards {
             display: flex;
             gap: 15px;
@@ -249,7 +209,75 @@
             margin-bottom: 4px;
         }
 
-        /* Footer */
+        /* Interactive Quiz Screen Styles */
+        #quiz-box {
+            display: none;
+        }
+
+        .quiz-progress {
+            font-size: 0.85rem;
+            color: var(--neon-cyan);
+            font-weight: 600;
+            margin-bottom: 12px;
+            letter-spacing: 0.5px;
+        }
+
+        .quiz-question {
+            font-size: 1.4rem;
+            line-height: 1.35;
+            margin-bottom: 22px;
+            font-weight: 700;
+        }
+
+        .quiz-options {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            margin-bottom: 20px;
+        }
+
+        .quiz-btn {
+            background: rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            color: white;
+            padding: 14px 20px;
+            border-radius: 16px;
+            font-size: 1rem;
+            font-weight: 600;
+            text-align: left;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .quiz-btn:hover {
+            background: linear-gradient(135deg, rgba(255, 94, 142, 0.25), rgba(157, 78, 221, 0.25));
+            border-color: var(--primary-pink);
+            transform: translateX(4px);
+        }
+
+        /* Result Area */
+        #result-box {
+            display: none;
+            text-align: center;
+        }
+
+        .score-circle {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--primary-pink), var(--primary-purple));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.2rem;
+            font-weight: 700;
+            margin: 15px auto 20px auto;
+            box-shadow: 0 10px 30px rgba(255, 94, 142, 0.5);
+        }
+
         footer {
             padding: 15px 5%;
             text-align: center;
@@ -267,83 +295,179 @@
             margin: 0 8px;
         }
 
-        footer a:hover {
-            color: #fff;
-        }
-
-        /* Responsive Mobile Layout */
         @media (max-width: 900px) {
-            body {
-                background-position: 70% center;
-            }
-            main {
-                justify-content: center;
-                padding: 30px 20px;
-            }
-            .hero-container {
-                padding: 30px 24px;
-            }
-            h1 {
-                font-size: 2.2rem;
-            }
-            header {
-                flex-direction: column;
-                gap: 15px;
-                padding: 20px;
-            }
+            body { background-position: 70% center; }
+            main { justify-content: center; padding: 30px 20px; }
+            .hero-container { padding: 30px 22px; }
+            h1 { font-size: 2.2rem; }
+            header { justify-content: center; }
         }
     </style>
 </head>
 <body>
 
-    <!-- Header Navigation -->
     <header>
-        <a href="index.html" class="logo-placeholder">
-            Duo<span>Orbit</span>
-        </a>
         <nav class="nav-tabs">
-            <a href="index.html" class="nav-tab active">
-                ✨ Play Quiz
-            </a>
-            <a href="questions-for-couples.html" class="nav-tab inactive">
-                📖 Guides
-            </a>
+            <a href="index.html" class="nav-tab active">✨ Play Quiz</a>
+            <a href="questions-for-couples.html" class="nav-tab inactive">📖 Guides</a>
         </nav>
     </header>
 
-    <!-- Main Hero Section -->
     <main>
         <div class="hero-container">
-            <div class="tagline">🌌 Stargazing with DuoOrbit</div>
-            <h1>Are Your Orbits <span>Truly in Sync?</span></h1>
-            <p class="description">Explore emotional intimacy, communication styles, and shared core values with our scientific compatibility assessment. Designed especially for duos who gaze at the stars together!</p>
-            
-            <!-- 3D Interactive Quiz Button -->
-            <button class="btn-3d" onclick="startQuiz()">
-                <span class="btn-icon">🚀</span> Launch Quiz (2 Mins)
-            </button>
+            <!-- 1. Intro View -->
+            <div id="intro-box">
+                <div class="tagline">🌌 Stargazing with DuoOrbit</div>
+                <h1>Are Your Orbits <span>Truly in Sync?</span></h1>
+                <p class="description">Explore emotional intimacy, communication styles, and shared core values with our scientific compatibility assessment. Designed especially for duos who gaze at the stars together!</p>
+                
+                <button class="btn-3d" onclick="startQuiz()">
+                    <span>🚀</span> Launch Quiz (2 Mins)
+                </button>
 
-            <div class="info-cards">
-                <div class="mini-card">
-                    <span>❤️ Lovestyle</span>
-                    Based on research
+                <div class="info-cards">
+                    <div class="mini-card">
+                        <span>❤️ Lovestyle</span>
+                        Based on research
+                    </div>
+                    <div class="mini-card">
+                        <span>⚡ Quick & Fun</span>
+                        Instant insights
+                    </div>
                 </div>
-                <div class="mini-card">
-                    <span>⚡ Quick & Fun</span>
-                    Instant insights
+            </div>
+
+            <!-- 2. Step-by-Step Quiz View -->
+            <div id="quiz-box">
+                <div class="quiz-progress" id="progress-text">QUESTION 1 OF 5</div>
+                <div class="quiz-question" id="question-text">How do you prefer to spend quality time together?</div>
+                <div class="quiz-options" id="options-container">
+                    <!-- Populated dynamically via JS -->
                 </div>
+            </div>
+
+            <!-- 3. Final Result View -->
+            <div id="result-box">
+                <div class="tagline">✨ ORBIT SYNC RESULT</div>
+                <div class="score-circle" id="score-text">92%</div>
+                <h2 style="font-size: 1.8rem; margin-bottom: 12px;" id="result-title">Cosmic Soulmates</h2>
+                <p class="description" id="result-desc">Your orbits share an extraordinary harmony, balanced by mutual emotional security and aligned future aspirations!</p>
+                <button class="btn-3d" onclick="restartQuiz()">
+                    <span>🔄</span> Retake Assessment
+                </button>
             </div>
         </div>
     </main>
 
-    <!-- Footer -->
     <footer>
         <p>&copy; 2026 DuoOrbit. Exploring cosmic love orbits together. <a href="questions-for-couples.html">📖 Relationship Guides & Articles</a></p>
     </footer>
 
     <script>
+        const questions = [
+            {
+                q: "How do you prefer to resolve a disagreement?",
+                options: [
+                    { text: "Talk it through immediately with calm honesty", score: 20 },
+                    { text: "Take cooling-off space first, then reconnect", score: 18 },
+                    { text: "Laugh it off and move forward together", score: 15 }
+                ]
+            },
+            {
+                q: "What defines your ideal romantic evening?",
+                options: [
+                    { text: "Stargazing, deep talks & calm cozy blankets", score: 20 },
+                    { text: "An adventurous spontaneous road trip", score: 18 },
+                    { text: "A bustling dinner date & city nightlife", score: 16 }
+                ]
+            },
+            {
+                q: "What is your primary Love Language?",
+                options: [
+                    { text: "Quality Time & Uninterrupted Presence", score: 20 },
+                    { text: "Words of Affirmation & Heartfelt Notes", score: 19 },
+                    { text: "Physical Touch & Warm Affection", score: 19 }
+                ]
+            },
+            {
+                q: "When facing a life goal, how do you plan together?",
+                options: [
+                    { text: "Unified teamwork with shared step-by-step milestones", score: 20 },
+                    { text: "Supporting each other's independence completely", score: 18 },
+                    { text: "Going with the flow as life develops", score: 15 }
+                ]
+            },
+            {
+                q: "How do you express genuine gratitude to your partner?",
+                options: [
+                    { text: "Thoughtful everyday acts of service", score: 20 },
+                    { text: "Deep verbal compliments from the heart", score: 19 },
+                    { text: "Quiet, comfortable companionship", score: 17 }
+                ]
+            }
+        ];
+
+        let currentQuestion = 0;
+        let totalScore = 0;
+
         function startQuiz() {
-            alert("Quiz feature launching soon!");
+            document.getElementById('intro-box').style.display = 'none';
+            document.getElementById('result-box').style.display = 'none';
+            document.getElementById('quiz-box').style.display = 'block';
+            currentQuestion = 0;
+            totalScore = 0;
+            renderQuestion();
+        }
+
+        function renderQuestion() {
+            const qData = questions[currentQuestion];
+            document.getElementById('progress-text').innerText = `QUESTION ${currentQuestion + 1} OF ${questions.length}`;
+            document.getElementById('question-text').innerText = qData.q;
+            
+            const container = document.getElementById('options-container');
+            container.innerHTML = '';
+
+            qData.options.forEach(opt => {
+                const btn = document.createElement('button');
+                btn.className = 'quiz-btn';
+                btn.innerHTML = `${opt.text} <span>→</span>`;
+                btn.onclick = () => selectOption(opt.score);
+                container.appendChild(btn);
+            });
+        }
+
+        function selectOption(score) {
+            totalScore += score;
+            currentQuestion++;
+            if (currentQuestion < questions.length) {
+                renderQuestion();
+            } else {
+                showResults();
+            }
+        }
+
+        function showResults() {
+            document.getElementById('quiz-box').style.display = 'none';
+            document.getElementById('result-box').style.display = 'block';
+            
+            const finalScore = Math.min(100, Math.max(78, totalScore));
+            document.getElementById('score-text').innerText = `${finalScore}%`;
+
+            if (finalScore >= 92) {
+                document.getElementById('result-title').innerText = "Cosmic Soulmates";
+                document.getElementById('result-desc').innerText = "Your orbits share rare emotional synchronicity, balanced mutual security, and deep alignment!";
+            } else if (finalScore >= 85) {
+                document.getElementById('result-title').innerText = "Harmonious Gravity";
+                document.getElementById('result-desc').innerText = "Strong chemistry and mutual respect keep your orbits steady through every romantic season.";
+            } else {
+                document.getElementById('result-title').innerText = "Dynamic Explorers";
+                document.getElementById('result-desc').innerText = "Your relationship flourishes on excitement, variety, and continuous discovery together!";
+            }
+        }
+
+        function restartQuiz() {
+            document.getElementById('result-box').style.display = 'none';
+            document.getElementById('intro-box').style.display = 'block';
         }
     </script>
 </body>
