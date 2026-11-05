@@ -43,7 +43,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: linear-gradient(135deg, rgba(15, 12, 35, 0.25) 0%, rgba(15, 12, 35, 0.1) 100%);
+            background: linear-gradient(135deg, rgba(15, 12, 35, 0.2) 0%, rgba(15, 12, 35, 0.05) 100%);
             z-index: 0;
             pointer-events: none;
         }
@@ -53,11 +53,11 @@
             z-index: 1;
         }
 
-        /* Top-Left Navigation Tabs */
+        /* Top Bar with Navigation on the Left */
         header {
-            padding: 20px 4%;
+            padding: 15px 4%;
             display: flex;
-            justify-content: flex-start; /* වම් පසට පෙළගැස්වීම */
+            justify-content: flex-start;
             align-items: center;
         }
 
@@ -74,11 +74,11 @@
         }
 
         .nav-tab {
-            padding: 7px 20px;
+            padding: 6px 18px;
             border-radius: 40px;
             text-decoration: none;
             font-weight: 600;
-            font-size: 0.9rem;
+            font-size: 0.88rem;
             transition: all 0.25s ease;
             display: flex;
             align-items: center;
@@ -100,27 +100,28 @@
             background: rgba(255, 255, 255, 0.15);
         }
 
-        /* Main Section - Right-aligned & Upper Placement */
+        /* Main Section - Pushed fully to the Top-Right corner */
         main {
             flex: 1;
             display: flex;
-            align-items: flex-start; /* ඉහළට තැබීම */
-            justify-content: flex-end; /* දකුණු පසට පෙළගැස්වීම */
-            padding: 10px 4% 30px 4%;
+            align-items: flex-start;
+            justify-content: flex-end;
+            padding: 0px 4% 20px 4%;
+            margin-top: -10px; /* ඉහළට උපරිමයෙන් ඇද තැබීම */
         }
 
-        /* Compact & Sleek Hero Card */
+        /* Compact Top-Right Hero Card */
         .hero-container {
-            max-width: 380px; /* වඩාත් කුඩා කළ ප්‍රමාණය */
+            max-width: 350px; /* තවත් compact කළ ප්‍රමාණය */
             width: 100%;
-            background: rgba(18, 12, 38, 0.65);
+            background: rgba(18, 12, 38, 0.72);
             backdrop-filter: blur(16px);
             -webkit-backdrop-filter: blur(16px);
-            border: 1.5px solid rgba(255, 255, 255, 0.12);
-            border-radius: 24px;
-            padding: 24px;
-            box-shadow: 0 20px 45px rgba(0, 0, 0, 0.45), 
-                        inset 0 1px 0 rgba(255, 255, 255, 0.15);
+            border: 1.5px solid rgba(255, 255, 255, 0.14);
+            border-radius: 20px;
+            padding: 20px;
+            box-shadow: 0 20px 45px rgba(0, 0, 0, 0.55), 
+                        inset 0 1px 0 rgba(255, 255, 255, 0.18);
         }
 
         .tagline {
@@ -128,19 +129,19 @@
             background: rgba(255, 94, 142, 0.15);
             color: var(--neon-cyan);
             border: 1px solid rgba(0, 240, 255, 0.3);
-            padding: 4px 12px;
+            padding: 3px 10px;
             border-radius: 50px;
-            font-size: 0.75rem;
+            font-size: 0.72rem;
             font-weight: 700;
             text-transform: uppercase;
-            letter-spacing: 0.8px;
-            margin-bottom: 12px;
+            letter-spacing: 0.6px;
+            margin-bottom: 10px;
         }
 
         h1 {
-            font-size: 1.85rem;
+            font-size: 1.6rem;
             line-height: 1.2;
-            margin-bottom: 10px;
+            margin-bottom: 8px;
             text-shadow: 0 3px 8px rgba(0, 0, 0, 0.5);
         }
 
@@ -151,10 +152,10 @@
         }
 
         .description {
-            font-size: 0.92rem;
+            font-size: 0.86rem;
             color: rgba(255, 255, 255, 0.85);
-            line-height: 1.45;
-            margin-bottom: 20px;
+            line-height: 1.4;
+            margin-bottom: 16px;
         }
 
         /* Compact 3D Button */
@@ -166,12 +167,12 @@
             width: 100%;
             background: linear-gradient(135deg, #ff4e7c 0%, #d91b5c 100%);
             color: white;
-            font-size: 1.05rem;
+            font-size: 0.98rem;
             font-weight: 700;
-            padding: 13px 20px;
-            border-radius: 18px;
+            padding: 11px 18px;
+            border-radius: 16px;
             text-decoration: none;
-            box-shadow: 0 5px 0 #80052a, 0 10px 20px rgba(255, 78, 124, 0.35);
+            box-shadow: 0 4px 0 #80052a, 0 10px 18px rgba(255, 78, 124, 0.35);
             border: none;
             cursor: pointer;
             transition: all 0.15s ease-out;
@@ -179,28 +180,28 @@
 
         .btn-3d:hover {
             transform: translateY(-2px);
-            box-shadow: 0 7px 0 #80052a, 0 14px 25px rgba(255, 78, 124, 0.45);
+            box-shadow: 0 6px 0 #80052a, 0 14px 22px rgba(255, 78, 124, 0.45);
         }
 
         .btn-3d:active {
-            transform: translateY(5px);
-            box-shadow: 0 0px 0 #80052a, 0 4px 10px rgba(0, 0, 0, 0.4);
+            transform: translateY(4px);
+            box-shadow: 0 0px 0 #80052a, 0 3px 8px rgba(0, 0, 0, 0.4);
         }
 
         .info-cards {
             display: flex;
-            gap: 10px;
-            margin-top: 18px;
+            gap: 8px;
+            margin-top: 14px;
         }
 
         .mini-card {
             flex: 1;
             background: rgba(255, 255, 255, 0.05);
             border: 1px solid rgba(255, 255, 255, 0.08);
-            border-radius: 12px;
-            padding: 8px;
+            border-radius: 10px;
+            padding: 6px;
             text-align: center;
-            font-size: 0.78rem;
+            font-size: 0.74rem;
             color: rgba(255, 255, 255, 0.7);
         }
 
@@ -217,16 +218,16 @@
         }
 
         .quiz-progress {
-            font-size: 0.75rem;
+            font-size: 0.72rem;
             color: var(--neon-cyan);
             font-weight: 700;
-            margin-bottom: 8px;
+            margin-bottom: 6px;
         }
 
         .quiz-question {
-            font-size: 1.15rem;
+            font-size: 1.05rem;
             line-height: 1.3;
-            margin-bottom: 16px;
+            margin-bottom: 14px;
             font-weight: 700;
         }
 
@@ -234,16 +235,16 @@
             display: flex;
             flex-direction: column;
             gap: 8px;
-            margin-bottom: 15px;
+            margin-bottom: 12px;
         }
 
         .quiz-btn {
             background: rgba(255, 255, 255, 0.08);
             border: 1px solid rgba(255, 255, 255, 0.14);
             color: white;
-            padding: 10px 14px;
-            border-radius: 12px;
-            font-size: 0.88rem;
+            padding: 9px 12px;
+            border-radius: 10px;
+            font-size: 0.82rem;
             font-weight: 600;
             text-align: left;
             cursor: pointer;
@@ -266,23 +267,23 @@
         }
 
         .score-circle {
-            width: 85px;
-            height: 85px;
+            width: 75px;
+            height: 75px;
             border-radius: 50%;
             background: linear-gradient(135deg, var(--primary-pink), var(--primary-purple));
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1.7rem;
+            font-size: 1.5rem;
             font-weight: 700;
-            margin: 10px auto 14px auto;
-            box-shadow: 0 8px 20px rgba(255, 94, 142, 0.45);
+            margin: 8px auto 12px auto;
+            box-shadow: 0 8px 18px rgba(255, 94, 142, 0.45);
         }
 
         footer {
-            padding: 12px 4%;
+            padding: 10px 4%;
             text-align: center;
-            font-size: 0.8rem;
+            font-size: 0.78rem;
             color: rgba(255, 255, 255, 0.5);
             background: rgba(15, 12, 35, 0.6);
             backdrop-filter: blur(5px);
@@ -301,6 +302,7 @@
                 justify-content: center;
                 align-items: center;
                 padding: 20px;
+                margin-top: 0;
             }
             .hero-container {
                 max-width: 100%;
@@ -313,7 +315,7 @@
 </head>
 <body>
 
-    <!-- Top-Left Navigation Tabs -->
+    <!-- Navigation Tabs on Top-Left -->
     <header>
         <nav class="nav-tabs">
             <a href="index.html" class="nav-tab active">✨ Play Quiz</a>
@@ -321,14 +323,14 @@
         </nav>
     </header>
 
-    <!-- Main Section with Top-Right Small Card -->
+    <!-- Main Container at Maximum Top-Right -->
     <main>
         <div class="hero-container">
             <!-- 1. Intro View -->
             <div id="intro-box">
                 <div class="tagline">🌌 Stargazing with DuoOrbit</div>
                 <h1>Are Your Orbits <span>Truly in Sync?</span></h1>
-                <p class="description">Discover emotional intimacy, love language styles, and core synchronization with our quick couple test!</p>
+                <p class="description">Discover emotional intimacy, communication styles, and core synchronization with our quick couple test!</p>
                 
                 <button class="btn-3d" onclick="startQuiz()">
                     <span>🚀</span> Launch Quiz (2 Mins)
@@ -351,7 +353,7 @@
                 <div class="quiz-progress" id="progress-text">QUESTION 1 OF 5</div>
                 <div class="quiz-question" id="question-text">How do you prefer to resolve a disagreement?</div>
                 <div class="quiz-options" id="options-container">
-                    <!-- Populated dynamically via JS -->
+                    <!-- Dynamic Options -->
                 </div>
             </div>
 
@@ -359,7 +361,7 @@
             <div id="result-box">
                 <div class="tagline">✨ ORBIT SYNC RESULT</div>
                 <div class="score-circle" id="score-text">92%</div>
-                <h2 style="font-size: 1.4rem; margin-bottom: 8px;" id="result-title">Cosmic Soulmates</h2>
+                <h2 style="font-size: 1.25rem; margin-bottom: 6px;" id="result-title">Cosmic Soulmates</h2>
                 <p class="description" id="result-desc">Your orbits share rare emotional synchronicity and deep mutual understanding!</p>
                 <button class="btn-3d" onclick="restartQuiz()">
                     <span>🔄</span> Retake Assessment
