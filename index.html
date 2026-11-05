@@ -31,12 +31,12 @@
             overflow-x: hidden;
             background-image: url('hero-bg.jpg');
             background-size: cover;
-            background-position: center center;
+            background-position: right center; /* දකුණු පස ඇති යුවළ හොඳින් පෙනීමට */
             background-repeat: no-repeat;
             background-attachment: fixed;
         }
 
-        /* Ambient dark overlay for readability but keeping the magical vibe */
+        /* Ambient subtle dark overlay for readability while keeping graphics clear */
         body::before {
             content: '';
             position: fixed;
@@ -44,7 +44,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: linear-gradient(135deg, rgba(15, 12, 35, 0.4) 0%, rgba(15, 12, 35, 0.2) 100%);
+            background: linear-gradient(135deg, rgba(15, 12, 35, 0.35) 0%, rgba(15, 12, 35, 0.15) 100%);
             z-index: 0;
             pointer-events: none;
         }
@@ -85,6 +85,7 @@
             padding: 6px;
             border-radius: 50px;
             backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
             border: 1px solid rgba(255, 255, 255, 0.15);
             box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
         }
@@ -118,7 +119,7 @@
             transform: translateY(-2px);
         }
 
-        /* 3D Main Section Hero Cards Box - Left-aligned to keep the couple visible */
+        /* 3D Main Section Hero Box - Left-aligned */
         main {
             flex: 1;
             display: flex;
@@ -179,7 +180,7 @@
             margin-bottom: 30px;
         }
 
-        /* 3D Giant Play Button with bounce & push click animation */
+        /* 3D Interactive Start Button */
         .btn-3d {
             display: inline-flex;
             align-items: center;
@@ -215,7 +216,7 @@
             transform: translateY(8px);
             box-shadow: 0 0px 0 #a10c3b, 
                         0 0px 0 #80052a, 
-                        0 5px 15px rgba(0,0,0,0.4);
+                        0 5px 15px rgba(0, 0, 0, 0.4);
         }
 
         .btn-icon {
@@ -223,7 +224,7 @@
             filter: drop-shadow(0 2px 2px rgba(0, 0, 0, 0.3));
         }
 
-        /* 3D Miniature Card below */
+        /* 3D Mini Info Cards */
         .info-cards {
             display: flex;
             gap: 15px;
@@ -270,10 +271,10 @@
             color: #fff;
         }
 
-        /* Responsive Design */
+        /* Responsive Mobile Layout */
         @media (max-width: 900px) {
             body {
-                background-position: 70% center; /* Ensure the couple is always visible on smartphones */
+                background-position: 70% center;
             }
             main {
                 justify-content: center;
@@ -310,14 +311,14 @@
         </nav>
     </header>
 
-    <!-- Main Section with Transparent Glassmorphic Card -->
+    <!-- Main Hero Section -->
     <main>
         <div class="hero-container">
             <div class="tagline">🌌 Stargazing with DuoOrbit</div>
             <h1>Are Your Orbits <span>Truly in Sync?</span></h1>
             <p class="description">Explore emotional intimacy, communication styles, and shared core values with our scientific compatibility assessment. Designed especially for duos who gaze at the stars together!</p>
             
-            <!-- Giant 3D Interactive Start Button -->
+            <!-- 3D Interactive Quiz Button -->
             <button class="btn-3d" onclick="startQuiz()">
                 <span class="btn-icon">🚀</span> Launch Quiz (2 Mins)
             </button>
@@ -342,9 +343,7 @@
 
     <script>
         function startQuiz() {
-            // Your existing Quiz opening function can go here, 
-            // e.g. opening the Typeform/Widget or scrolling to it.
-            alert("Quiz feature is launching! (Connect your Typeform or existing questions algorithm here)");
+            alert("Quiz feature launching soon!");
         }
     </script>
 </body>
