@@ -1,554 +1,351 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1993421595608157"
-     crossorigin="anonymous"></script>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>DuoOrbit | Couple Compatibility & Relationship Quiz</title>
-  <meta name="description" content="Discover your relationship orbit score. Take the free Couple Compatibility Quiz on DuoOrbit and explore your emotional, lifestyle, and communication connection.">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <style>
-    :root {
-      --bg-dark: #0a0a14;
-      --card-bg: rgba(22, 22, 38, 0.75);
-      --card-border: rgba(255, 255, 255, 0.1);
-      --accent-pink: #ff4b72;
-      --accent-purple: #7928ca;
-      --text-main: #f3f4f6;
-      --text-muted: #9ca3af;
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DuoOrbit - Are Your Orbits Truly in Sync?</title>
+    <!-- Playful Rounded Font for 3D Cartoon Vibe -->
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-pink: #FF5E8E;
+            --primary-purple: #9D4EDD;
+            --neon-cyan: #00F0FF;
+            --dark-bg: #0F0C23;
+            --font-family: 'Fredoka', sans-serif;
+        }
 
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-      font-family: 'Plus Jakarta Sans', sans-serif;
-    }
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: var(--font-family);
+        }
 
-    body {
-      background: radial-gradient(circle at 50% 0%, #1e113a, var(--bg-dark) 70%);
-      color: var(--text-main);
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      padding: 24px 16px;
-    }
+        body {
+            background-color: var(--dark-bg);
+            color: #ffffff;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            overflow-x: hidden;
+            background-image: url('hero-bg.jpg');
+            background-size: cover;
+            background-position: center center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+        }
 
-    header {
-      width: 100%;
-      max-width: 680px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 36px;
-    }
+        /* Ambient dark overlay for readability but keeping the magical vibe */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(15, 12, 35, 0.4) 0%, rgba(15, 12, 35, 0.2) 100%);
+            z-index: 0;
+            pointer-events: none;
+        }
 
-    .brand {
-      font-size: 1.5rem;
-      font-weight: 800;
-      letter-spacing: -0.5px;
-      background: linear-gradient(135deg, #ff758c 0%, #ff7eb3 50%, #7928ca 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      text-decoration: none;
-      cursor: pointer;
-    }
+        header, main, footer {
+            position: relative;
+            z-index: 1;
+        }
 
-    .card {
-      background: var(--card-bg);
-      backdrop-filter: blur(16px);
-      -webkit-backdrop-filter: blur(16px);
-      border: 1px solid var(--card-border);
-      border-radius: 24px;
-      padding: 36px 28px;
-      width: 100%;
-      max-width: 680px;
-      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
-      transition: all 0.3s ease;
-    }
+        /* 3D Navigation Bar */
+        header {
+            padding: 20px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
 
-    .hero-title {
-      font-size: 2rem;
-      font-weight: 800;
-      line-height: 1.25;
-      margin-bottom: 14px;
-      text-align: center;
-    }
+        .logo-placeholder {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #ffffff;
+            text-shadow: 0 4px 0 var(--primary-purple), 0 8px 15px rgba(0, 0, 0, 0.5);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            cursor: pointer;
+            text-decoration: none;
+        }
 
-    .hero-subtitle {
-      color: var(--text-muted);
-      font-size: 1rem;
-      text-align: center;
-      line-height: 1.6;
-      margin-bottom: 28px;
-    }
+        .logo-placeholder span {
+            color: var(--primary-pink);
+        }
 
-    .btn {
-      display: block;
-      width: 100%;
-      padding: 16px 24px;
-      border: none;
-      border-radius: 14px;
-      font-size: 1rem;
-      font-weight: 700;
-      cursor: pointer;
-      background: linear-gradient(135deg, var(--accent-pink), var(--accent-purple));
-      color: #fff;
-      box-shadow: 0 8px 24px rgba(255, 75, 114, 0.35);
-      transition: transform 0.2s, box-shadow 0.2s;
-      text-align: center;
-    }
+        .nav-tabs {
+            display: flex;
+            gap: 15px;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 6px;
+            border-radius: 50px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+        }
 
-    .btn:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 12px 30px rgba(255, 75, 114, 0.5);
-    }
+        .nav-tab {
+            padding: 8px 24px;
+            border-radius: 40px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
 
-    .progress-bar-container {
-      width: 100%;
-      height: 8px;
-      background: rgba(255, 255, 255, 0.08);
-      border-radius: 99px;
-      margin-bottom: 24px;
-      overflow: hidden;
-    }
+        .nav-tab.active {
+            background: linear-gradient(135deg, var(--primary-pink), var(--primary-purple));
+            color: white;
+            box-shadow: 0 4px 15px rgba(255, 94, 142, 0.4), inset 0 -3px 0 rgba(0, 0, 0, 0.2);
+            transform: scale(1.05);
+        }
 
-    .progress-bar {
-      height: 100%;
-      width: 0%;
-      background: linear-gradient(90deg, var(--accent-pink), var(--accent-purple));
-      transition: width 0.3s ease;
-    }
+        .nav-tab.inactive {
+            color: rgba(255, 255, 255, 0.8);
+        }
 
-    .q-step {
-      font-size: 0.85rem;
-      color: var(--text-muted);
-      text-transform: uppercase;
-      font-weight: 700;
-      letter-spacing: 1px;
-      margin-bottom: 8px;
-    }
+        .nav-tab.inactive:hover {
+            color: #fff;
+            background: rgba(255, 255, 255, 0.1);
+            transform: translateY(-2px);
+        }
 
-    .q-title {
-      font-size: 1.35rem;
-      font-weight: 700;
-      margin-bottom: 24px;
-      line-height: 1.4;
-    }
+        /* 3D Main Section Hero Cards Box - Left-aligned to keep the couple visible */
+        main {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            padding: 40px 5%;
+        }
 
-    .options {
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
-    }
+        .hero-container {
+            max-width: 550px;
+            width: 100%;
+            background: rgba(20, 15, 45, 0.65);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            border: 2px solid rgba(255, 255, 255, 0.1);
+            border-radius: 32px;
+            padding: 40px;
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.5), 
+                        inset 0 1px 0 rgba(255, 255, 255, 0.2);
+            animation: bobbing 6s ease-in-out infinite alternate;
+        }
 
-    .option-btn {
-      background: rgba(255, 255, 255, 0.04);
-      border: 1px solid var(--card-border);
-      padding: 16px 20px;
-      border-radius: 14px;
-      color: var(--text-main);
-      font-size: 0.95rem;
-      font-weight: 600;
-      text-align: left;
-      cursor: pointer;
-      transition: all 0.2s;
-    }
+        @keyframes bobbing {
+            0% { transform: translateY(0px); }
+            100% { transform: translateY(-10px); }
+        }
 
-    .option-btn:hover {
-      background: rgba(255, 255, 255, 0.09);
-      border-color: rgba(255, 255, 255, 0.25);
-      transform: translateX(4px);
-    }
+        .tagline {
+            display: inline-block;
+            background: rgba(255, 94, 142, 0.15);
+            color: var(--neon-cyan);
+            border: 1px solid rgba(0, 240, 255, 0.3);
+            padding: 6px 16px;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 20px;
+        }
 
-    .result-score-circle {
-      width: 140px;
-      height: 140px;
-      border-radius: 50%;
-      border: 4px solid var(--accent-pink);
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      margin: 0 auto 24px auto;
-      background: rgba(255, 75, 114, 0.08);
-      box-shadow: 0 0 30px rgba(255, 75, 114, 0.25);
-    }
+        h1 {
+            font-size: 2.8rem;
+            line-height: 1.15;
+            margin-bottom: 18px;
+            text-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+        }
 
-    .score-number {
-      font-size: 2.75rem;
-      font-weight: 800;
-      line-height: 1;
-    }
+        h1 span {
+            background: linear-gradient(135deg, #00F0FF, #9D4EDD);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
 
-    .score-label {
-      font-size: 0.75rem;
-      text-transform: uppercase;
-      color: var(--text-muted);
-      letter-spacing: 1px;
-      margin-top: 4px;
-    }
+        .description {
+            font-size: 1.1rem;
+            color: rgba(255, 255, 255, 0.85);
+            line-height: 1.5;
+            margin-bottom: 30px;
+        }
 
-    .result-title {
-      font-size: 1.6rem;
-      font-weight: 800;
-      text-align: center;
-      margin-bottom: 12px;
-    }
+        /* 3D Giant Play Button with bounce & push click animation */
+        .btn-3d {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            width: 100%;
+            background: linear-gradient(135deg, #ff4e7c 0%, #d91b5c 100%);
+            color: white;
+            font-size: 1.3rem;
+            font-weight: 700;
+            padding: 18px 36px;
+            border-radius: 24px;
+            text-decoration: none;
+            box-shadow: 0 0px 0 #a10c3b, 
+                        0 8px 0 #80052a, 
+                        0 15px 30px rgba(255, 78, 124, 0.4);
+            border: none;
+            transform: translateY(0);
+            transition: all 0.15s ease-out;
+            cursor: pointer;
+            position: relative;
+            outline: none;
+        }
 
-    .result-desc {
-      color: var(--text-muted);
-      font-size: 0.95rem;
-      line-height: 1.6;
-      text-align: center;
-      margin-bottom: 28px;
-    }
+        .btn-3d:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 2px 0 #a10c3b, 
+                        0 10px 0 #80052a, 
+                        0 20px 35px rgba(255, 78, 124, 0.5);
+        }
 
-    footer {
-      margin-top: auto;
-      padding-top: 48px;
-      font-size: 0.8rem;
-      color: var(--text-muted);
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 12px;
-    }
+        .btn-3d:active {
+            transform: translateY(8px);
+            box-shadow: 0 0px 0 #a10c3b, 
+                        0 0px 0 #80052a, 
+                        0 5px 15px rgba(0,0,0,0.4);
+        }
 
-    .footer-links {
-      display: flex;
-      gap: 18px;
-    }
+        .btn-icon {
+            font-size: 1.5rem;
+            filter: drop-shadow(0 2px 2px rgba(0, 0, 0, 0.3));
+        }
 
-    .footer-links a {
-      color: var(--text-muted);
-      text-decoration: none;
-      cursor: pointer;
-      transition: color 0.2s;
-    }
+        /* 3D Miniature Card below */
+        .info-cards {
+            display: flex;
+            gap: 15px;
+            margin-top: 25px;
+        }
 
-    .footer-links a:hover {
-      color: var(--text-main);
-    }
+        .mini-card {
+            flex: 1;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 16px;
+            padding: 12px;
+            text-align: center;
+            font-size: 0.85rem;
+            color: rgba(255, 255, 255, 0.7);
+        }
 
-    /* MODAL POPUP */
-    .modal-overlay {
-      position: fixed;
-      inset: 0;
-      background: rgba(0, 0, 0, 0.75);
-      backdrop-filter: blur(8px);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 20px;
-      z-index: 1000;
-    }
+        .mini-card span {
+            display: block;
+            font-weight: 700;
+            color: var(--neon-cyan);
+            margin-bottom: 4px;
+        }
 
-    .modal-content {
-      background: #141424;
-      border: 1px solid var(--card-border);
-      border-radius: 20px;
-      width: 100%;
-      max-width: 600px;
-      max-height: 80vh;
-      overflow-y: auto;
-      padding: 32px 28px;
-      position: relative;
-      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.7);
-    }
+        /* Footer */
+        footer {
+            padding: 15px 5%;
+            text-align: center;
+            font-size: 0.85rem;
+            color: rgba(255, 255, 255, 0.5);
+            background: rgba(15, 12, 35, 0.6);
+            backdrop-filter: blur(5px);
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            margin-top: auto;
+        }
 
-    .modal-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 20px;
-      border-bottom: 1px solid var(--card-border);
-      padding-bottom: 12px;
-    }
+        footer a {
+            color: var(--primary-pink);
+            text-decoration: none;
+            margin: 0 8px;
+        }
 
-    .modal-title {
-      font-size: 1.35rem;
-      font-weight: 700;
-    }
+        footer a:hover {
+            color: #fff;
+        }
 
-    .modal-close {
-      background: transparent;
-      border: none;
-      color: var(--text-muted);
-      font-size: 1.5rem;
-      cursor: pointer;
-      line-height: 1;
-    }
-
-    .modal-body {
-      color: var(--text-muted);
-      font-size: 0.9rem;
-      line-height: 1.7;
-    }
-
-    .modal-body h4 {
-      color: var(--text-main);
-      margin: 16px 0 6px 0;
-    }
-
-    .modal-body p {
-      margin-bottom: 12px;
-    }
-
-    .hidden {
-      display: none !important;
-    }
-  </style>
+        /* Responsive Design */
+        @media (max-width: 900px) {
+            body {
+                background-position: 70% center; /* Ensure the couple is always visible on smartphones */
+            }
+            main {
+                justify-content: center;
+                padding: 30px 20px;
+            }
+            .hero-container {
+                padding: 30px 24px;
+            }
+            h1 {
+                font-size: 2.2rem;
+            }
+            header {
+                flex-direction: column;
+                gap: 15px;
+                padding: 20px;
+            }
+        }
+    </style>
 </head>
 <body>
 
-  <header>
-    <a href="/" class="brand">DuoOrbit</a>
-    <div style="font-size: 0.85rem; color: var(--text-muted);">Beta v1.0</div>
-  </header>
+    <!-- Header Navigation -->
+    <header>
+        <a href="index.html" class="logo-placeholder">
+            Duo<span>Orbit</span>
+        </a>
+        <nav class="nav-tabs">
+            <a href="index.html" class="nav-tab active">
+                ✨ Play Quiz
+            </a>
+            <a href="questions-for-couples.html" class="nav-tab inactive">
+                📖 Guides
+            </a>
+        </nav>
+    </header>
 
-  <!-- INTRO SCREEN -->
-  <main id="screen-intro" class="card">
-    <h1 class="hero-title">Are Your Orbits Truly in Sync?</h1>
-    <p class="hero-subtitle">
-      Explore emotional intimacy, communication styles, and shared core values with our scientific compatibility assessment.
-    </p>
-    <button class="btn" onclick="startQuiz()">Launch Quiz (2 Mins)</button>
-  </main>
+    <!-- Main Section with Transparent Glassmorphic Card -->
+    <main>
+        <div class="hero-container">
+            <div class="tagline">🌌 Stargazing with DuoOrbit</div>
+            <h1>Are Your Orbits <span>Truly in Sync?</span></h1>
+            <p class="description">Explore emotional intimacy, communication styles, and shared core values with our scientific compatibility assessment. Designed especially for duos who gaze at the stars together!</p>
+            
+            <!-- Giant 3D Interactive Start Button -->
+            <button class="btn-3d" onclick="startQuiz()">
+                <span class="btn-icon">🚀</span> Launch Quiz (2 Mins)
+            </button>
 
-  <!-- QUIZ SCREEN -->
-  <main id="screen-quiz" class="card hidden">
-    <div class="progress-bar-container">
-      <div id="progress-bar" class="progress-bar"></div>
-    </div>
-    <div id="q-step" class="q-step">Question 1 of 5</div>
-    <div id="q-title" class="q-title"></div>
-    <div id="options-container" class="options"></div>
-  </main>
+            <div class="info-cards">
+                <div class="mini-card">
+                    <span>❤️ Lovestyle</span>
+                    Based on research
+                </div>
+                <div class="mini-card">
+                    <span>⚡ Quick & Fun</span>
+                    Instant insights
+                </div>
+            </div>
+        </div>
+    </main>
 
-  <!-- RESULTS SCREEN -->
-  <main id="screen-result" class="card hidden">
-    <div class="result-score-circle">
-      <div id="score-number" class="score-number">88%</div>
-      <div class="score-label">Orbit Sync</div>
-    </div>
-    <h2 id="result-title" class="result-title">Harmonic Resonance</h2>
-    <p id="result-desc" class="result-desc"></p>
-    <button class="btn" onclick="restartQuiz()">Retake Quiz</button>
-  </main>
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 DuoOrbit. Exploring cosmic love orbits together. <a href="questions-for-couples.html">📖 Relationship Guides & Articles</a></p>
+    </footer>
 
-  <!-- FOOTER -->
-  <footer>
-    <div class="footer-links">
-      <a onclick="openModal('about')">About</a>
-      <a onclick="openModal('privacy')">Privacy Policy</a>
-      <a onclick="openModal('terms')">Terms of Service</a>
-      <a onclick="openModal('contact')">Contact</a>
-    </div>
-    <div>&copy; 2026 DuoOrbit.com. All rights reserved.</div>
-  </footer>
-
-  <!-- MODAL CONTAINER -->
-  <div id="legal-modal" class="modal-overlay hidden" onclick="closeModalOnOverlay(event)">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h3 id="modal-title" class="modal-title">Notice</h3>
-        <button class="modal-close" onclick="closeModal()">&times;</button>
-      </div>
-      <div id="modal-body" class="modal-body"></div>
-    </div>
-  </div>
-
-  <script>
-    const quizData = [
-      {
-        question: "How do you and your partner typically navigate unexpected conflict?",
-        options: [
-          { text: "We de-escalate immediately and communicate openly.", points: 20 },
-          { text: "We take a few cooling hours before finding common ground.", points: 16 },
-          { text: "One of us withdraws while the other seeks closure.", points: 10 },
-          { text: "Arguments often leave lingering unresolved tension.", points: 5 }
-        ]
-      },
-      {
-        question: "When envisioning your 5-year lifestyle trajectory, how aligned are your visions?",
-        options: [
-          { text: "Identical priorities in career, geography, and family goals.", points: 20 },
-          { text: "Mostly synchronized with a few adaptable compromises.", points: 17 },
-          { text: "We share values, but our concrete roadmaps diverge.", points: 12 },
-          { text: "We rarely discuss long-term future alignment.", points: 6 }
-        ]
-      },
-      {
-        question: "What is your shared emotional dynamic during high-stress periods?",
-        options: [
-          { text: "We act as an integrated support anchor for each other.", points: 20 },
-          { text: "We grant each other space and reconvene gently.", points: 16 },
-          { text: "Stress from outside occasionally creates friction between us.", points: 11 },
-          { text: "We tend to unintentionally amplify each other's anxiety.", points: 5 }
-        ]
-      },
-      {
-        question: "How would you describe your shared financial philosophies and habits?",
-        options: [
-          { text: "Complete financial transparency with shared budget goals.", points: 20 },
-          { text: "Independent accounts but total alignment on shared expenses.", points: 18 },
-          { text: "Occasional minor disagreements regarding saving vs spending.", points: 12 },
-          { text: "Distinctly opposed financial mindsets and habits.", points: 5 }
-        ]
-      },
-      {
-        question: "How naturally do both of you celebrate each other's individual independence?",
-        options: [
-          { text: "Effortlessly—we thrive as independent individuals together.", points: 20 },
-          { text: "We cultivate healthy solo hobbies alongside quality time.", points: 17 },
-          { text: "Occasionally one of us feels left out when the other pursues solo goals.", points: 10 },
-          { text: "We struggle with codependency or setting personal boundaries.", points: 5 }
-        ]
-      }
-    ];
-
-    let currentQuestion = 0;
-    let totalScore = 0;
-
-    function startQuiz() {
-      document.getElementById("screen-intro").classList.add("hidden");
-      document.getElementById("screen-quiz").classList.remove("hidden");
-      currentQuestion = 0;
-      totalScore = 0;
-      loadQuestion();
-    }
-
-    function loadQuestion() {
-      const q = quizData[currentQuestion];
-      document.getElementById("q-step").innerText = `Question ${currentQuestion + 1} of ${quizData.length}`;
-      document.getElementById("q-title").innerText = q.question;
-      
-      const progressPercent = ((currentQuestion + 1) / quizData.length) * 100;
-      document.getElementById("progress-bar").style.width = `${progressPercent}%`;
-
-      const optionsContainer = document.getElementById("options-container");
-      optionsContainer.innerHTML = "";
-
-      q.options.forEach(opt => {
-        const btn = document.createElement("button");
-        btn.className = "option-btn";
-        btn.innerText = opt.text;
-        btn.onclick = () => selectOption(opt.points);
-        optionsContainer.appendChild(btn);
-      });
-    }
-
-    function selectOption(points) {
-      totalScore += points;
-      currentQuestion++;
-      if (currentQuestion < quizData.length) {
-        loadQuestion();
-      } else {
-        showResults();
-      }
-    }
-
-    function showResults() {
-      document.getElementById("screen-quiz").classList.add("hidden");
-      document.getElementById("screen-result").classList.remove("hidden");
-
-      document.getElementById("score-number").innerText = `${totalScore}%`;
-      const titleElem = document.getElementById("result-title");
-      const descElem = document.getElementById("result-desc");
-
-      if (totalScore >= 85) {
-        titleElem.innerText = "Harmonic Orbit (Deep Alignment)";
-        descElem.innerText = "Your relationship reflects exceptional psychological safety, cohesive communication, and synchronized long-term visions. You elevate each other without diminishing individual autonomy.";
-      } else if (totalScore >= 65) {
-        titleElem.innerText = "Stable Trajectory (Balanced Orbit)";
-        descElem.innerText = "You possess a resilient foundation of shared empathy and values. Addressing minor differences in conflict styles or boundary-setting will seamlessly elevate your connection.";
-      } else {
-        titleElem.innerText = "Gravitational Shift (Growth Opportunity)";
-        descElem.innerText = "Your orbits experience tension from contrasting communication styles or divergent future priorities. Intentional dialogue and transparent boundary calibration will help realign your mutual bond.";
-      }
-    }
-
-    function restartQuiz() {
-      document.getElementById("screen-result").classList.add("hidden");
-      document.getElementById("screen-intro").classList.remove("hidden");
-    }
-
-    /* LEGAL CONTENT MODALS (ADSENSE COMPLIANT) */
-    const legalData = {
-      about: {
-        title: "About DuoOrbit",
-        content: `
-          <p><strong>DuoOrbit</strong> is a digital relationship assessment application designed to help couples understand their emotional dynamics, communication styles, and lifestyle synchronization.</p>
-          <h4>Our Mission</h4>
-          <p>We provide accessible, intuitive tools designed to inspire constructive conversations and deepen mutual understanding between partners worldwide.</p>
-        `
-      },
-      privacy: {
-        title: "Privacy Policy",
-        content: `
-          <p>Last updated: November 2026. At DuoOrbit.com, protecting visitor privacy is our core priority.</p>
-          <h4>Data Collection & Storage</h4>
-          <p>DuoOrbit does not store personal names, relationship answers, or assessment scores on external databases. All assessment interactions occur entirely client-side in your local web browser session.</p>
-          <h4>Cookies & Advertising Partners</h4>
-          <p>We may collaborate with trusted third-party advertising vendors, including Google AdSense. Google utilizes cookies (such as the DoubleClick cookie) to serve relevant advertisements based on visits to this and other websites across the Internet.</p>
-          <p>Users may opt out of personalized advertising by visiting Google's Ads Settings.</p>
-        `
-      },
-      terms: {
-        title: "Terms of Service",
-        content: `
-          <p>By accessing DuoOrbit.com, you agree to comply with our Terms of Service.</p>
-          <h4>Informational Purpose Only</h4>
-          <p>DuoOrbit's compatibility assessments are provided solely for educational, self-reflection, and entertainment purposes. They do not constitute formal couples therapy, psychological diagnoses, or licensed medical counsel.</p>
-          <h4>Limitation of Liability</h4>
-          <p>DuoOrbit shall not be held liable for personal relationship decisions or disputes arising from assessments taken on this platform.</p>
-        `
-      },
-      contact: {
-        title: "Contact DuoOrbit",
-        content: `
-          <p>Have inquiries, feedback, or partnership requests?</p>
-          <h4>Inquiries</h4>
-          <p>Feel free to reach out to our team directly via email: <strong>support@duoorbit.com</strong></p>
-          <p>We strive to respond to all authentic inquiries within 24 to 48 business hours.</p>
-        `
-      }
-    };
-
-    function openModal(type) {
-      const data = legalData[type];
-      if (!data) return;
-      document.getElementById("modal-title").innerText = data.title;
-      document.getElementById("modal-body").innerHTML = data.content;
-      document.getElementById("legal-modal").classList.remove("hidden");
-    }
-
-    function closeModal() {
-      document.getElementById("legal-modal").classList.add("hidden");
-    }
-
-    function closeModalOnOverlay(e) {
-      if (e.target.id === "legal-modal") {
-        closeModal();
-      }
-    }
-  </script>
-  <!-- Footer Policy Links for AdSense Approval -->
-<footer style="margin-top: 50px; padding: 20px; text-align: center; border-top: 1px solid #e0e0e0; font-size: 14px; color: #666;">
-    <div style="margin-bottom: 10px;">
-      <a href="/questions-for-couples.html" style="margin: 0 10px; color: #4e54c8; text-decoration: none;">Relationship Guide</a> |
-        <a href="/about.html" style="margin: 0 10px; color: #4e54c8; text-decoration: none;">About Us</a> |
-        <a href="/contact.html" style="margin: 0 10px; color: #4e54c8; text-decoration: none;">Contact Us</a> |
-        <a href="/privacy.html" style="margin: 0 10px; color: #4e54c8; text-decoration: none;">Privacy Policy</a> |
-        <a href="/terms.html" style="margin: 0 10px; color: #4e54c8; text-decoration: none;">Terms of Service</a>
-    </div>
-    <p>&copy; 2026 DuoOrbit. All rights reserved.</p>
-</footer>
+    <script>
+        function startQuiz() {
+            // Your existing Quiz opening function can go here, 
+            // e.g. opening the Typeform/Widget or scrolling to it.
+            alert("Quiz feature is launching! (Connect your Typeform or existing questions algorithm here)");
+        }
+    </script>
 </body>
 </html>
-
