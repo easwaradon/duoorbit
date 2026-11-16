@@ -4,1065 +4,424 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>DuoOrbit - Couple Compatibility Quiz, Body Shape & Zodiac Tools</title>
-    <meta name="description" content="Explore cosmic love orbits with DuoOrbit! Take our 2-minute couple compatibility quiz, check your visual body silhouette & BMI, calculate zodiac sync, and read psychology-backed relationship guides.">
-    <meta name="keywords" content="couple compatibility quiz, relationship test, body shape calculator, zodiac compatibility, love milestone counter, date night ideas, DuoOrbit">
+    <meta name="description" content="Explore DuoOrbit Lovers: Take the free Couple Compatibility Quiz, check your Visual Body Shape & Harmony, test Zodiac Compatibility, and discover deep relationship questions.">
+    <meta name="keywords" content="DuoOrbit, DuoOrbit Lovers, couple compatibility quiz, body shape calculator, visual body harmony checker, zodiac compatibility, relationship test, questions for couples">
     <meta name="author" content="DuoOrbit">
     <link rel="canonical" href="https://duoorbit.com/">
     <meta property="og:type" content="website">
-    <meta property="og:title" content="DuoOrbit - Are Your Orbits Truly in Sync?">
-    <meta property="og:description" content="Discover emotional intimacy, zodiac compatibility, visual body harmony, and relationship guides for couples.">
+    <meta property="og:title" content="DuoOrbit - Couple Compatibility Quiz, Body Shape & Zodiac Tools">
+    <meta property="og:description" content="Are your orbits truly in sync? Discover emotional intimacy, visual body shape harmony, and zodiac compatibility with DuoOrbit.">
     <meta property="og:url" content="https://duoorbit.com/">
-
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <meta property="og:site_name" content="DuoOrbit">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
         :root {
-            --sidebar-bg: rgba(12, 8, 23, 0.92);
-            --card-bg: rgba(18, 12, 34, 0.78);
-            --card-border: rgba(255, 255, 255, 0.14);
+            --bg-dark: #06040d;
+            --sidebar-bg: rgba(12, 8, 24, 0.94);
+            --card-bg: rgba(18, 12, 34, 0.85);
+            --card-border: rgba(255, 255, 255, 0.12);
             --pink-accent: #f43f5e;
             --gold-accent: #f59e0b;
             --pink-gradient: linear-gradient(135deg, #f43f5e, #fb7185);
-            --gold-gradient: linear-gradient(135deg, #f59e0b, #fbbf24);
             --text-main: #ffffff;
             --text-sub: #cbd5e1;
         }
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Outfit', sans-serif; }
+        body { background-color: var(--bg-dark); color: var(--text-main); min-height: 100vh; display: flex; overflow-x: hidden; }
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Outfit', sans-serif;
-        }
-
-        body {
-            background-color: #05030a;
-            color: var(--text-main);
-            min-height: 100vh;
-            display: flex;
-            overflow-x: hidden;
-        }
-
-        /* Fixed Sidebar Navigation */
-        aside {
-            width: 260px;
-            background-color: var(--sidebar-bg);
+        /* Sidebar Navigation */
+        .sidebar {
+            width: 245px;
+            background: var(--sidebar-bg);
             border-right: 1px solid rgba(255, 255, 255, 0.08);
-            backdrop-filter: blur(25px);
-            padding: 40px 24px;
+            padding: 28px 18px;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
             position: fixed;
-            height: 100vh;
-            left: 0;
             top: 0;
-            z-index: 20;
+            bottom: 0;
+            left: 0;
+            z-index: 100;
+            backdrop-filter: blur(20px);
         }
-
-        .brand {
-            margin-bottom: 40px;
-        }
-
         .brand-logo {
             font-size: 1.35rem;
             font-weight: 800;
             letter-spacing: 1.5px;
-            background: linear-gradient(135deg, #fff 0%, var(--gold-accent) 100%);
+            background: linear-gradient(135deg, #ffffff 0%, var(--gold-accent) 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            text-transform: uppercase;
+            text-decoration: none;
+            display: block;
+            margin-bottom: 36px;
+            padding-left: 10px;
         }
-
-        .nav-menu {
-            list-style: none;
-            display: flex;
-            flex-direction: column;
-            gap: 16px;
-        }
-
-        .nav-link {
+        .nav-menu { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+        .nav-item {
+            padding: 13px 16px;
+            border-radius: 12px;
+            color: var(--text-sub);
+            font-size: 0.95rem;
+            font-weight: 600;
+            cursor: pointer;
             display: flex;
             align-items: center;
             gap: 12px;
-            color: var(--text-sub);
-            text-decoration: none;
-            font-size: 0.95rem;
-            font-weight: 600;
-            padding: 12px 16px;
-            border-radius: 12px;
-            transition: all 0.25s ease;
-            cursor: pointer;
+            transition: all 0.2s ease;
+            border: 1px solid transparent;
         }
-
-        .nav-link:hover, .nav-link.active {
-            color: #fff;
+        .nav-item:hover { background: rgba(255, 255, 255, 0.05); color: #ffffff; }
+        .nav-item.active {
             background: rgba(255, 255, 255, 0.08);
-            border-left: 3px solid var(--gold-accent);
+            color: #ffffff;
+            border-color: rgba(245, 158, 11, 0.45);
+            box-shadow: 0 0 18px rgba(245, 158, 11, 0.15);
         }
+        .sidebar-footer { font-size: 0.78rem; color: #64748b; padding-left: 10px; line-height: 1.5; }
+        .sidebar-footer a { color: #94a3b8; text-decoration: none; }
+        .sidebar-footer a:hover { color: var(--gold-accent); }
 
-        .sidebar-footer {
-            font-size: 0.75rem;
-            color: #64748b;
-            line-height: 1.4;
-        }
+        /* Main Content Area */
+        .main-wrapper { margin-left: 245px; flex: 1; display: flex; flex-direction: column; min-height: 100vh; }
 
-        /* Content Area */
-        .content-area {
-            margin-left: 260px;
-            flex: 1;
-            min-height: 100vh;
-            position: relative;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            background-color: #070410;
-        }
-
-        .hidden {
-            display: none !important;
-        }
-
-        /* ================= DASHBOARD VIEW ================= */
+        /* Hero Banner */
         .hero-section {
-            min-height: 92vh;
+            position: relative;
+            min-height: 540px;
+            background: linear-gradient(to right, rgba(6, 4, 13, 0.45), rgba(6, 4, 13, 0.75)), url('banner.jpg') center/cover no-repeat, url('hero-bg.jpg') center/cover no-repeat;
             display: flex;
-            justify-content: flex-end;
             align-items: center;
-            padding: 60px 6%;
-            background-image: linear-gradient(to right, rgba(5, 3, 10, 0.72) 0%, rgba(5, 3, 10, 0.22) 50%, rgba(5, 3, 10, 0.85) 100%), url('banner.jpg');
-            background-size: cover;
-            background-position: center center;
-            background-repeat: no-repeat;
+            justify-content: space-between;
+            padding: 40px 6%;
             border-bottom: 1px solid rgba(255, 255, 255, 0.08);
         }
-
-        .quiz-card {
-            background: var(--card-bg);
-            border: 1px solid var(--card-border);
-            border-radius: 28px;
-            padding: 36px;
-            backdrop-filter: blur(24px);
-            -webkit-backdrop-filter: blur(24px);
-            box-shadow: 0 25px 60px rgba(0, 0, 0, 0.65), 0 0 40px rgba(245, 158, 11, 0.12);
-            max-width: 460px;
-            width: 100%;
-            position: relative;
-            z-index: 10;
+        .hero-brand-display {
+            flex: 1;
+            text-align: center;
+            padding-right: 30px;
         }
-
-        .card-tag {
+        .hero-brand-display h1 {
+            font-size: 3.4rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, #fde68a 0%, #f59e0b 55%, #fb7185 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 0 10px 35px rgba(0, 0, 0, 0.7);
+            letter-spacing: 0.5px;
+        }
+        .hero-quiz-card {
+            width: 390px;
+            max-width: 100%;
+            background: rgba(16, 11, 29, 0.88);
+            border: 1px solid rgba(255, 255, 255, 0.14);
+            border-radius: 24px;
+            padding: 32px;
+            backdrop-filter: blur(22px);
+            box-shadow: 0 25px 60px rgba(0, 0, 0, 0.75);
+        }
+        .hero-tag {
             display: inline-block;
             background: rgba(245, 158, 11, 0.15);
             color: var(--gold-accent);
-            font-size: 0.75rem;
+            font-size: 0.72rem;
             font-weight: 700;
             padding: 5px 12px;
             border-radius: 8px;
-            margin-bottom: 18px;
-            letter-spacing: 0.5px;
+            letter-spacing: 0.8px;
+            margin-bottom: 14px;
             border: 1px solid rgba(245, 158, 11, 0.25);
         }
-
-        .quiz-card h2 {
-            font-size: 2rem;
-            font-weight: 800;
-            line-height: 1.25;
-            margin-bottom: 16px;
-            letter-spacing: -0.5px;
-            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
-        }
-
-        .quiz-card p {
-            font-size: 0.98rem;
-            color: var(--text-sub);
-            line-height: 1.6;
-            margin-bottom: 28px;
-        }
-
-        .launch-btn {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
+        .hero-quiz-card h2 { font-size: 1.85rem; font-weight: 800; line-height: 1.2; margin-bottom: 12px; }
+        .hero-quiz-card p { font-size: 0.93rem; color: var(--text-sub); line-height: 1.55; margin-bottom: 22px; }
+        .btn-launch {
             width: 100%;
             padding: 15px;
             border-radius: 14px;
             background: var(--pink-gradient);
-            color: white;
-            text-decoration: none;
+            color: #ffffff;
             font-weight: 700;
-            font-size: 0.98rem;
-            margin-bottom: 20px;
-            box-shadow: 0 6px 25px rgba(244, 63, 94, 0.45);
-            transition: all 0.25s ease;
+            font-size: 1rem;
             border: none;
             cursor: pointer;
+            box-shadow: 0 6px 24px rgba(244, 63, 94, 0.45);
+            transition: transform 0.2s, box-shadow 0.2s;
+            margin-bottom: 16px;
         }
-
-        .launch-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 30px rgba(244, 63, 94, 0.65);
-        }
-
-        .gold-btn {
-            background: var(--gold-gradient);
-            color: #0f0a1e;
-            box-shadow: 0 6px 22px rgba(245, 158, 11, 0.35);
-        }
-
-        .gold-btn:hover {
-            box-shadow: 0 8px 28px rgba(245, 158, 11, 0.55);
-        }
-
-        .meta-badges {
-            display: flex;
-            gap: 12px;
-        }
-
-        .meta-badge {
-            flex: 1;
+        .btn-launch:hover { transform: translateY(-2px); box-shadow: 0 8px 30px rgba(244, 63, 94, 0.65); }
+        .hero-mini-stats { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+        .mini-stat {
             background: rgba(255, 255, 255, 0.04);
-            border: 1px solid rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.08);
             border-radius: 12px;
-            padding: 12px;
+            padding: 10px;
             text-align: center;
+            font-size: 0.78rem;
         }
+        .mini-stat strong { display: block; color: #ffffff; margin-bottom: 2px; }
+        .mini-stat span { color: #94a3b8; font-size: 0.72rem; }
 
-        .meta-badge .title {
-            font-size: 0.75rem;
-            font-weight: 700;
-            color: #fb7185;
-            display: block;
-            margin-bottom: 3px;
-        }
+        /* Tab Sections */
+        .tab-panel { display: none; padding: 42px 6%; max-width: 1200px; width: 100%; margin: 0 auto; }
+        .tab-panel.active { display: block; }
+        .section-heading { margin-bottom: 28px; }
+        .section-heading h3 { font-size: 1.75rem; font-weight: 800; margin-bottom: 6px; }
+        .section-heading p { color: var(--text-sub); font-size: 0.96rem; }
 
-        .meta-badge .desc {
-            font-size: 0.72rem;
-            color: var(--text-sub);
-        }
-
-        /* Quiz Inner Styles */
-        .progress-bar-bg {
-            width: 100%;
-            height: 6px;
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 99px;
-            margin-bottom: 20px;
-            overflow: hidden;
-        }
-
-        .progress-bar-fill {
-            height: 100%;
-            background: var(--pink-gradient);
-            width: 20%;
-            transition: width 0.3s ease;
-        }
-
-        .question-text {
-            font-size: 1.25rem !important;
-            font-weight: 700;
-            margin-bottom: 20px !important;
-            line-height: 1.4;
-        }
-
-        .options-list {
-            display: flex;
-            flex-direction: column;
-            gap: 12px;
-        }
-
-        .option-btn {
-            width: 100%;
-            text-align: left;
-            padding: 14px 18px;
-            border-radius: 14px;
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid rgba(255, 255, 255, 0.12);
-            color: #ffffff;
-            font-size: 0.92rem;
-            font-weight: 500;
-            cursor: pointer;
-            transition: all 0.2s ease;
-        }
-
-        .option-btn:hover {
-            background: rgba(244, 63, 94, 0.25);
-            border-color: var(--pink-accent);
-            transform: translateX(4px);
-        }
-
-        .score-circle {
-            width: 110px;
-            height: 110px;
-            border-radius: 50%;
-            background: rgba(245, 158, 11, 0.12);
-            border: 3px solid var(--gold-accent);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 2rem;
-            font-weight: 800;
-            color: var(--gold-accent);
-            margin: 0 auto 20px;
-            box-shadow: 0 0 30px rgba(245, 158, 11, 0.3);
-        }
-
-        .result-title {
-            text-align: center;
-            font-size: 1.5rem !important;
-            margin-bottom: 12px !important;
-        }
-
-        .result-desc {
-            text-align: center;
-            font-size: 0.92rem !important;
-            margin-bottom: 24px !important;
-        }
-
-        /* Curated Picks Section */
-        .curated-section {
-            padding: 70px 6%;
-            background: radial-gradient(circle at top right, rgba(245, 158, 11, 0.07), transparent 45%),
-                        radial-gradient(circle at bottom left, rgba(244, 63, 94, 0.07), transparent 45%);
-        }
-
-        .section-header {
-            margin-bottom: 36px;
-        }
-
-        .section-header h3 {
-            font-size: 1.9rem;
-            font-weight: 800;
-            margin-bottom: 8px;
-            background: linear-gradient(135deg, #ffffff 0%, #f59e0b 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        .section-header p {
-            color: var(--text-sub);
-            font-size: 0.96rem;
-        }
-
-        .showcase-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-            gap: 24px;
-            margin-bottom: 40px;
-        }
-
-        .showcase-card {
-            background: rgba(20, 14, 38, 0.78);
-            border: 1px solid rgba(255, 255, 255, 0.1);
+        /* Tools Grid */
+        .tools-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(310px, 1fr)); gap: 22px; }
+        .tool-card {
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
             border-radius: 22px;
             padding: 26px;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
-            transition: all 0.3s ease;
-            backdrop-filter: blur(15px);
+            backdrop-filter: blur(18px);
+            transition: transform 0.2s, border-color 0.2s;
         }
-
-        .showcase-card:hover {
-            transform: translateY(-4px);
-            border-color: rgba(245, 158, 11, 0.45);
-            box-shadow: 0 18px 40px rgba(0, 0, 0, 0.5);
-        }
-
+        .tool-card:hover { transform: translateY(-3px); border-color: rgba(245, 158, 11, 0.38); }
         .badge-platform {
             display: inline-block;
-            font-size: 0.7rem;
+            font-size: 0.74rem;
             font-weight: 700;
-            padding: 4px 10px;
-            border-radius: 6px;
-            margin-bottom: 14px;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            width: fit-content;
+            padding: 5px 12px;
+            border-radius: 8px;
+            margin-bottom: 12px;
+            background: rgba(245, 158, 11, 0.14);
+            color: var(--gold-accent);
+            border: 1px solid rgba(245, 158, 11, 0.25);
         }
-
-        .badge-amazon {
-            background: rgba(245, 158, 11, 0.16);
-            color: #fbbf24;
-            border: 1px solid rgba(245, 158, 11, 0.3);
-        }
-
-        .badge-pinterest {
-            background: rgba(244, 63, 94, 0.16);
-            color: #fb7185;
-            border: 1px solid rgba(244, 63, 94, 0.3);
-        }
-
-        .card-icon-box {
-            font-size: 2.3rem;
-            margin-bottom: 14px;
-        }
-
-        .showcase-card h4 {
-            font-size: 1.2rem;
-            font-weight: 700;
-            margin-bottom: 10px;
-            color: #ffffff;
-        }
-
-        .showcase-card p {
-            font-size: 0.9rem;
-            color: var(--text-sub);
-            line-height: 1.55;
-            margin-bottom: 20px;
-        }
-
-        .affiliate-btn {
-            display: block;
-            text-align: center;
-            padding: 12px 16px;
-            border-radius: 12px;
-            font-size: 0.88rem;
-            font-weight: 700;
-            text-decoration: none;
-            transition: all 0.25s ease;
-            cursor: pointer;
-            border: none;
-            width: 100%;
-        }
-
-        .btn-amazon {
-            background: var(--gold-gradient);
-            color: #0f0a1e;
-            box-shadow: 0 4px 15px rgba(245, 158, 11, 0.3);
-        }
-
-        .btn-pinterest {
-            background: var(--pink-gradient);
-            color: #ffffff;
-            box-shadow: 0 4px 15px rgba(244, 63, 94, 0.3);
-        }
-
-        .affiliate-disclosure {
-            font-size: 0.78rem;
-            color: #64748b;
-            text-align: center;
-            padding: 16px;
-            border-radius: 12px;
-            background: rgba(255, 255, 255, 0.02);
-            border: 1px solid rgba(255, 255, 255, 0.05);
-        }
-
-        /* ================= SUB-PAGE VIEWS (LOVE ORBITS, GUIDES, COMMUNITY, SETTINGS) ================= */
-        .sub-page-view {
-            padding: 55px 6%;
-            background: radial-gradient(circle at top right, rgba(244, 63, 94, 0.12), transparent 50%),
-                        radial-gradient(circle at bottom left, rgba(245, 158, 11, 0.10), transparent 50%);
-            flex: 1;
-        }
-
-        .tools-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
-            gap: 28px;
-        }
-
-        .tool-card {
-            background: rgba(18, 12, 34, 0.82);
-            border: 1px solid rgba(255, 255, 255, 0.12);
-            border-radius: 24px;
-            padding: 30px;
-            backdrop-filter: blur(20px);
-            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.45);
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            transition: all 0.3s ease;
-        }
-
-        .tool-card:hover {
-            border-color: rgba(245, 158, 11, 0.35);
-        }
-
-        .tool-card h4 {
-            font-size: 1.35rem;
-            font-weight: 800;
-            margin-bottom: 8px;
-            color: #fff;
-        }
-
-        .tool-card > p {
-            font-size: 0.92rem;
-            color: var(--text-sub);
-            margin-bottom: 22px;
-            line-height: 1.6;
-        }
-
-        .input-row {
-            display: flex;
-            gap: 12px;
-            margin-bottom: 14px;
-        }
-
-        .orbit-input, .orbit-select, .orbit-textarea {
+        .tool-card h4 { font-size: 1.2rem; font-weight: 700; margin-bottom: 8px; color: #ffffff; }
+        .tool-card p { font-size: 0.9rem; color: var(--text-sub); line-height: 1.55; margin-bottom: 16px; }
+        .card-input, .card-select {
             width: 100%;
             padding: 12px 14px;
-            border-radius: 12px;
+            border-radius: 11px;
             background: rgba(255, 255, 255, 0.06);
-            border: 1px solid rgba(255, 255, 255, 0.15);
+            border: 1px solid rgba(255, 255, 255, 0.14);
             color: #ffffff;
             font-size: 0.9rem;
+            margin-bottom: 10px;
             outline: none;
         }
-
-        .orbit-textarea {
-            resize: vertical;
-            min-height: 90px;
-            margin-bottom: 14px;
-        }
-
-        .orbit-select option {
-            background-color: #120c22;
+        .card-select option { background: #120c22; color: #ffffff; }
+        .card-btn {
+            width: 100%;
+            padding: 12px;
+            border-radius: 11px;
+            background: var(--pink-gradient);
             color: #ffffff;
+            font-weight: 700;
+            font-size: 0.92rem;
+            border: none;
+            cursor: pointer;
+            margin-top: 4px;
         }
-
-        .orbit-input:focus, .orbit-select:focus, .orbit-textarea:focus {
-            border-color: var(--gold-accent);
-        }
-
-        .tool-result-box {
-            margin-top: 16px;
-            padding: 18px;
-            border-radius: 16px;
-            background: rgba(245, 158, 11, 0.08);
+        .card-output {
+            margin-top: 12px;
+            padding: 12px;
+            border-radius: 11px;
+            background: rgba(245, 158, 11, 0.1);
             border: 1px solid rgba(245, 158, 11, 0.25);
-            text-align: center;
-        }
-
-        .tool-result-highlight {
-            font-size: 1.45rem;
-            font-weight: 800;
-            color: var(--gold-accent);
-            margin-bottom: 6px;
-            display: block;
-        }
-
-        .tool-result-sub {
             font-size: 0.88rem;
-            color: #e2e8f0;
+            color: #fde68a;
+            display: none;
             line-height: 1.5;
         }
 
-        /* Silhouette Diagram Box */
-        .silhouette-stage {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 20px;
-            margin-bottom: 12px;
-            padding: 12px;
-            border-radius: 14px;
-            background: rgba(5, 3, 12, 0.55);
-            border: 1px solid rgba(255, 255, 255, 0.08);
-        }
-
-        .silhouette-svg {
-            height: 155px;
-            width: auto;
-            filter: drop-shadow(0 0 12px rgba(245, 158, 11, 0.45));
-        }
-
-        .silhouette-metrics {
-            text-align: left;
-            font-size: 0.82rem;
-            color: #cbd5e1;
-            line-height: 1.7;
-        }
-
-        .silhouette-metrics span {
-            color: #fbbf24;
-            font-weight: 700;
-        }
-
-        .note-display {
-            padding: 20px;
-            border-radius: 16px;
-            background: rgba(244, 63, 94, 0.09);
-            border: 1px solid rgba(244, 63, 94, 0.28);
-            font-size: 1rem;
-            font-style: italic;
-            color: #fff;
-            line-height: 1.6;
-            margin-bottom: 18px;
-            min-height: 95px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-        }
-
-        /* Article Meta & Modal Reader */
-        .article-meta {
-            display: flex;
-            gap: 14px;
-            font-size: 0.8rem;
-            color: #94a3b8;
-            margin-bottom: 16px;
-        }
-
-        .modal-overlay {
+        /* Interactive Quiz Modal */
+        .quiz-modal {
+            display: none;
             position: fixed;
             inset: 0;
-            background: rgba(4, 2, 10, 0.85);
-            backdrop-filter: blur(12px);
-            display: flex;
+            background: rgba(4, 2, 10, 0.88);
+            backdrop-filter: blur(14px);
+            z-index: 200;
             align-items: center;
             justify-content: center;
-            padding: 24px;
-            z-index: 100;
+            padding: 20px;
         }
-
-        .modal-box {
-            background: #120c24;
-            border: 1px solid rgba(245, 158, 11, 0.35);
+        .quiz-modal.open { display: flex; }
+        .quiz-box {
+            background: #130d24;
+            border: 1px solid rgba(255, 255, 255, 0.16);
             border-radius: 26px;
-            max-width: 680px;
+            max-width: 540px;
             width: 100%;
-            max-height: 85vh;
-            overflow-y: auto;
-            padding: 36px;
-            box-shadow: 0 25px 70px rgba(0, 0, 0, 0.8);
+            padding: 34px;
             position: relative;
+            box-shadow: 0 30px 70px rgba(0, 0, 0, 0.85);
         }
-
-        .modal-close {
+        .close-quiz {
             position: absolute;
-            top: 22px;
+            top: 18px;
             right: 22px;
-            background: rgba(255, 255, 255, 0.08);
-            border: 1px solid rgba(255, 255, 255, 0.15);
-            color: #fff;
-            width: 36px;
-            height: 36px;
-            border-radius: 50%;
-            font-size: 1.1rem;
+            background: none;
+            border: none;
+            color: #94a3b8;
+            font-size: 1.5rem;
             cursor: pointer;
-            transition: all 0.2s ease;
         }
-
-        .modal-close:hover {
-            background: var(--pink-accent);
-        }
-
-        .modal-box h3 {
-            font-size: 1.75rem;
-            font-weight: 800;
-            margin-bottom: 14px;
-            color: #fff;
-            line-height: 1.3;
-        }
-
-        .modal-body p {
-            color: #cbd5e1;
-            font-size: 0.98rem;
-            line-height: 1.75;
-            margin-bottom: 16px;
-        }
-
-        .modal-body h5 {
-            color: var(--gold-accent);
-            font-size: 1.1rem;
-            margin: 20px 0 8px;
-        }
-
-        /* Community Styles */
-        .poll-option {
+        .quiz-option {
+            display: block;
             width: 100%;
             text-align: left;
-            padding: 13px 16px;
+            padding: 14px 16px;
+            margin-bottom: 10px;
             border-radius: 12px;
             background: rgba(255, 255, 255, 0.05);
             border: 1px solid rgba(255, 255, 255, 0.12);
-            color: #fff;
-            font-size: 0.9rem;
-            margin-bottom: 10px;
+            color: #ffffff;
+            font-size: 0.94rem;
             cursor: pointer;
-            transition: all 0.2s ease;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
+            transition: all 0.18s;
         }
+        .quiz-option:hover { border-color: var(--gold-accent); background: rgba(245, 158, 11, 0.12); }
 
-        .poll-option:hover {
-            border-color: var(--gold-accent);
-            background: rgba(245, 158, 11, 0.12);
-        }
-
-        .poll-percent {
-            font-weight: 700;
-            color: var(--gold-accent);
-            font-size: 0.85rem;
-        }
-
-        .story-feed {
-            display: flex;
-            flex-direction: column;
-            gap: 14px;
-            max-height: 340px;
-            overflow-y: auto;
-            padding-right: 4px;
-        }
-
-        .story-item {
-            background: rgba(255, 255, 255, 0.04);
-            border: 1px solid rgba(255, 255, 255, 0.09);
-            border-radius: 14px;
-            padding: 16px;
-        }
-
-        .story-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 8px;
-            font-size: 0.82rem;
-            color: var(--gold-accent);
-            font-weight: 700;
-        }
-
-        .story-body {
-            font-size: 0.9rem;
-            color: #e2e8f0;
-            line-height: 1.5;
-            margin-bottom: 10px;
-        }
-
-        .like-btn {
-            background: rgba(244, 63, 94, 0.15);
-            border: 1px solid rgba(244, 63, 94, 0.3);
-            color: #fb7185;
-            padding: 4px 12px;
-            border-radius: 99px;
-            font-size: 0.78rem;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.2s ease;
-        }
-
-        .like-btn:hover {
-            background: var(--pink-accent);
-            color: #fff;
-        }
-
-        /* Settings Styles */
-        .settings-label {
-            display: block;
-            font-size: 0.82rem;
-            font-weight: 600;
-            color: #cbd5e1;
-            margin-bottom: 6px;
-        }
-
-        .legal-list {
-            list-style: none;
-            font-size: 0.88rem;
-            color: #cbd5e1;
-            line-height: 1.65;
-            margin-bottom: 20px;
-        }
-
-        .legal-list li {
-            margin-bottom: 10px;
-            padding-left: 16px;
-            position: relative;
-        }
-
-        .legal-list li::before {
-            content: "•";
-            color: var(--gold-accent);
-            position: absolute;
-            left: 0;
-            font-weight: bold;
-        }
-
-        /* Footer */
-        footer {
-            text-align: center;
-            padding: 24px;
-            color: #94a3b8;
-            font-size: 0.85rem;
-            background: rgba(5, 3, 10, 0.85);
-            border-top: 1px solid rgba(255, 255, 255, 0.06);
-        }
-
-        footer a {
-            color: #cbd5e1;
-            text-decoration: none;
-            margin-left: 12px;
-            cursor: pointer;
-        }
-
-        footer a:hover {
-            color: var(--gold-accent);
-        }
-
-        @media (max-width: 968px) {
-            aside {
-                display: none;
-            }
-            .content-area {
-                margin-left: 0;
-            }
-            .hero-section {
-                justify-content: center;
-                padding: 40px 5%;
-            }
-            .tools-grid {
-                grid-template-columns: 1fr;
-            }
+        @media (max-width: 900px) {
+            .sidebar { width: 100%; position: relative; flex-direction: row; align-items: center; padding: 14px 5%; border-right: none; border-bottom: 1px solid rgba(255,255,255,0.08); }
+            .brand-logo { margin-bottom: 0; }
+            .nav-menu { flex-direction: row; flex-wrap: wrap; gap: 6px; }
+            .sidebar-footer { display: none; }
+            .main-wrapper { margin-left: 0; }
+            .hero-section { flex-direction: column; text-align: center; gap: 28px; }
+            .hero-brand-display { padding-right: 0; }
+            .hero-brand-display h1 { font-size: 2.3rem; }
         }
     </style>
 </head>
 <body>
 
-    <!-- Sidebar Menu -->
-    <aside>
-        <div class="brand">
-            <div class="brand-logo">DuoOrbit</div>
+    <!-- Left Navigation Sidebar -->
+    <aside class="sidebar">
+        <div>
+            <a href="index.html" class="brand-logo">DUOORBIT</a>
+            <ul class="nav-menu">
+                <li class="nav-item active" data-tab="dashboard">🪐 Dashboard</li>
+                <li class="nav-item" data-tab="love-orbits">💖 Love Orbits</li>
+                <li class="nav-item" data-tab="guides">📘 Guides & Articles</li>
+                <li class="nav-item" data-tab="community">💬 Community</li>
+                <li class="nav-item" data-tab="settings">⚙️ Settings</li>
+            </ul>
         </div>
-        <ul class="nav-menu">
-            <li><a class="nav-link active" id="nav-dashboard">🌌 Dashboard</a></li>
-            <li><a class="nav-link" id="nav-love-orbits">💖 Love Orbits</a></li>
-            <li><a class="nav-link" id="nav-guides">📖 Guides & Articles</a></li>
-            <li><a class="nav-link" id="nav-community">💬 Community</a></li>
-            <li><a class="nav-link" id="nav-settings">⚙️ Settings</a></li>
-        </ul>
         <div class="sidebar-footer">
-            © 2026 DuoOrbit Lovers<br>Exploring cosmic love orbits.
+            © 2026 DuoOrbit Lovers<br>
+            Exploring cosmic love orbits.<br>
+            <a href="about.html">About</a> • <a href="privacy.html">Privacy</a> • <a href="contact.html">Contact</a>
         </div>
     </aside>
 
-    <div class="content-area">
-
-        <!-- ==================== VIEW 1: DASHBOARD ==================== -->
-        <div id="view-dashboard">
-            <!-- Hero & Quiz Section -->
-            <section class="hero-section">
-                <div class="quiz-card">
-                    <!-- Start Screen -->
-                    <div id="quiz-start">
-                        <span class="card-tag">✨ STARGAZING WITH DUOORBIT</span>
-                        <h2>Are Your Orbits Truly in Sync?</h2>
-                        <p>Discover emotional intimacy, communication styles, and core synchronization with our quick couple test!</p>
-                        
-                        <button type="button" id="btn-launch-quiz" class="launch-btn">✨ Launch Quiz (2 Mins)</button>
-
-                        <div class="meta-badges">
-                            <div class="meta-badge">
-                                <span class="title">❤️ Lovestyle</span>
-                                <span class="desc">Psychology based</span>
-                            </div>
-                            <div class="meta-badge">
-                                <span class="title">⚡ 2 Mins</span>
-                                <span class="desc">Instant Insights</span>
-                            </div>
-                        </div>
+    <!-- Main Content -->
+    <div class="main-wrapper">
+        <!-- Hero Banner -->
+        <section class="hero-section">
+            <div class="hero-brand-display">
+                <h1>DuoOrbit Lovers</h1>
+            </div>
+            <div class="hero-quiz-card">
+                <span class="hero-tag">✨ STARGAZING WITH DUOORBIT</span>
+                <h2>Are Your Orbits Truly in Sync?</h2>
+                <p>Discover emotional intimacy, communication styles, and core synchronization with our quick couple test!</p>
+                <button type="button" class="btn-launch" id="open-quiz-btn">✨ Launch Quiz (2 Mins)</button>
+                <div class="hero-mini-stats">
+                    <div class="mini-stat">
+                        <strong>💖 LoveStyle</strong>
+                        <span>Psychology based</span>
                     </div>
-
-                    <!-- Questions Screen -->
-                    <div id="quiz-questions" class="hidden">
-                        <span class="card-tag" id="question-counter">QUESTION 1 OF 5</span>
-                        <div class="progress-bar-bg">
-                            <div class="progress-bar-fill" id="progress-fill"></div>
-                        </div>
-                        <h2 class="question-text" id="question-title">Question goes here?</h2>
-                        <div class="options-list" id="options-container"></div>
-                    </div>
-
-                    <!-- Result Screen -->
-                    <div id="quiz-result" class="hidden">
-                        <div style="text-align: center;">
-                            <span class="card-tag">🌌 ORBIT SYNC RESULT</span>
-                        </div>
-                        <div class="score-circle" id="final-score">92%</div>
-                        <h2 class="result-title" id="result-heading">Cosmic Soulmates!</h2>
-                        <p class="result-desc" id="result-text">Your emotional wavelengths align effortlessly.</p>
-                        <button type="button" id="btn-retake-quiz" class="launch-btn">🔄 Retake Quiz</button>
+                    <div class="mini-stat">
+                        <strong>✨ 2 Mins</strong>
+                        <span>Instant Insights</span>
                     </div>
                 </div>
-            </section>
+            </div>
+        </section>
 
-            <!-- Curated Amazon & Pinterest Recommendations -->
-            <section class="curated-section">
-                <div class="section-header">
-                    <span class="card-tag">✨ DUOORBIT CURATED PICKS</span>
-                    <h3>Elevate Your Love Orbit</h3>
-                    <p>Handpicked relationship gifts, date night essentials, and aesthetic inspirations for couples.</p>
-                </div>
-
-                <div class="showcase-grid">
-                    <!-- Amazon Product 1 -->
-                    <div class="showcase-card">
-                        <div>
-                            <span class="badge-platform badge-amazon">🛍️ Amazon Pick</span>
-                            <div class="card-icon-box">⌚✨</div>
-                            <h4>Long-Distance Touch Bracelets</h4>
-                            <p>Send a gentle vibration and warm glow to your partner's wrist anywhere in the world with a single tap.</p>
-                        </div>
-                        <a href="https://www.amazon.com" target="_blank" rel="noopener noreferrer" class="affiliate-btn btn-amazon">View on Amazon →</a>
-                    </div>
-
-                    <!-- Amazon Product 2 -->
-                    <div class="showcase-card">
-                        <div>
-                            <span class="badge-platform badge-amazon">🛍️ Amazon Pick</span>
-                            <div class="card-icon-box">🃏❤️</div>
-                            <h4>Deep Connection Card Game</h4>
-                            <p>150 psychology-backed conversation starters designed to spark intimacy, laughter, and meaningful talks.</p>
-                        </div>
-                        <a href="https://www.amazon.com" target="_blank" rel="noopener noreferrer" class="affiliate-btn btn-amazon">View on Amazon →</a>
-                    </div>
-
-                    <!-- Pinterest Board 1 -->
-                    <div class="showcase-card">
-                        <div>
-                            <span class="badge-platform badge-pinterest">📌 Pinterest Board</span>
-                            <div class="card-icon-box">🕯️🌙</div>
-                            <h4>Cozy Stargazing Date Ideas</h4>
-                            <p>Explore our curated Pinterest collection of romantic evening setups, aesthetic picnic ideas, and date night inspiration.</p>
-                        </div>
-                        <a href="https://www.pinterest.com" target="_blank" rel="noopener noreferrer" class="affiliate-btn btn-pinterest">Explore on Pinterest →</a>
-                    </div>
-
-                    <!-- Pinterest Board 2 -->
-                    <div class="showcase-card">
-                        <div>
-                            <span class="badge-platform badge-pinterest">📌 Pinterest Board</span>
-                            <div class="card-icon-box">💌🌌</div>
-                            <h4>Cosmic Love Quotes & Wallpapers</h4>
-                            <p>Save and share romantic reminders, matching lock-screen wallpapers, and relationship affirmations.</p>
-                        </div>
-                        <a href="https://www.pinterest.com" target="_blank" rel="noopener noreferrer" class="affiliate-btn btn-pinterest">Explore on Pinterest →</a>
-                    </div>
-                </div>
-
-                <div class="affiliate-disclosure">
-                    ✨ <strong>Affiliate Disclosure:</strong> Some links on DuoOrbit are affiliate links. As an Amazon Associate, we may earn a small commission from qualifying purchases at no extra cost to you.
-                </div>
-            </section>
-        </div>
-
-        <!-- ==================== VIEW 2: LOVE ORBITS TOOLS ==================== -->
-        <div id="view-love-orbits" class="sub-page-view hidden">
-            <div class="section-header">
-                <span class="card-tag">💖 INTERACTIVE COUPLE TOOLS</span>
-                <h3>Explore Your Love Orbits</h3>
-                <p>Playful cosmic calculators, visual body harmony tools, milestone trackers, and romantic generators crafted for two.</p>
+        <!-- TAB 1: DASHBOARD -->
+        <section id="tab-dashboard" class="tab-panel active">
+            <div class="section-heading">
+                <h3>Interactive Relationship & Harmony Suite</h3>
+                <p>Explore cosmic compatibility calculators, visual body shape harmony tools, and couple bond boosters.</p>
             </div>
 
             <div class="tools-grid">
-                
-                <!-- Tool 1: Cosmic Name & Zodiac Matcher -->
+                <!-- Tool 1: Couple Name & Orbit Sync -->
                 <div class="tool-card">
                     <div>
-                        <span class="badge-platform badge-amazon">🔮 Pop-Astrology Matcher</span>
-                        <h4>1. Cosmic Name & Zodiac Sync</h4>
-                        <p>Enter your names and Western sun signs to reveal your celestial chemistry.</p>
-                        
-                        <div class="input-row">
-                            <input type="text" id="partner1-name" class="orbit-input" placeholder="Your Name (e.g. Alex)">
-                            <select id="partner1-sign" class="orbit-select">
-                                <option value="Aries">♈ Aries</option>
-                                <option value="Taurus">♉ Taurus</option>
-                                <option value="Gemini">♊ Gemini</option>
-                                <option value="Cancer">♋ Cancer</option>
-                                <option value="Leo">♌ Leo</option>
-                                <option value="Virgo">♍ Virgo</option>
-                                <option value="Libra">♎ Libra</option>
-                                <option value="Scorpio">♏ Scorpio</option>
-                                <option value="Sagittarius">♐ Sagittarius</option>
-                                <option value="Capricorn">♑ Capricorn</option>
-                                <option value="Aquarius">♒ Aquarius</option>
-                                <option value="Pisces">♓ Pisces</option>
-                            </select>
-                        </div>
-
-                        <div class="input-row">
-                            <input type="text" id="partner2-name" class="orbit-input" placeholder="Partner's Name (e.g. Maya)">
-                            <select id="partner2-sign" class="orbit-select">
-                                <option value="Leo">♌ Leo</option>
-                                <option value="Aries">♈ Aries</option>
-                                <option value="Taurus">♉ Taurus</option>
-                                <option value="Gemini">♊ Gemini</option>
-                                <option value="Cancer">♋ Cancer</option>
-                                <option value="Virgo">♍ Virgo</option>
-                                <option value="Libra">♎ Libra</option>
-                                <option value="Scorpio">♏ Scorpio</option>
-                                <option value="Sagittarius">♐ Sagittarius</option>
-                                <option value="Capricorn">♑ Capricorn</option>
-                                <option value="Aquarius">♒ Aquarius</option>
-                                <option value="Pisces">♓ Pisces</option>
-                            </select>
-                        </div>
+                        <span class="badge-platform">💫 Cosmic Name Sync</span>
+                        <h4>1. Couple Orbit Resonance</h4>
+                        <p>Enter both names to reveal your cosmic vibration and romantic synergy score.</p>
+                        <input type="text" id="name1" class="card-input" placeholder="Your Name">
+                        <input type="text" id="name2" class="card-input" placeholder="Partner's Name">
                     </div>
-
                     <div>
-                        <button type="button" id="btn-calc-zodiac" class="launch-btn" style="margin-bottom: 0;">✨ Calculate Cosmic Match</button>
-                        <div id="zodiac-result" class="tool-result-box hidden">
-                            <span class="tool-result-highlight" id="zodiac-score">94% Orbit Chemistry</span>
-                            <span class="tool-result-sub" id="zodiac-desc">An unstoppable cosmic spark!</span>
-                        </div>
+                        <button type="button" class="card-btn" id="btn-name-sync">Calculate Orbit Sync</button>
+                        <div class="card-output" id="out-name-sync"></div>
                     </div>
                 </div>
 
-                <!-- Tool 2: Love Milestone Counter -->
+                <!-- Tool 2: Zodiac Sign Matcher -->
                 <div class="tool-card">
                     <div>
-                        <span class="badge-platform badge-pinterest">📅 Orbit Timeline</span>
-                        <h4>2. Love Milestone Counter</h4>
-                        <p>Select the day your orbits first crossed to calculate your exact journey together.</p>
-                        
-                        <div class="input-row">
-                            <input type="date" id="anniversary-date" class="orbit-input">
-                        </div>
+                        <span class="badge-platform">🔮 Astrology Harmony</span>
+                        <h4>2. Zodiac Compatibility Matcher</h4>
+                        <p>Compare elemental energy between two star signs for love, trust, and passion.</p>
+                        <a href="zodiac-compatibility.html" style="display:inline-block; margin-bottom:12px; color:#f59e0b; font-size:0.88rem; font-weight:700; text-decoration:none;">↗ Open Full Zodiac Compatibility Page</a>
+                        <select id="z1" class="card-select">
+                            <option value="Fire">Aries / Leo / Sagittarius (Fire)</option>
+                            <option value="Earth">Taurus / Virgo / Capricorn (Earth)</option>
+                            <option value="Air">Gemini / Libra / Aquarius (Air)</option>
+                            <option value="Water">Cancer / Scorpio / Pisces (Water)</option>
+                        </select>
+                        <select id="z2" class="card-select">
+                            <option value="Air">Gemini / Libra / Aquarius (Air)</option>
+                            <option value="Fire">Aries / Leo / Sagittarius (Fire)</option>
+                            <option value="Water">Cancer / Scorpio / Pisces (Water)</option>
+                            <option value="Earth">Taurus / Virgo / Capricorn (Earth)</option>
+                        </select>
                     </div>
-
                     <div>
-                        <button type="button" id="btn-calc-days" class="launch-btn gold-btn" style="margin-bottom: 0;">⏳ Count Our Days Together</button>
-                        <div id="days-result" class="tool-result-box hidden">
-                            <span class="tool-result-highlight" id="days-count">365 Days in Orbit</span>
-                            <span class="tool-result-sub" id="days-sub">That's 8,760 hours of shared memories!</span>
-                        </div>
+                        <button type="button" class="card-btn" id="btn-zodiac-quick">Check Star Alignment</button>
+                        <div class="card-output" id="out-zodiac-quick"></div>
                     </div>
                 </div>
 
-                <!-- Tool 3: Daily Cosmic Love Note Generator -->
+                <!-- Tool 3: Love Language Decoder -->
                 <div class="tool-card">
                     <div>
-                        <span class="badge-platform badge-pinterest">💌 Instant Romance</span>
-                        <h4>3. Daily Cosmic Love Note</h4>
-                        <p>Generate a sweet, poetic message to copy and text your partner right now.</p>
-                        
-                        <div class="note-display" id="love-note-text">
-                            "Out of billions of stars in the universe, my orbit always finds its way back to you."
-                        </div>
+                        <span class="badge-platform">💌 Emotional Intimacy</span>
+                        <h4>3. Primary Love Language</h4>
+                        <p>Identify what makes your partner feel most cherished every single day.</p>
+                        <select id="love-lang" class="card-select">
+                            <option value="words">Words of Affirmation</option>
+                            <option value="time">Quality Uninterrupted Time</option>
+                            <option value="touch">Physical Touch & Affection</option>
+                            <option value="acts">Acts of Service</option>
+                            <option value="gifts">Thoughtful Gifting</option>
+                        </select>
                     </div>
-
-                    <div style="display: flex; gap: 10px;">
-                        <button type="button" id="btn-new-note" class="launch-btn" style="margin-bottom: 0;">✨ New Note</button>
-                        <button type="button" id="btn-copy-note" class="launch-btn gold-btn" style="margin-bottom: 0;">📋 Copy</button>
+                    <div>
+                        <button type="button" class="card-btn" id="btn-love-lang">Get Daily Action Tip</button>
+                        <div class="card-output" id="out-love-lang"></div>
                     </div>
                 </div>
 
-                <!-- Tool 4: Spontaneous Date Night Spinner -->
+                <!-- Tool 4: Date Night Generator -->
                 <div class="tool-card">
                     <div>
-                        <span class="badge-platform badge-amazon">🎲 Date Night Idea</span>
-                        <h4>4. Spontaneous Date Spinner</h4>
-                        <p>Can't decide what to do tonight? Let the stars pick your next romantic adventure.</p>
-                        
-                        <div class="note-display" id="date-idea-text" style="border-color: rgba(245, 158, 11, 0.3); background: rgba(245, 158, 11, 0.08);">
-                            🕯️ Blanket Fort & Stargazing: Build a cozy living room fort with fairy lights and watch a classic movie together.
-                        </div>
+                        <span class="badge-platform">🌙 Romantic Sparks</span>
+                        <h4>4. Spontaneous Date Night Idea</h4>
+                        <p>Break routine with a curated date idea matched to your current mood.</p>
+                        <select id="date-mood" class="card-select">
+                            <option value="cozy">Cozy Indoor Night</option>
+                            <option value="adventure">Outdoor Adventure</option>
+                            <option value="stargaze">Romantic Stargazing</option>
+                        </select>
                     </div>
-
                     <div>
-                        <button type="button" id="btn-spin-date" class="launch-btn gold-btn" style="margin-bottom: 0;">🎲 Spin Date Night Idea</button>
+                        <button type="button" class="card-btn" id="btn-date-idea">Spin Date Orbit</button>
+                        <div class="card-output" id="out-date-idea"></div>
                     </div>
                 </div>
 
@@ -1072,907 +431,260 @@
                         <span class="badge-platform badge-pinterest">⚖️ Visual Body Harmony</span>
                         <h4>5. Body Shape & Harmony Checker</h4>
                         <p>Enter height and weight to view your visual body silhouette diagram and wellness balance.</p>
-                        
-                        <div class="input-row">
-                            <select id="body-unit" class="orbit-select">
-                                <option value="metric">Metric (cm / kg)</option>
-                                <option value="imperial">US Standard (inches / lbs)</option>
-                            </select>
-                            <select id="body-gender" class="orbit-select">
-                                <option value="female">Feminine Silhouette</option>
-                                <option value="male">Masculine Silhouette</option>
-                            </select>
-                        </div>
-
-                        <div class="input-row">
-                            <input type="number" id="body-height" class="orbit-input" placeholder="Height (e.g. 170 cm)">
-                            <input type="number" id="body-weight" class="orbit-input" placeholder="Weight (e.g. 65 kg)">
-                        </div>
+                        <a href="body-shape-calculator.html" style="display:inline-block; margin-bottom:14px; color:#f59e0b; font-size:0.88rem; font-weight:700; text-decoration:none;">↗ Open Full Body Shape Calculator</a>
+                        <input type="number" id="quick-h" class="card-input" placeholder="Height (cm) e.g. 168">
+                        <input type="number" id="quick-w" class="card-input" placeholder="Weight (kg) e.g. 62">
                     </div>
-
                     <div>
-                        <button type="button" id="btn-calc-body" class="launch-btn" style="margin-bottom: 0;">✨ Show Body Silhouette</button>
-                        <div id="body-result" class="tool-result-box hidden">
-                            <div class="silhouette-stage">
-                                <div id="silhouette-svg-container"></div>
-                                <div class="silhouette-metrics" id="silhouette-metrics-text"></div>
-                            </div>
-                            <span class="tool-result-highlight" id="body-shape-title">Balanced Silhouette ✨</span>
-                            <span class="tool-result-sub" id="body-shape-desc">Optimal energy and harmony!</span>
-                        </div>
+                        <button type="button" class="card-btn" id="btn-quick-bmi">Quick Harmony Check</button>
+                        <div class="card-output" id="out-quick-bmi"></div>
                     </div>
                 </div>
 
-                <!-- Card 6: Couple Fitness Affiliate Spotlight -->
+                <!-- Tool 6: Deep Conversation Spark -->
                 <div class="tool-card">
                     <div>
-                        <span class="badge-platform badge-amazon">🛍️ Couple Wellness Pick</span>
-                        <h4>6. Partner Yoga & Home Fitness</h4>
-                        <p>Stay active and connected together! Explore top-rated non-slip couple yoga mats and home workout kits.</p>
-                        
-                        <div class="note-display" style="border-color: rgba(245, 158, 11, 0.25); background: rgba(255, 255, 255, 0.03); font-style: normal; font-size: 0.92rem;">
-                            🧘‍♀️ <strong>DuoOrbit Wellness Tip:</strong> Couples who exercise or stretch together 20 minutes a day report higher emotional bonding and lower stress.
-                        </div>
+                        <span class="badge-platform">🗣️ Deep Connection</span>
+                        <h4>6. Midnight Conversation Card</h4>
+                        <p>Draw a meaningful question designed to deepen trust and emotional closeness.</p>
+                        <a href="questions-for-couples.html" style="display:inline-block; margin-bottom:14px; color:#f59e0b; font-size:0.88rem; font-weight:700; text-decoration:none;">↗ Explore 100+ Couple Questions</a>
                     </div>
-
                     <div>
-                        <a href="https://www.amazon.com" target="_blank" rel="noopener noreferrer" class="affiliate-btn btn-amazon" style="padding: 15px;">Explore Couple Fitness Gear on Amazon →</a>
+                        <button type="button" class="card-btn" id="btn-draw-q">Draw Deep Question</button>
+                        <div class="card-output" id="out-draw-q"></div>
                     </div>
                 </div>
-
             </div>
-        </div>
+        </section>
 
-        <!-- ==================== VIEW 3: GUIDES & ARTICLES ==================== -->
-        <div id="view-guides" class="sub-page-view hidden">
-            <div class="section-header">
-                <span class="card-tag">📖 RELATIONSHIP PSYCHOLOGY & INSIGHTS</span>
-                <h3>DuoOrbit Guides & Articles</h3>
-                <p>Deep-dive guides crafted to help modern couples build unbreakable trust, emotional intimacy, and lasting harmony.</p>
+        <!-- TAB 2: LOVE ORBITS -->
+        <section id="tab-love-orbits" class="tab-panel">
+            <div class="section-heading">
+                <h3>Love Orbits & Dedicated SEO Tools</h3>
+                <p>Launch our full-screen interactive calculators and compatibility guides.</p>
             </div>
-
             <div class="tools-grid">
-                
-                <!-- Article 1 -->
                 <div class="tool-card">
                     <div>
-                        <span class="badge-platform badge-amazon">❤️ Emotional Intimacy</span>
-                        <div class="article-meta">
-                            <span>⏱️ 4 Min Read</span>
-                            <span>•</span>
-                            <span>By DuoOrbit Editorial</span>
-                        </div>
-                        <h4>The 5 Love Languages: Decoding How Your Partner Feels Loved</h4>
-                        <p>Ever feel like you're pouring love into your relationship, yet your partner doesn't fully feel it? Learn how Words of Affirmation, Quality Time, Acts of Service, Physical Touch, and Gifts shape emotional connection.</p>
+                        <span class="badge-platform">⚖️ Body Shape & Silhouette</span>
+                        <h4>Body Shape Calculator (Hourglass, Pear, Apple)</h4>
+                        <p>Calculate true bust-waist-hip body shape proportions and generate a glowing visual silhouette diagram.</p>
                     </div>
-                    <div>
-                        <button type="button" class="launch-btn gold-btn" style="margin-bottom: 0;" onclick="openArticle(0)">📖 Read Full Guide →</button>
-                    </div>
+                    <a href="body-shape-calculator.html" class="card-btn" style="text-align:center; text-decoration:none; display:block;">Open Body Shape Calculator</a>
                 </div>
-
-                <!-- Article 2 -->
                 <div class="tool-card">
                     <div>
-                        <span class="badge-platform badge-pinterest">🧠 Relationship Psychology</span>
-                        <div class="article-meta">
-                            <span>⏱️ 5 Min Read</span>
-                            <span>•</span>
-                            <span>By DuoOrbit Editorial</span>
-                        </div>
-                        <h4>Attachment Styles: Why You React the Way You Do in Love</h4>
-                        <p>Discover whether you and your partner lean toward Secure, Anxious, or Avoidant attachment—and practical steps to create a safe, calm emotional orbit together.</p>
+                        <span class="badge-platform">🔮 Cosmic Astrology</span>
+                        <h4>Zodiac Compatibility Calculator</h4>
+                        <p>Check full zodiac sign compatibility scores, elemental chemistry, and relationship strengths.</p>
                     </div>
-                    <div>
-                        <button type="button" class="launch-btn" style="margin-bottom: 0;" onclick="openArticle(1)">📖 Read Full Guide →</button>
-                    </div>
+                    <a href="zodiac-compatibility.html" class="card-btn" style="text-align:center; text-decoration:none; display:block;">Open Zodiac Matcher</a>
                 </div>
-
-                <!-- Article 3 -->
                 <div class="tool-card">
                     <div>
-                        <span class="badge-platform badge-pinterest">🌙 Cosmic Connection</span>
-                        <div class="article-meta">
-                            <span>⏱️ 3 Min Read</span>
-                            <span>•</span>
-                            <span>By DuoOrbit Editorial</span>
-                        </div>
-                        <h4>Navigating Long-Distance Orbits Without Losing the Spark</h4>
-                        <p>Miles apart doesn't mean emotionally distant. Explore creative rituals, asynchronous voice notes, and shared stargazing habits that keep long-distance love thriving.</p>
+                        <span class="badge-platform">💬 Intimacy Prompts</span>
+                        <h4>Deep Questions for Couples</h4>
+                        <p>Curated conversation starters for date nights, road trips, and long-term emotional bonding.</p>
                     </div>
-                    <div>
-                        <button type="button" class="launch-btn" style="margin-bottom: 0;" onclick="openArticle(2)">📖 Read Full Guide →</button>
-                    </div>
+                    <a href="questions-for-couples.html" class="card-btn" style="text-align:center; text-decoration:none; display:block;">Read Couple Questions</a>
                 </div>
-
-                <!-- Article 4 -->
-                <div class="tool-card">
-                    <div>
-                        <span class="badge-platform badge-amazon">💬 Communication Mastery</span>
-                        <div class="article-meta">
-                            <span>⏱️ 4 Min Read</span>
-                            <span>•</span>
-                            <span>By DuoOrbit Editorial</span>
-                        </div>
-                        <h4>Healthy Conflict Resolution: Arguing Without Hurting Each Other</h4>
-                        <p>Every strong couple disagrees—what matters is how you repair afterward. Master the "Gentle Start-Up" and active listening techniques used by relationship therapists.</p>
-                    </div>
-                    <div>
-                        <button type="button" class="launch-btn gold-btn" style="margin-bottom: 0;" onclick="openArticle(3)">📖 Read Full Guide →</button>
-                    </div>
-                </div>
-
             </div>
-        </div>
+        </section>
 
-        <!-- ==================== VIEW 4: COMMUNITY ==================== -->
-        <div id="view-community" class="sub-page-view hidden">
-            <div class="section-header">
-                <span class="card-tag">💬 DUOORBIT LOVERS CIRCLE</span>
-                <h3>Cosmic Couple Community</h3>
-                <p>Share your love milestones, vote in our weekly couple poll, and connect with DuoOrbit across social platforms.</p>
+        <!-- TAB 3: GUIDES & ARTICLES -->
+        <section id="tab-guides" class="tab-panel">
+            <div class="section-heading">
+                <h3>Relationship Guides & Wellness Articles</h3>
+                <p>Practical insights on emotional synchronization, body confidence, and cosmic connection.</p>
             </div>
-
             <div class="tools-grid">
-                
-                <!-- Card 1: Share Your Orbit Story Form -->
                 <div class="tool-card">
-                    <div>
-                        <span class="badge-platform badge-pinterest">💌 Share Your Story</span>
-                        <h4>Post to the Orbit Wall</h4>
-                        <p>Share a sweet memory, relationship tip, or shoutout to your partner with the DuoOrbit community.</p>
-                        
-                        <div class="input-row">
-                            <input type="text" id="story-author" class="orbit-input" placeholder="Your Name or Couple Initials (e.g. Liam & Chloe)">
-                        </div>
-                        <textarea id="story-message" class="orbit-textarea" placeholder="Write your love note or relationship insight here..."></textarea>
-                    </div>
-
-                    <div>
-                        <button type="button" id="btn-post-story" class="launch-btn" style="margin-bottom: 0;">✨ Post to Orbit Wall</button>
-                    </div>
+                    <h4>Understanding Your Natural Body Proportions</h4>
+                    <p>Learn how Hourglass, Pear, Rectangle, Apple, and Inverted Triangle shapes differ and how to dress with confidence.</p>
+                    <a href="body-shape-calculator.html" style="color:var(--gold-accent); font-weight:700; text-decoration:none;">Read Guide & Test Calculator →</a>
                 </div>
-
-                <!-- Card 2: Live Community Orbit Wall -->
                 <div class="tool-card">
-                    <div>
-                        <span class="badge-platform badge-amazon">🌌 Live Community Feed</span>
-                        <h4>Recent Couple Reflections</h4>
-                        <p>Read heartwarming moments shared by couples around the world.</p>
-
-                        <div class="story-feed" id="story-feed-container">
-                            <div class="story-item">
-                                <div class="story-header">
-                                    <span>✨ Hannah & Noah (USA)</span>
-                                    <span>2 hrs ago</span>
-                                </div>
-                                <div class="story-body">
-                                    "We scored 92% on the DuoOrbit Sync Quiz tonight! Putting our phones away during dinner every night completely changed our relationship."
-                                </div>
-                                <button type="button" class="like-btn" onclick="likePost(this)">❤️ 24</button>
-                            </div>
-
-                            <div class="story-item">
-                                <div class="story-header">
-                                    <span>🌙 Sofia & Lucas (Canada)</span>
-                                    <span>5 hrs ago</span>
-                                </div>
-                                <div class="story-body">
-                                    "3,000 miles apart right now, but we look at the same stars every night and send 30-second voice notes before bed."
-                                </div>
-                                <button type="button" class="like-btn" onclick="likePost(this)">❤️ 41</button>
-                            </div>
-                        </div>
-                    </div>
+                    <h4>How Fire, Earth, Air & Water Signs Love</h4>
+                    <p>Discover why complementary zodiac elements create magnetic attraction and lasting emotional balance.</p>
+                    <a href="zodiac-compatibility.html" style="color:var(--gold-accent); font-weight:700; text-decoration:none;">Explore Zodiac Elements →</a>
                 </div>
-
-                <!-- Card 3: Weekly Couple Poll -->
-                <div class="tool-card">
-                    <div>
-                        <span class="badge-platform badge-amazon">📊 Weekly Couple Poll</span>
-                        <h4>What's Your Ultimate Friday Date?</h4>
-                        <p>Cast your vote to see what other DuoOrbit couples love most this week!</p>
-
-                        <div id="poll-container">
-                            <button type="button" class="poll-option" onclick="votePoll(0)">
-                                <span>🕯️ Stargazing & Late Night Drive</span>
-                                <span class="poll-percent" id="poll-pct-0">44%</span>
-                            </button>
-                            <button type="button" class="poll-option" onclick="votePoll(1)">
-                                <span>🎬 Cozy Movie Marathon & Takeout</span>
-                                <span class="poll-percent" id="poll-pct-1">36%</span>
-                            </button>
-                            <button type="button" class="poll-option" onclick="votePoll(2)">
-                                <span>🍝 Cooking a New Recipe Together</span>
-                                <span class="poll-percent" id="poll-pct-2">20%</span>
-                            </button>
-                        </div>
-                    </div>
-
-                    <div class="tool-result-box" style="margin-top: 10px;">
-                        <span class="tool-result-sub" id="poll-status">Click any option above to cast your vote! (1,248 votes total)</span>
-                    </div>
-                </div>
-
-                <!-- Card 4: Social Channels Hub -->
-                <div class="tool-card">
-                    <div>
-                        <span class="badge-platform badge-pinterest">🌐 Stay Connected</span>
-                        <h4>Follow DuoOrbit Everywhere</h4>
-                        <p>Join thousands of couples following our daily aesthetic quotes, date ideas, and relationship reels.</p>
-                        
-                        <div style="display: flex; flex-direction: column; gap: 12px;">
-                            <a href="https://www.pinterest.com" target="_blank" rel="noopener noreferrer" class="affiliate-btn btn-pinterest">📌 Follow on Pinterest</a>
-                            <a href="https://www.facebook.com/DuoOrbitLovers" target="_blank" rel="noopener noreferrer" class="affiliate-btn btn-amazon">📘 Follow on Facebook</a>
-                            <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer" class="affiliate-btn btn-pinterest">📸 Follow on Instagram</a>
-                            <a href="https://www.youtube.com/@DuoOrbitLovers" target="_blank" rel="noopener noreferrer" class="affiliate-btn btn-amazon">▶️ Subscribe on YouTube</a>
-                        </div>
-                    </div>
-                </div>
-
             </div>
-        </div>
+        </section>
 
-        <!-- ==================== VIEW 5: SETTINGS ==================== -->
-        <div id="view-settings" class="sub-page-view hidden">
-            <div class="section-header">
-                <span class="card-tag">⚙️ PERSONALIZATION & PRIVACY</span>
-                <h3>DuoOrbit Settings</h3>
-                <p>Customize your couple profile, preferred measurement units, and review our privacy & affiliate policies.</p>
+        <!-- TAB 4: COMMUNITY -->
+        <section id="tab-community" class="tab-panel">
+            <div class="section-heading">
+                <h3>DuoOrbit Lovers Community</h3>
+                <p>Join couples around the world celebrating mindful relationships and cosmic harmony.</p>
             </div>
-
-            <div class="tools-grid">
-                
-                <!-- Card 1: Personalize Couple Profile -->
-                <div class="tool-card">
-                    <div>
-                        <span class="badge-platform badge-amazon">💑 Orbit Personalization</span>
-                        <h4>Couple Profile & Preferences</h4>
-                        <p>Save your names and preferred units locally in your browser so Love Orbits tools auto-fill for you.</p>
-                        
-                        <label class="settings-label">Your Name</label>
-                        <div class="input-row">
-                            <input type="text" id="setting-name1" class="orbit-input" placeholder="e.g. Alex">
-                        </div>
-
-                        <label class="settings-label">Partner's Name</label>
-                        <div class="input-row">
-                            <input type="text" id="setting-name2" class="orbit-input" placeholder="e.g. Maya">
-                        </div>
-
-                        <label class="settings-label">Default Body Checker Units</label>
-                        <div class="input-row">
-                            <select id="setting-unit" class="orbit-select">
-                                <option value="metric">Metric (cm / kg)</option>
-                                <option value="imperial">US Standard (inches / lbs)</option>
-                            </select>
-                        </div>
-                    </div>
-
-                    <div>
-                        <button type="button" id="btn-save-settings" class="launch-btn gold-btn" style="margin-bottom: 10px;">💾 Save Preferences</button>
-                        <button type="button" id="btn-reset-settings" class="option-btn" style="text-align: center; font-size: 0.85rem; color: #fb7185;">🗑️ Clear Saved Data</button>
-                        <div id="settings-saved-msg" class="tool-result-box hidden">
-                            <span class="tool-result-sub" style="color: #fbbf24; font-weight: 700;">✅ Preferences saved! Your names and units are now synced across DuoOrbit.</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Card 2: Privacy, Terms & Affiliate Disclosure -->
-                <div class="tool-card">
-                    <div>
-                        <span class="badge-platform badge-pinterest">🔒 Trust & Transparency</span>
-                        <h4>Privacy Policy & Disclosures</h4>
-                        <p>Your privacy matters to us. Here is how DuoOrbit protects your data and operates transparently:</p>
-                        
-                        <ul class="legal-list">
-                            <li><strong>100% Private Quizzes & Calculators:</strong> All quiz answers, height/weight metrics, and anniversary dates stay strictly in your browser. We do not store personal health or relationship records on external servers.</li>
-                            <li><strong>Entertainment & Wellness Purpose:</strong> Zodiac compatibility and body silhouette insights are designed for positive inspiration and general wellness awareness, not medical diagnosis.</li>
-                            <li><strong>Affiliate Disclosure:</strong> DuoOrbit participates in affiliate programs including the Amazon Associates Program. When you shop through our curated links, we may earn a small commission at zero extra cost to you.</li>
-                        </ul>
-                    </div>
-
-                    <div class="tool-result-box" style="margin-top: 0;">
-                        <span class="tool-result-sub">Need support or partnership inquiries? Reach us via our official <strong>DuoOrbit Lovers</strong> channels.</span>
-                    </div>
-                </div>
-
+            <div class="tool-card">
+                <h4>Share Your Orbit Score</h4>
+                <p>Take the 2-minute Couple Compatibility Quiz or check your Body Shape Silhouette and share your results with your partner!</p>
+                <button type="button" class="card-btn" style="max-width:260px;" onclick="document.getElementById('open-quiz-btn').click()">Start Couple Quiz Now</button>
             </div>
-        </div>
+        </section>
 
-        <footer>
-            © 2026 DuoOrbit. Exploring cosmic love orbits together. 
-            <a id="footer-guides-link">■ Relationship Guides</a>
-            <a href="body-shape-calculator.html">■ Body Shape Calculator</a>
-            <a href="zodiac-compatibility.html">■ Zodiac Compatibility</a>
-        </footer>
+        <!-- TAB 5: SETTINGS -->
+        <section id="tab-settings" class="tab-panel">
+            <div class="section-heading">
+                <h3>Site Information & Policies</h3>
+                <p>DuoOrbit Lovers platform details and legal resources.</p>
+            </div>
+            <div class="tool-card">
+                <p><strong>Domain:</strong> https://duoorbit.com</p>
+                <p><strong>Privacy & Terms:</strong> All calculator measurements run locally in your browser for 100% privacy.</p>
+                <div style="display:flex; gap:16px; margin-top:10px;">
+                    <a href="about.html" style="color:var(--gold-accent); text-decoration:none;">About Us</a>
+                    <a href="privacy.html" style="color:var(--gold-accent); text-decoration:none;">Privacy Policy</a>
+                    <a href="terms.html" style="color:var(--gold-accent); text-decoration:none;">Terms of Service</a>
+                    <a href="contact.html" style="color:var(--gold-accent); text-decoration:none;">Contact</a>
+                </div>
+            </div>
+        </section>
     </div>
 
-    <!-- Article Reader Modal -->
-    <div id="article-modal" class="modal-overlay hidden">
-        <div class="modal-box">
-            <button type="button" class="modal-close" id="close-modal-btn">✕</button>
-            <span class="card-tag" id="modal-tag">RELATIONSHIP GUIDE</span>
-            <h3 id="modal-title">Article Title</h3>
-            <div class="modal-body" id="modal-content"></div>
+    <!-- Interactive 2-Minute Couple Quiz Modal -->
+    <div class="quiz-modal" id="quiz-modal">
+        <div class="quiz-box">
+            <button type="button" class="close-quiz" id="close-quiz-btn">&times;</button>
+            <span class="hero-tag" id="quiz-step-label">QUESTION 1 OF 3</span>
+            <h3 id="quiz-question" style="font-size:1.35rem; margin-bottom:18px;">How do you and your partner best recharge after a long week?</h3>
+            <div id="quiz-options"></div>
+            <div id="quiz-final" style="display:none; text-align:center;">
+                <h3 style="color:var(--gold-accent); font-size:1.6rem; margin-bottom:10px;" id="quiz-score-title">94% Cosmic Orbit Sync! ✨</h3>
+                <p style="color:var(--text-sub); line-height:1.6; margin-bottom:18px;" id="quiz-score-desc">Your emotional rhythms complement each other naturally. Keep nurturing open communication and shared adventures!</p>
+                <button type="button" class="btn-launch" id="restart-quiz-btn">Retake Quiz</button>
+            </div>
         </div>
     </div>
 
     <script>
-        // Full Articles Data
-        const articlesData = [
-            {
-                tag: "❤️ EMOTIONAL INTIMACY",
-                title: "The 5 Love Languages: Decoding How Your Partner Feels Loved",
-                content: `
-                    <p>In almost every relationship, partners express affection in the way <em>they</em> naturally prefer to receive it. However, when two people speak different emotional languages, genuine love can easily get lost in translation.</p>
-                    <h5>1. Words of Affirmation</h5>
-                    <p>For partners with this love language, unsolicited compliments, encouraging texts, and hearing "I appreciate you" mean the world. Harsh words hurt deeply, while verbal kindness builds unshakeable security.</p>
-                    <h5>2. Quality Time</h5>
-                    <p>It's not just about sitting in the same room—it's about undivided attention. Putting phones away during dinner, taking an evening walk, or stargazing together fills their emotional tank.</p>
-                    <h5>3. Acts of Service</h5>
-                    <p>Actions speak louder than words. Making morning coffee, handling a stressful errand, or cooking dinner after a long day communicates deep care and partnership.</p>
-                    <h5>4. Physical Touch & 5. Thoughtful Gifts</h5>
-                    <p>Whether it's holding hands while walking or surprising them with a small meaningful keepsake that reminded you of them, intentional presence keeps your orbits aligned.</p>
-                `
-            },
-            {
-                tag: "🧠 RELATIONSHIP PSYCHOLOGY",
-                title: "Attachment Styles: Why You React the Way You Do in Love",
-                content: `
-                    <p>Psychologists have found that early emotional experiences shape how we connect with romantic partners as adults. Understanding your attachment style removes blame and builds empathy.</p>
-                    <h5>Secure Attachment</h5>
-                    <p>Secure partners feel comfortable with both intimacy and independence. They communicate needs openly without fear of abandonment.</p>
-                    <h5>Anxious Attachment</h5>
-                    <p>Anxious partners crave closeness and reassurance. When communication slows down, they may worry something is wrong. Consistent reassurance and clear check-ins help them feel safe.</p>
-                    <h5>Avoidant Attachment</h5>
-                    <p>Avoidant partners value autonomy and may pull back when emotional intensity rises. Respecting their need for brief decompression while agreeing on a time to reconnect creates lasting balance.</p>
-                `
-            },
-            {
-                tag: "🌙 COSMIC CONNECTION",
-                title: "Navigating Long-Distance Orbits Without Losing the Spark",
-                content: `
-                    <p>Long-distance relationships require intentional rhythm. Instead of relying solely on long, exhausting phone calls, successful long-distance couples weave small moments into daily life.</p>
-                    <h5>Create Shared Rituals</h5>
-                    <p>Watch the same movie simultaneously, read the same book chapter before bed, or step outside at night to look at the same moon and send a quick photo.</p>
-                    <h5>Use Asynchronous Voice Notes</h5>
-                    <p>Time zones and busy schedules happen. Sending a 30-second voice note describing a funny moment from your day keeps your partner emotionally present in your world.</p>
-                    <h5>Always Have a Countdown</h5>
-                    <p>Having your next reunion date on the calendar turns waiting into shared excitement.</p>
-                `
-            },
-            {
-                tag: "💬 COMMUNICATION MASTERY",
-                title: "Healthy Conflict Resolution: Arguing Without Hurting Each Other",
-                content: `
-                    <p>Research shows that happy couples don't avoid conflict—they simply navigate it without attacking each other's character.</p>
-                    <h5>Use a Gentle Start-Up</h5>
-                    <p>Instead of saying "You never listen to me," try expressing your feeling and need: "I feel overwhelmed today and would really love 10 minutes to talk things through together."</p>
-                    <h5>The 20-Minute Reset Rule</h5>
-                    <p>When heart rates spike during an argument, logical empathy shuts down. Agree to take a 20-minute break to calm down, with a promise to return and finish the conversation kindly.</p>
-                    <h5>Remember: You Are on the Same Team</h5>
-                    <p>The goal isn't for one partner to win the argument—it's for both of you to understand each other and protect your orbit.</p>
-                `
-            }
-        ];
-
-        function openArticle(index) {
-            const article = articlesData[index];
-            document.getElementById('modal-tag').innerText = article.tag;
-            document.getElementById('modal-title').innerText = article.title;
-            document.getElementById('modal-content').innerHTML = article.content;
-            document.getElementById('article-modal').classList.remove('hidden');
-        }
-
-        // Community Like Button
-        function likePost(btn) {
-            if (btn.dataset.liked === "true") return;
-            const currentCount = parseInt(btn.innerText.replace(/[^0-9]/g, '')) || 0;
-            btn.innerText = `❤️ ${currentCount + 1}`;
-            btn.dataset.liked = "true";
-            btn.style.background = "#f43f5e";
-            btn.style.color = "#ffffff";
-        }
-
-        // Community Poll Logic
-        let pollVotes = [549, 449, 250];
-        let hasVoted = false;
-        function votePoll(idx) {
-            if (!hasVoted) {
-                pollVotes[idx] += 1;
-                hasVoted = true;
-            }
-            const total = pollVotes[0] + pollVotes[1] + pollVotes[2];
-            document.getElementById('poll-pct-0').innerText = Math.round((pollVotes[0] / total) * 100) + "%";
-            document.getElementById('poll-pct-1').innerText = Math.round((pollVotes[1] / total) * 100) + "%";
-            document.getElementById('poll-pct-2').innerText = Math.round((pollVotes[2] / total) * 100) + "%";
-            document.getElementById('poll-status').innerText = `✨ Thank you for voting! (${total.toLocaleString()} total community votes)`;
-        }
-
-        document.addEventListener("DOMContentLoaded", function() {
-            // ================= NAVIGATION SWITCHING =================
-            const navDashboard = document.getElementById('nav-dashboard');
-            const navLoveOrbits = document.getElementById('nav-love-orbits');
-            const navGuides = document.getElementById('nav-guides');
-            const navCommunity = document.getElementById('nav-community');
-            const navSettings = document.getElementById('nav-settings');
-            const footerGuidesLink = document.getElementById('footer-guides-link');
-
-            const viewDashboard = document.getElementById('view-dashboard');
-            const viewLoveOrbits = document.getElementById('view-love-orbits');
-            const viewGuides = document.getElementById('view-guides');
-            const viewCommunity = document.getElementById('view-community');
-            const viewSettings = document.getElementById('view-settings');
-
-            function switchView(target) {
-                navDashboard.classList.remove('active');
-                navLoveOrbits.classList.remove('active');
-                navGuides.classList.remove('active');
-                navCommunity.classList.remove('active');
-                navSettings.classList.remove('active');
-
-                viewDashboard.classList.add('hidden');
-                viewLoveOrbits.classList.add('hidden');
-                viewGuides.classList.add('hidden');
-                viewCommunity.classList.add('hidden');
-                viewSettings.classList.add('hidden');
-
-                if (target === 'dashboard') {
-                    navDashboard.classList.add('active');
-                    viewDashboard.classList.remove('hidden');
-                    resetQuiz();
-                } else if (target === 'love-orbits') {
-                    navLoveOrbits.classList.add('active');
-                    viewLoveOrbits.classList.remove('hidden');
-                } else if (target === 'guides') {
-                    navGuides.classList.add('active');
-                    viewGuides.classList.remove('hidden');
-                } else if (target === 'community') {
-                    navCommunity.classList.add('active');
-                    viewCommunity.classList.remove('hidden');
-                } else if (target === 'settings') {
-                    navSettings.classList.add('active');
-                    viewSettings.classList.remove('hidden');
-                }
-                window.scrollTo({ top: 0, behavior: 'smooth' });
-            }
-
-            navDashboard.addEventListener('click', () => switchView('dashboard'));
-            navLoveOrbits.addEventListener('click', () => switchView('love-orbits'));
-            navGuides.addEventListener('click', () => switchView('guides'));
-            navCommunity.addEventListener('click', () => switchView('community'));
-            navSettings.addEventListener('click', () => switchView('settings'));
-            footerGuidesLink.addEventListener('click', () => switchView('guides'));
-
-            // ================= SETTINGS & LOCAL STORAGE SYNC =================
-            function applySavedSettings() {
-                const savedN1 = localStorage.getItem('duo_name1') || '';
-                const savedN2 = localStorage.getItem('duo_name2') || '';
-                const savedUnit = localStorage.getItem('duo_unit') || 'metric';
-
-                document.getElementById('setting-name1').value = savedN1;
-                document.getElementById('setting-name2').value = savedN2;
-                document.getElementById('setting-unit').value = savedUnit;
-
-                if (savedN1) document.getElementById('partner1-name').value = savedN1;
-                if (savedN2) document.getElementById('partner2-name').value = savedN2;
-                
-                const bodyUnit = document.getElementById('body-unit');
-                bodyUnit.value = savedUnit;
-                bodyUnit.dispatchEvent(new Event('change'));
-            }
-
-            document.getElementById('btn-save-settings').addEventListener('click', function() {
-                const n1 = document.getElementById('setting-name1').value.trim();
-                const n2 = document.getElementById('setting-name2').value.trim();
-                const unit = document.getElementById('setting-unit').value;
-
-                localStorage.setItem('duo_name1', n1);
-                localStorage.setItem('duo_name2', n2);
-                localStorage.setItem('duo_unit', unit);
-
-                applySavedSettings();
-                const msgBox = document.getElementById('settings-saved-msg');
-                msgBox.classList.remove('hidden');
-                setTimeout(() => { msgBox.classList.add('hidden'); }, 3500);
+        // Sidebar Navigation Tabs
+        document.querySelectorAll('.nav-item').forEach(item => {
+            item.addEventListener('click', () => {
+                document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('active'));
+                document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+                item.classList.add('active');
+                const target = document.getElementById('tab-' + item.dataset.tab);
+                if (target) target.classList.add('active');
             });
-
-            document.getElementById('btn-reset-settings').addEventListener('click', function() {
-                localStorage.removeItem('duo_name1');
-                localStorage.removeItem('duo_name2');
-                localStorage.removeItem('duo_unit');
-                document.getElementById('partner1-name').value = '';
-                document.getElementById('partner2-name').value = '';
-                applySavedSettings();
-                alert("Saved preferences cleared!");
-            });
-
-            // Modal Close Logic
-            const articleModal = document.getElementById('article-modal');
-            document.getElementById('close-modal-btn').addEventListener('click', () => {
-                articleModal.classList.add('hidden');
-            });
-            articleModal.addEventListener('click', (e) => {
-                if (e.target === articleModal) {
-                    articleModal.classList.add('hidden');
-                }
-            });
-
-            // ================= COMMUNITY POST STORY LOGIC =================
-            document.getElementById('btn-post-story').addEventListener('click', function() {
-                const author = document.getElementById('story-author').value.trim() || "Anonymous Orbit";
-                const msg = document.getElementById('story-message').value.trim();
-                if (!msg) {
-                    alert("Please write a short love note or story first!");
-                    return;
-                }
-
-                const feed = document.getElementById('story-feed-container');
-                const newCard = document.createElement('div');
-                newCard.className = 'story-item';
-                newCard.innerHTML = `
-                    <div class="story-header">
-                        <span>💖 ${author}</span>
-                        <span>Just now</span>
-                    </div>
-                    <div class="story-body">"${msg}"</div>
-                    <button type="button" class="like-btn" onclick="likePost(this)">❤️ 1</button>
-                `;
-                feed.prepend(newCard);
-
-                document.getElementById('story-author').value = '';
-                document.getElementById('story-message').value = '';
-            });
-
-            // ================= DASHBOARD QUIZ LOGIC =================
-            const quizData = [
-                {
-                    question: "When a disagreement happens, how do you both usually handle it?",
-                    options: [
-                        { text: "We talk calmly and listen to each other's feelings", points: 20 },
-                        { text: "We take a short break, then resolve it together", points: 16 },
-                        { text: "One of us usually stays quiet to avoid conflict", points: 10 },
-                        { text: "We often argue and leave things unresolved", points: 5 }
-                    ]
-                },
-                {
-                    question: "How do you express affection on an ordinary day?",
-                    options: [
-                        { text: "Small thoughtful gestures, hugs, and sweet messages", points: 20 },
-                        { text: "Spending quality uninterrupted time together", points: 18 },
-                        { text: "Only on special occasions or weekends", points: 10 },
-                        { text: "We rarely express affection openly", points: 5 }
-                    ]
-                },
-                {
-                    question: "How aligned are your future dreams and life goals?",
-                    options: [
-                        { text: "We share the exact same vision and plan together", points: 20 },
-                        { text: "Different paths, but we deeply support each other", points: 17 },
-                        { text: "We haven't really discussed the future yet", points: 10 },
-                        { text: "Our goals often clash with each other", points: 5 }
-                    ]
-                },
-                {
-                    question: "When one partner feels stressed or down, what happens?",
-                    options: [
-                        { text: "The other instantly senses it and offers comfort", points: 20 },
-                        { text: "We ask how we can help and give space if needed", points: 16 },
-                        { text: "We try to fix the problem logically right away", points: 12 },
-                        { text: "We usually don't notice until things get worse", points: 5 }
-                    ]
-                },
-                {
-                    question: "How would you describe your emotional trust?",
-                    options: [
-                        { text: "100% open book — we share everything without fear", points: 20 },
-                        { text: "Very strong trust with healthy personal boundaries", points: 18 },
-                        { text: "Still building trust step by step", points: 12 },
-                        { text: "There are still doubts and insecurities", points: 5 }
-                    ]
-                }
-            ];
-
-            let currentQuestion = 0;
-            let totalScore = 0;
-
-            const startScreen = document.getElementById('quiz-start');
-            const questionsScreen = document.getElementById('quiz-questions');
-            const resultScreen = document.getElementById('quiz-result');
-            const launchBtn = document.getElementById('btn-launch-quiz');
-            const retakeBtn = document.getElementById('btn-retake-quiz');
-
-            function startQuiz() {
-                currentQuestion = 0;
-                totalScore = 0;
-                startScreen.classList.add('hidden');
-                resultScreen.classList.add('hidden');
-                questionsScreen.classList.remove('hidden');
-                loadQuestion();
-            }
-
-            function loadQuestion() {
-                const q = quizData[currentQuestion];
-                document.getElementById('question-counter').innerText = `QUESTION ${currentQuestion + 1} OF ${quizData.length}`;
-                document.getElementById('progress-fill').style.width = `${((currentQuestion + 1) / quizData.length) * 100}%`;
-                document.getElementById('question-title').innerText = q.question;
-
-                const optionsContainer = document.getElementById('options-container');
-                optionsContainer.innerHTML = '';
-
-                q.options.forEach(opt => {
-                    const btn = document.createElement('button');
-                    btn.type = 'button';
-                    btn.className = 'option-btn';
-                    btn.innerText = opt.text;
-                    btn.addEventListener('click', function() {
-                        selectOption(opt.points);
-                    });
-                    optionsContainer.appendChild(btn);
-                });
-            }
-
-            function selectOption(points) {
-                totalScore += points;
-                currentQuestion++;
-                if (currentQuestion < quizData.length) {
-                    loadQuestion();
-                } else {
-                    showResult();
-                }
-            }
-
-            function showResult() {
-                questionsScreen.classList.add('hidden');
-                resultScreen.classList.remove('hidden');
-                document.getElementById('final-score').innerText = `${totalScore}%`;
-
-                const heading = document.getElementById('result-heading');
-                const text = document.getElementById('result-text');
-
-                if (totalScore >= 85) {
-                    heading.innerText = "Twin Star Orbits ✨";
-                    text.innerText = "Remarkable emotional harmony! Your communication, empathy, and future visions move in near-perfect synchronization.";
-                } else if (totalScore >= 65) {
-                    heading.innerText = "Harmonious Orbit 🌙";
-                    text.innerText = "You share a warm, supportive bond with strong potential. Deeper emotional check-ins will make your orbit unbreakable.";
-                } else {
-                    heading.innerText = "Shifting Orbits 💫";
-                    text.innerText = "Every cosmic bond needs tuning. Open, judgment-free conversations will help align your emotional wavelengths.";
-                }
-            }
-
-            function resetQuiz() {
-                questionsScreen.classList.add('hidden');
-                resultScreen.classList.add('hidden');
-                startScreen.classList.remove('hidden');
-            }
-
-            launchBtn.addEventListener('click', startQuiz);
-            retakeBtn.addEventListener('click', resetQuiz);
-
-            // ================= LOVE ORBITS TOOLS LOGIC =================
-
-            // 1. Zodiac & Name Matcher
-            document.getElementById('btn-calc-zodiac').addEventListener('click', function() {
-                const n1 = document.getElementById('partner1-name').value.trim() || "Partner 1";
-                const n2 = document.getElementById('partner2-name').value.trim() || "Partner 2";
-                const s1 = document.getElementById('partner1-sign').value;
-                const s2 = document.getElementById('partner2-sign').value;
-
-                const combined = (n1 + s1 + n2 + s2).toLowerCase();
-                let hash = 0;
-                for (let i = 0; i < combined.length; i++) {
-                    hash = combined.charCodeAt(i) + ((hash << 5) - hash);
-                }
-                const score = 76 + (Math.abs(hash) % 24);
-
-                const messages = [
-                    `${n1} (${s1}) & ${n2} (${s2}) create a magnetic celestial pull! Passion and deep understanding fuel your orbit.`,
-                    `When ${s1} meets ${s2}, sparks fly effortlessly! ${n1} and ${n2} balance adventure with emotional warmth.`,
-                    `A rare cosmic alignment! ${n1} and ${n2} share intuitive trust and an inspiring vision for the future.`
-                ];
-                const msg = messages[Math.abs(hash) % messages.length];
-
-                document.getElementById('zodiac-score').innerText = `${score}% Cosmic Sync ✨`;
-                document.getElementById('zodiac-desc').innerText = msg;
-                document.getElementById('zodiac-result').classList.remove('hidden');
-            });
-
-            // 2. Love Milestone Counter
-            document.getElementById('btn-calc-days').addEventListener('click', function() {
-                const dateVal = document.getElementById('anniversary-date').value;
-                if (!dateVal) {
-                    alert("Please select your special date first!");
-                    return;
-                }
-                const start = new Date(dateVal);
-                const now = new Date();
-                const diffTime = Math.abs(now - start);
-                const diffDays = Math.floor(diffTime / (1000 * 60 * 60 * 24));
-                const diffHours = diffDays * 24;
-
-                document.getElementById('days-count').innerText = `${diffDays.toLocaleString()} Days in Orbit 💖`;
-                document.getElementById('days-sub').innerText = `Over ${diffHours.toLocaleString()} hours of laughter, growth, and cosmic connection!`;
-                document.getElementById('days-result').classList.remove('hidden');
-            });
-
-            // 3. Daily Love Note Generator
-            const loveNotes = [
-                "Out of billions of stars in the universe, my orbit always finds its way back to you.",
-                "Just a reminder today: you are my favorite place to be, no matter where we are.",
-                "Every day with you feels like a brand-new constellation lighting up my sky.",
-                "In a world full of noise, your voice is still my favorite melody.",
-                "No distance or busy day can ever dim the gravity between our hearts."
-            ];
-            let noteIdx = 0;
-            document.getElementById('btn-new-note').addEventListener('click', function() {
-                noteIdx = (noteIdx + 1) % loveNotes.length;
-                document.getElementById('love-note-text').innerText = `"${loveNotes[noteIdx]}"`;
-            });
-
-            document.getElementById('btn-copy-note').addEventListener('click', function() {
-                const text = document.getElementById('love-note-text').innerText;
-                navigator.clipboard.writeText(text);
-                const btn = document.getElementById('btn-copy-note');
-                btn.innerText = "✅ Copied!";
-                setTimeout(() => { btn.innerText = "📋 Copy"; }, 2000);
-            });
-
-            // 4. Spontaneous Date Night Spinner
-            const dateIdeas = [
-                "🕯️ Blanket Fort & Stargazing: Build a cozy living room fort with fairy lights and watch a classic movie together.",
-                "🍝 Blindfolded Taste Test & Cook-Off: Pick 5 mystery ingredients and create a fun dinner together from scratch.",
-                "🌅 Golden Hour Sunset Drive: Play your favorite nostalgic playlist and watch the sunset from a scenic spot.",
-                "🎨 Paint Each Other Challenge: Grab two cheap canvases and paint portraits of each other—no peeking until the end!",
-                "📸 Aesthetic Night Walk & Coffee: Grab warm drinks and take candid photos of each other under city or street lights."
-            ];
-            let dateIdx = 0;
-            document.getElementById('btn-spin-date').addEventListener('click', function() {
-                dateIdx = (dateIdx + 1) % dateIdeas.length;
-                document.getElementById('date-idea-text').innerText = dateIdeas[dateIdx];
-            });
-
-            // 5. Visual Body Shape & Silhouette Generator
-            const unitSelect = document.getElementById('body-unit');
-            const genderSelect = document.getElementById('body-gender');
-            const heightInput = document.getElementById('body-height');
-            const weightInput = document.getElementById('body-weight');
-
-            unitSelect.addEventListener('change', function() {
-                if (this.value === 'metric') {
-                    heightInput.placeholder = "Height (e.g. 170 cm)";
-                    weightInput.placeholder = "Weight (e.g. 65 kg)";
-                } else {
-                    heightInput.placeholder = "Height (e.g. 67 inches)";
-                    weightInput.placeholder = "Weight (e.g. 145 lbs)";
-                }
-            });
-
-            function generateSilhouetteSVG(gender, category) {
-                let shoulderW = 24, waistW = 14, hipW = 22;
-                let glowColor = "#f59e0b";
-
-                if (gender === "female") {
-                    if (category === "slender") { shoulderW = 20; waistW = 11; hipW = 19; glowColor = "#38bdf8"; }
-                    else if (category === "balanced") { shoulderW = 23; waistW = 13; hipW = 24; glowColor = "#f59e0b"; }
-                    else if (category === "curvy") { shoulderW = 26; waistW = 17; hipW = 29; glowColor = "#fb7185"; }
-                    else { shoulderW = 30; waistW = 24; hipW = 34; glowColor = "#f43f5e"; }
-                } else {
-                    if (category === "slender") { shoulderW = 24; waistW = 15; hipW = 17; glowColor = "#38bdf8"; }
-                    else if (category === "balanced") { shoulderW = 29; waistW = 18; hipW = 20; glowColor = "#f59e0b"; }
-                    else if (category === "curvy") { shoulderW = 33; waistW = 23; hipW = 24; glowColor = "#fb7185"; }
-                    else { shoulderW = 36; waistW = 29; hipW = 28; glowColor = "#f43f5e"; }
-                }
-
-                const cx = 60;
-                return `
-                <svg class="silhouette-svg" viewBox="0 0 120 220" xmlns="http://www.w3.org/2000/svg">
-                    <defs>
-                        <linearGradient id="bodyGrad" x1="0%" y1="0%" x2="0%" y2="100%">
-                            <stop offset="0%" stop-color="${glowColor}" stop-opacity="0.85"/>
-                            <stop offset="100%" stop-color="#f43f5e" stop-opacity="0.55"/>
-                        </linearGradient>
-                    </defs>
-                    <line x1="15" y1="55" x2="105" y2="55" stroke="rgba(255,255,255,0.12)" stroke-dasharray="3,3"/>
-                    <line x1="15" y1="100" x2="105" y2="100" stroke="rgba(255,255,255,0.12)" stroke-dasharray="3,3"/>
-                    <line x1="15" y1="130" x2="105" y2="130" stroke="rgba(255,255,255,0.12)" stroke-dasharray="3,3"/>
-                    
-                    <circle cx="${cx}" cy="24" r="13" fill="url(#bodyGrad)" stroke="#fff" stroke-width="1.2"/>
-                    
-                    <path d="
-                        M ${cx - 5} 38
-                        L ${cx - shoulderW} 52
-                        Q ${cx - shoulderW - 6} 85, ${cx - shoulderW - 3} 115
-                        L ${cx - shoulderW + 2} 115
-                        L ${cx - shoulderW + 4} 68
-                        Q ${cx - waistW} 95, ${cx - hipW} 125
-                        L ${cx - 12} 205
-                        L ${cx - 4} 205
-                        L ${cx} 140
-                        L ${cx + 4} 205
-                        L ${cx + 12} 205
-                        L ${cx + hipW} 125
-                        Q ${cx + waistW} 95, ${cx + shoulderW - 4} 68
-                        L ${cx + shoulderW - 2} 115
-                        L ${cx + shoulderW + 3} 115
-                        Q ${cx + shoulderW + 6} 85, ${cx + shoulderW} 52
-                        L ${cx + 5} 38
-                        Z
-                    " fill="url(#bodyGrad)" stroke="#ffffff" stroke-width="1.2"/>
-                </svg>`;
-            }
-
-            document.getElementById('btn-calc-body').addEventListener('click', function() {
-                const unit = unitSelect.value;
-                const gender = genderSelect.value;
-                const h = parseFloat(heightInput.value);
-                const w = parseFloat(weightInput.value);
-
-                if (!h || !w || h <= 0 || w <= 0) {
-                    alert("Please enter valid height and weight numbers!");
-                    return;
-                }
-
-                let bmi = 0;
-                let displayHeight = "";
-                let displayWeight = "";
-
-                if (unit === 'metric') {
-                    const heightInMeters = h / 100;
-                    bmi = w / (heightInMeters * heightInMeters);
-                    displayHeight = `${h} cm`;
-                    displayWeight = `${w} kg`;
-                } else {
-                    bmi = (w / (h * h)) * 703;
-                    displayHeight = `${h} in`;
-                    displayWeight = `${w} lbs`;
-                }
-
-                const bmiRounded = bmi.toFixed(1);
-                let category = "";
-                let shapeTitle = "";
-                let shapeDesc = "";
-                let frameLabel = "";
-
-                if (bmi < 18.5) {
-                    category = "slender";
-                    frameLabel = "Slender & Graceful";
-                    shapeTitle = "Slender Silhouette 🌿";
-                    shapeDesc = "Light, agile frame. Nourishing meals and light strength workouts boost vitality.";
-                } else if (bmi >= 18.5 && bmi <= 24.9) {
-                    category = "balanced";
-                    frameLabel = "Balanced & Proportioned";
-                    shapeTitle = "Balanced Silhouette ✨";
-                    shapeDesc = "Ideal body harmony! Keep up your active lifestyle and balanced nutrition.";
-                } else if (bmi >= 25 && bmi <= 29.9) {
-                    category = "curvy";
-                    frameLabel = "Curvy / Athletic";
-                    shapeTitle = "Curvy & Athletic Frame 🔥";
-                    shapeDesc = "Strong, grounded build. Fun cardio dates like hiking or dancing keep energy high.";
-                } else {
-                    category = "full";
-                    frameLabel = "Full & Grounded";
-                    shapeTitle = "Full Silhouette 💫";
-                    shapeDesc = "Focus on steady, joyful movement together and mindful daily wellness habits.";
-                }
-
-                document.getElementById('silhouette-svg-container').innerHTML = generateSilhouetteSVG(gender, category);
-                document.getElementById('silhouette-metrics-text').innerHTML = `
-                    Height: <span>${displayHeight}</span><br>
-                    Weight: <span>${displayWeight}</span><br>
-                    BMI Index: <span>${bmiRounded}</span><br>
-                    Profile: <span>${frameLabel}</span>
-                `;
-                document.getElementById('body-shape-title').innerText = shapeTitle;
-                document.getElementById('body-shape-desc').innerText = shapeDesc;
-                document.getElementById('body-result').classList.remove('hidden');
-            });
-
-            // Initialize saved user settings on load
-            applySavedSettings();
         });
-    </script>
 
+        // Tool 1: Name Sync
+        document.getElementById('btn-name-sync').addEventListener('click', () => {
+            const n1 = document.getElementById('name1').value.trim();
+            const n2 = document.getElementById('name2').value.trim();
+            const out = document.getElementById('out-name-sync');
+            if (!n1 || !n2) { alert("Please enter both names!"); return; }
+            const sum = (n1 + n2).toLowerCase().split('').reduce((a, c) => a + c.charCodeAt(0), 0);
+            const score = 78 + (sum % 22);
+            out.style.display = 'block';
+            out.innerHTML = `<strong>${n1} & ${n2}: ${score}% Orbit Resonance!</strong><br>Strong emotional harmony and shared curiosity keep your connection glowing.`;
+        });
+
+        // Tool 2: Quick Zodiac
+        document.getElementById('btn-zodiac-quick').addEventListener('click', () => {
+            const z1 = document.getElementById('z1').value;
+            const z2 = document.getElementById('z2').value;
+            const out = document.getElementById('out-zodiac-quick');
+            const highMatch = (z1 === z2) || (z1 === 'Fire' && z2 === 'Air') || (z1 === 'Air' && z2 === 'Fire') || (z1 === 'Earth' && z2 === 'Water') || (z1 === 'Water' && z2 === 'Earth');
+            out.style.display = 'block';
+            out.innerHTML = highMatch
+                ? `<strong>${z1} + ${z2}: 92% Magnetic Harmony! ✨</strong><br>Natural understanding and effortless flow between your elements.`
+                : `<strong>${z1} + ${z2}: 81% Growth Orbit! 💫</strong><br>Your differences inspire balance, excitement, and fresh perspectives.`;
+        });
+
+        // Tool 3: Love Language
+        document.getElementById('btn-love-lang').addEventListener('click', () => {
+            const tips = {
+                words: "Send an unexpected voice note or handwritten message appreciating one specific thing they did today.",
+                time: "Put phones on airplane mode for 45 minutes tonight and share uninterrupted conversation over tea.",
+                touch: "Offer a warm 20-second hug when greeting each other to release calming oxytocin.",
+                acts: "Take care of one everyday errand before they even have to ask.",
+                gifts: "Surprise them with their favorite small snack or a meaningful keepsake."
+            };
+            const val = document.getElementById('love-lang').value;
+            const out = document.getElementById('out-love-lang');
+            out.style.display = 'block';
+            out.innerHTML = `<strong>Today's Spark:</strong> ${tips[val]}`;
+        });
+
+        // Tool 4: Date Night
+        document.getElementById('btn-date-idea').addEventListener('click', () => {
+            const ideas = {
+                cozy: "Cook a new recipe together with acoustic music playing and no screens allowed.",
+                adventure: "Take a sunset walk in a new neighborhood or botanical trail and grab local street treats.",
+                stargaze: "Pack warm blankets, drive away from city lights, and spot constellations together."
+            };
+            const mood = document.getElementById('date-mood').value;
+            const out = document.getElementById('out-date-idea');
+            out.style.display = 'block';
+            out.innerHTML = `<strong>Curated Date:</strong> ${ideas[mood]}`;
+        });
+
+        // Tool 5: Quick BMI Harmony
+        document.getElementById('btn-quick-bmi').addEventListener('click', () => {
+            const h = parseFloat(document.getElementById('quick-h').value);
+            const w = parseFloat(document.getElementById('quick-w').value);
+            const out = document.getElementById('out-quick-bmi');
+            if (!h || !w || h <= 0 || w <= 0) { alert("Please enter valid height and weight!"); return; }
+            const bmi = (w / ((h / 100) * (h / 100))).toFixed(1);
+            out.style.display = 'block';
+            out.innerHTML = `<strong>BMI Index: ${bmi}</strong> — Want your full visual silhouette & Hourglass/Pear shape analysis? <a href="body-shape-calculator.html" style="color:#fff; text-decoration:underline;">Open Full Calculator →</a>`;
+        });
+
+        // Tool 6: Deep Question
+        const deepQuestions = [
+            "What is one small daily ritual that makes you feel deeply loved?",
+            "If we could wake up anywhere in the world tomorrow morning, where would you choose?",
+            "What is a dream you haven't shared out loud recently?",
+            "Which memory of us always makes you smile instantly?"
+        ];
+        document.getElementById('btn-draw-q').addEventListener('click', () => {
+            const q = deepQuestions[Math.floor(Math.random() * deepQuestions.length)];
+            const out = document.getElementById('out-draw-q');
+            out.style.display = 'block';
+            out.innerHTML = `<strong>Ask Tonight:</strong> "${q}"`;
+        });
+
+        // Couple Quiz Logic
+        const quizData = [
+            { q: "How do you and your partner best recharge after a long week?", opts: ["Quiet cozy night talking at home", "Exploring a new place or outdoor adventure", "Cooking a great meal & listening to music"] },
+            { q: "When a small misunderstanding happens, what helps most?", opts: ["Talking calmly right away", "Taking 15 minutes to cool down, then reconnecting", "Sharing a hug and reminding each other we're on the same team"] },
+            { q: "What excites you most about your future together?", opts: ["Traveling and creating new memories", "Building a peaceful, supportive home life", "Growing stronger and supporting each other's dreams"] }
+        ];
+        let qIdx = 0;
+        const modal = document.getElementById('quiz-modal');
+
+        function renderQuiz() {
+            document.getElementById('quiz-final').style.display = 'none';
+            document.getElementById('quiz-question').style.display = 'block';
+            document.getElementById('quiz-options').style.display = 'block';
+            document.getElementById('quiz-step-label').innerText = `QUESTION ${qIdx + 1} OF ${quizData.length}`;
+            document.getElementById('quiz-question').innerText = quizData[qIdx].q;
+            const optsDiv = document.getElementById('quiz-options');
+            optsDiv.innerHTML = '';
+            quizData[qIdx].opts.forEach(opt => {
+                const btn = document.createElement('button');
+                btn.className = 'quiz-option';
+                btn.innerText = opt;
+                btn.onclick = () => {
+                    qIdx++;
+                    if (qIdx < quizData.length) renderQuiz();
+                    else {
+                        document.getElementById('quiz-step-label').innerText = 'RESULT UNLOCKED';
+                        document.getElementById('quiz-question').style.display = 'none';
+                        optsDiv.style.display = 'none';
+                        document.getElementById('quiz-final').style.display = 'block';
+                    }
+                };
+                optsDiv.appendChild(btn);
+            });
+        }
+
+        document.getElementById('open-quiz-btn').addEventListener('click', () => { qIdx = 0; renderQuiz(); modal.classList.add('open'); });
+        document.getElementById('close-quiz-btn').addEventListener('click', () => modal.classList.remove('open'));
+        document.getElementById('restart-quiz-btn').addEventListener('click', () => { qIdx = 0; renderQuiz(); });
+    </script>
 </body>
 </html>
