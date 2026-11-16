@@ -3,44 +3,87 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Visual Body Shape & BMI Silhouette Calculator | DuoOrbit</title>
-    <meta name="description" content="Free visual body shape and BMI calculator. Enter your height and weight in cm/kg or inches/lbs to generate a glowing body silhouette diagram and wellness harmony score.">
-    <meta name="keywords" content="body shape calculator, visual bmi calculator, body silhouette checker, height weight body shape, couple wellness tracker, DuoOrbit">
+    <title>Body Shape Calculator & Visual BMI Silhouette Checker | DuoOrbit</title>
+    <meta name="description" content="Free online Body Shape Calculator & Visual Silhouette Generator. Calculate your exact body type (Hourglass, Pear, Apple, Rectangle, Inverted Triangle) using bust, waist, and hip measurements or check your visual BMI silhouette.">
+    <meta name="keywords" content="body shape calculator, female body shape calculator, male body shape calculator, hourglass pear apple rectangle calculator, visual bmi calculator, body silhouette generator, waist to hip ratio calculator, DuoOrbit">
     <meta name="author" content="DuoOrbit">
     <link rel="canonical" href="https://duoorbit.com/body-shape-calculator.html">
     <meta property="og:type" content="website">
-    <meta property="og:title" content="Visual Body Shape & BMI Silhouette Calculator - DuoOrbit">
-    <meta property="og:description" content="Discover your visual body silhouette and BMI wellness balance instantly with our interactive calculator.">
+    <meta property="og:title" content="Body Shape Calculator & Visual Silhouette Checker - DuoOrbit">
+    <meta property="og:description" content="Find your true body shape (Hourglass, Pear, Rectangle, Apple, Inverted Triangle) and generate an instant glowing visual silhouette diagram.">
     <meta property="og:url" content="https://duoorbit.com/body-shape-calculator.html">
     <meta property="og:site_name" content="DuoOrbit">
+
+    <!-- WebApplication & FAQ Schema for Google Rich Snippets -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
-      "@type": "WebApplication",
-      "name": "DuoOrbit Visual Body Shape & BMI Calculator",
-      "url": "https://duoorbit.com/body-shape-calculator.html",
-      "applicationCategory": "HealthApplication",
-      "operatingSystem": "All",
-      "description": "Interactive visual body silhouette and BMI harmony calculator supporting both Metric (cm/kg) and US Standard (inches/lbs) measurements."
+      "@graph": [
+        {
+          "@type": "WebApplication",
+          "name": "DuoOrbit Body Shape Calculator & Visual Silhouette Checker",
+          "url": "https://duoorbit.com/body-shape-calculator.html",
+          "applicationCategory": "HealthApplication",
+          "operatingSystem": "All",
+          "description": "Free interactive body shape calculator and visual silhouette generator supporting bust-waist-hip body typing and metric/imperial BMI calculation."
+        },
+        {
+          "@type": "FAQPage",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "How do I calculate my exact body shape?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Measure the fullest part of your bust or shoulders, the narrowest part of your natural waist, and the widest part of your hips. Enter those three numbers into the True Body Shape Calculator to classify your proportions into Hourglass, Pear, Inverted Triangle, Rectangle, or Apple."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "What are the 5 main body shapes?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "The five classic body shapes are Hourglass (balanced bust and hips with a defined narrow waist), Pear or Triangle (hips wider than shoulders/bust), Inverted Triangle (shoulders/bust broader than hips), Rectangle (similar bust, waist, and hip measurements), and Apple or Round (fuller midsection relative to hips)."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Does this body shape calculator work in both inches and centimeters?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Yes. Because body shape is determined by proportional differences and ratios between your bust, waist, and hips, you can enter your measurements in either inches or centimeters for accurate results."
+              }
+            }
+          ]
+        }
+      ]
     }
     </script>
+
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;800&display=swap" rel="stylesheet">
     <style>
-        :root { --bg-dark: #05030a; --card-bg: rgba(18, 12, 34, 0.85); --card-border: rgba(255, 255, 255, 0.14); --pink-accent: #f43f5e; --gold-accent: #f59e0b; --pink-gradient: linear-gradient(135deg, #f43f5e, #fb7185); --text-main: #ffffff; --text-sub: #cbd5e1; }
+        :root { --bg-dark: #05030a; --card-bg: rgba(18, 12, 34, 0.88); --card-border: rgba(255, 255, 255, 0.14); --pink-accent: #f43f5e; --gold-accent: #f59e0b; --pink-gradient: linear-gradient(135deg, #f43f5e, #fb7185); --text-main: #ffffff; --text-sub: #cbd5e1; }
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Outfit', sans-serif; }
-        body { background-color: var(--bg-dark); background-image: radial-gradient(circle at top right, rgba(244, 63, 94, 0.14), transparent 45%), radial-gradient(circle at bottom left, rgba(245, 158, 11, 0.12), transparent 45%); color: var(--text-main); min-height: 100vh; display: flex; flex-direction: column; }
-        header { background: rgba(12, 8, 23, 0.92); border-bottom: 1px solid rgba(255, 255, 255, 0.08); backdrop-filter: blur(20px); padding: 18px 6%; display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 50; }
+        body { background-color: var(--bg-dark); background-image: radial-gradient(circle at top right, rgba(244, 63, 94, 0.15), transparent 45%), radial-gradient(circle at bottom left, rgba(245, 158, 11, 0.12), transparent 45%); color: var(--text-main); min-height: 100vh; display: flex; flex-direction: column; }
+        header { background: rgba(12, 8, 23, 0.94); border-bottom: 1px solid rgba(255, 255, 255, 0.08); backdrop-filter: blur(20px); padding: 18px 6%; display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 50; }
         .brand-logo { font-size: 1.4rem; font-weight: 800; letter-spacing: 1.5px; background: linear-gradient(135deg, #fff 0%, var(--gold-accent) 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; text-decoration: none; text-transform: uppercase; }
         .nav-links { display: flex; gap: 20px; align-items: center; }
         .nav-links a { color: var(--text-sub); text-decoration: none; font-size: 0.92rem; font-weight: 600; transition: color 0.2s; }
         .nav-links a:hover, .nav-links a.active { color: var(--gold-accent); }
-        main { max-width: 920px; width: 100%; margin: 0 auto; padding: 50px 5%; flex: 1; }
-        .hero-header { text-align: center; margin-bottom: 40px; }
+        main { max-width: 940px; width: 100%; margin: 0 auto; padding: 46px 5%; flex: 1; }
+        .hero-header { text-align: center; margin-bottom: 34px; }
         .card-tag { display: inline-block; background: rgba(245, 158, 11, 0.15); color: var(--gold-accent); font-size: 0.75rem; font-weight: 700; padding: 6px 14px; border-radius: 8px; margin-bottom: 14px; letter-spacing: 0.5px; border: 1px solid rgba(245, 158, 11, 0.25); }
-        h1 { font-size: 2.4rem; font-weight: 800; line-height: 1.2; margin-bottom: 14px; background: linear-gradient(135deg, #ffffff 0%, #fbbf24 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-        .hero-header p { color: var(--text-sub); font-size: 1.05rem; max-width: 640px; margin: 0 auto; line-height: 1.6; }
-        .calc-card { background: var(--card-bg); border: 1px solid var(--card-border); border-radius: 26px; padding: 36px; backdrop-filter: blur(22px); box-shadow: 0 25px 60px rgba(0, 0, 0, 0.6); margin-bottom: 45px; }
+        h1 { font-size: 2.35rem; font-weight: 800; line-height: 1.2; margin-bottom: 14px; background: linear-gradient(135deg, #ffffff 0%, #fbbf24 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .hero-header p { color: var(--text-sub); font-size: 1.04rem; max-width: 670px; margin: 0 auto; line-height: 1.6; }
+
+        /* Mode Switch Tabs */
+        .mode-tabs { display: flex; gap: 12px; justify-content: center; margin-bottom: 26px; flex-wrap: wrap; }
+        .mode-btn { padding: 12px 22px; border-radius: 12px; border: 1px solid rgba(255, 255, 255, 0.15); background: rgba(255, 255, 255, 0.05); color: var(--text-sub); font-weight: 700; font-size: 0.94rem; cursor: pointer; transition: all 0.2s; }
+        .mode-btn.active { background: var(--pink-gradient); color: #ffffff; border-color: transparent; box-shadow: 0 4px 20px rgba(244, 63, 94, 0.4); }
+
+        .calc-card { background: var(--card-bg); border: 1px solid var(--card-border); border-radius: 26px; padding: 36px; backdrop-filter: blur(22px); box-shadow: 0 25px 60px rgba(0, 0, 0, 0.6); margin-bottom: 42px; }
         .input-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 20px; }
+        .input-grid-3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 16px; margin-bottom: 20px; }
         .input-group label { display: block; font-size: 0.85rem; font-weight: 600; color: var(--text-sub); margin-bottom: 8px; }
         .orbit-input, .orbit-select { width: 100%; padding: 14px 16px; border-radius: 12px; background: rgba(255, 255, 255, 0.06); border: 1px solid rgba(255, 255, 255, 0.16); color: #ffffff; font-size: 0.95rem; outline: none; }
         .orbit-select option { background-color: #120c22; color: #ffffff; }
@@ -48,20 +91,28 @@
         .launch-btn { width: 100%; padding: 16px; border-radius: 14px; background: var(--pink-gradient); color: white; font-weight: 700; font-size: 1.05rem; border: none; cursor: pointer; box-shadow: 0 6px 25px rgba(244, 63, 94, 0.45); transition: transform 0.2s, box-shadow 0.2s; }
         .launch-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 30px rgba(244, 63, 94, 0.65); }
         .hidden { display: none !important; }
+
         .result-box { margin-top: 28px; padding: 26px; border-radius: 20px; background: rgba(245, 158, 11, 0.08); border: 1px solid rgba(245, 158, 11, 0.3); text-align: center; }
-        .silhouette-stage { display: flex; align-items: center; justify-content: center; gap: 32px; margin-bottom: 18px; padding: 18px; border-radius: 16px; background: rgba(5, 3, 12, 0.6); border: 1px solid rgba(255, 255, 255, 0.08); }
-        .silhouette-svg { height: 190px; width: auto; filter: drop-shadow(0 0 14px rgba(245, 158, 11, 0.5)); }
+        .silhouette-stage { display: flex; align-items: center; justify-content: center; gap: 32px; margin-bottom: 18px; padding: 18px; border-radius: 16px; background: rgba(5, 3, 12, 0.65); border: 1px solid rgba(255, 255, 255, 0.08); }
+        .silhouette-svg { height: 200px; width: auto; filter: drop-shadow(0 0 15px rgba(245, 158, 11, 0.55)); }
         .silhouette-metrics { text-align: left; font-size: 0.95rem; color: #cbd5e1; line-height: 1.85; }
         .silhouette-metrics span { color: #fbbf24; font-weight: 700; }
-        .result-title { font-size: 1.65rem; font-weight: 800; color: var(--gold-accent); margin-bottom: 8px; }
-        .result-desc { font-size: 0.96rem; color: #e2e8f0; line-height: 1.6; }
-        .seo-content { background: rgba(18, 12, 34, 0.55); border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 22px; padding: 32px; line-height: 1.75; color: var(--text-sub); }
-        .seo-content h2 { color: #ffffff; font-size: 1.45rem; margin-bottom: 12px; }
-        .seo-content h3 { color: var(--gold-accent); font-size: 1.15rem; margin: 20px 0 8px; }
-        .seo-content p { margin-bottom: 14px; font-size: 0.95rem; }
-        footer { text-align: center; padding: 24px; color: #94a3b8; font-size: 0.85rem; border-top: 1px solid rgba(255, 255, 255, 0.06); background: rgba(5, 3, 10, 0.9); }
-        footer a { color: var(--gold-accent); text-decoration: none; }
-        @media (max-width: 680px) { .input-grid { grid-template-columns: 1fr; } .silhouette-stage { flex-direction: column; gap: 14px; } h1 { font-size: 1.85rem; } }
+        .result-title { font-size: 1.7rem; font-weight: 800; color: var(--gold-accent); margin-bottom: 8px; }
+        .result-desc { font-size: 0.98rem; color: #e2e8f0; line-height: 1.65; max-width: 640px; margin: 0 auto; }
+
+        .seo-content { background: rgba(18, 12, 34, 0.6); border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 22px; padding: 34px; line-height: 1.75; color: var(--text-sub); margin-bottom: 32px; }
+        .seo-content h2 { color: #ffffff; font-size: 1.5rem; margin-bottom: 14px; }
+        .seo-content h3 { color: var(--gold-accent); font-size: 1.15rem; margin: 22px 0 8px; }
+        .seo-content p { margin-bottom: 14px; font-size: 0.96rem; }
+        .shape-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 16px; margin: 20px 0; }
+        .shape-item { background: rgba(255, 255, 255, 0.04); border: 1px solid rgba(255, 255, 255, 0.09); border-radius: 14px; padding: 18px; }
+        .shape-item h4 { color: #fb7185; font-size: 1.05rem; margin-bottom: 6px; }
+        .faq-item { border-top: 1px solid rgba(255, 255, 255, 0.08); padding-top: 16px; margin-top: 16px; }
+        .faq-item strong { color: #ffffff; display: block; margin-bottom: 6px; font-size: 1.02rem; }
+
+        footer { text-align: center; padding: 24px; color: #94a3b8; font-size: 0.85rem; border-top: 1px solid rgba(255, 255, 255, 0.06); background: rgba(5, 3, 10, 0.95); }
+        footer a { color: var(--gold-accent); text-decoration: none; margin: 0 8px; }
+        @media (max-width: 720px) { .input-grid, .input-grid-3 { grid-template-columns: 1fr; } .silhouette-stage { flex-direction: column; gap: 14px; } h1 { font-size: 1.85rem; } }
     </style>
 </head>
 <body>
@@ -69,124 +120,314 @@
         <a href="index.html" class="brand-logo">DuoOrbit</a>
         <nav class="nav-links">
             <a href="index.html">🌌 Home</a>
-            <a href="body-shape-calculator.html" class="active">⚖️ Body Shape Tool</a>
+            <a href="body-shape-calculator.html" class="active">⚖️ Body Shape Calculator</a>
             <a href="zodiac-compatibility.html">🔮 Zodiac Matcher</a>
         </nav>
     </header>
+
     <main>
         <div class="hero-header">
-            <span class="card-tag">⚖️ VISUAL WELLNESS & SILHOUETTE CHECKER</span>
-            <h1>Visual Body Shape & BMI Calculator</h1>
-            <p>Enter your height and weight to generate an instant visual silhouette diagram, BMI score, and personalized wellness harmony insights.</p>
+            <span class="card-tag">⚖️ VISUAL BODY SHAPE & SILHOUETTE CHECKER</span>
+            <h1>Body Shape Calculator & Visual Silhouette</h1>
+            <p>Calculate your exact body type (Hourglass, Pear, Apple, Rectangle, Inverted Triangle) from your measurements, or generate a visual BMI silhouette diagram.</p>
         </div>
+
+        <div class="mode-tabs">
+            <button type="button" class="mode-btn active" id="tab-true-shape">📐 True Body Shape (Bust / Waist / Hip)</button>
+            <button type="button" class="mode-btn" id="tab-bmi-shape">⚖️ Visual BMI Silhouette (Height / Weight)</button>
+        </div>
+
         <section class="calc-card">
-            <div class="input-grid">
-                <div class="input-group">
-                    <label for="body-unit">Measurement System</label>
-                    <select id="body-unit" class="orbit-select">
-                        <option value="metric">Metric (cm / kg)</option>
-                        <option value="imperial">US Standard (inches / lbs)</option>
-                    </select>
+            <!-- MODE 1: TRUE BODY SHAPE CALCULATOR -->
+            <div id="panel-true-shape">
+                <div class="input-grid">
+                    <div class="input-group">
+                        <label for="shape-unit">Measurement Unit</label>
+                        <select id="shape-unit" class="orbit-select">
+                            <option value="in">Inches (in)</option>
+                            <option value="cm">Centimeters (cm)</option>
+                        </select>
+                    </div>
+                    <div class="input-group">
+                        <label for="shape-gender">Silhouette Model</label>
+                        <select id="shape-gender" class="orbit-select">
+                            <option value="female">Feminine Proportions</option>
+                            <option value="male">Masculine Proportions</option>
+                        </select>
+                    </div>
                 </div>
-                <div class="input-group">
-                    <label for="body-gender">Silhouette Model</label>
-                    <select id="body-gender" class="orbit-select">
-                        <option value="female">Feminine Silhouette</option>
-                        <option value="male">Masculine Silhouette</option>
-                    </select>
+                <div class="input-grid-3">
+                    <div class="input-group">
+                        <label for="meas-bust" id="label-bust">Bust / Chest (in)</label>
+                        <input type="number" id="meas-bust" class="orbit-input" placeholder="e.g. 36">
+                    </div>
+                    <div class="input-group">
+                        <label for="meas-waist" id="label-waist">Natural Waist (in)</label>
+                        <input type="number" id="meas-waist" class="orbit-input" placeholder="e.g. 27">
+                    </div>
+                    <div class="input-group">
+                        <label for="meas-hip" id="label-hip">Hips (in)</label>
+                        <input type="number" id="meas-hip" class="orbit-input" placeholder="e.g. 38">
+                    </div>
                 </div>
-                <div class="input-group">
-                    <label for="body-height" id="label-height">Height (cm)</label>
-                    <input type="number" id="body-height" class="orbit-input" placeholder="e.g. 170">
-                </div>
-                <div class="input-group">
-                    <label for="body-weight" id="label-weight">Weight (kg)</label>
-                    <input type="number" id="body-weight" class="orbit-input" placeholder="e.g. 65">
-                </div>
+                <button type="button" id="btn-calc-true-shape" class="launch-btn">✨ Calculate My Body Shape & Silhouette</button>
             </div>
-            <button type="button" id="btn-calc-body" class="launch-btn">✨ Generate Visual Silhouette & BMI</button>
+
+            <!-- MODE 2: VISUAL BMI SILHOUETTE -->
+            <div id="panel-bmi-shape" class="hidden">
+                <div class="input-grid">
+                    <div class="input-group">
+                        <label for="body-unit">Measurement System</label>
+                        <select id="body-unit" class="orbit-select">
+                            <option value="metric">Metric (cm / kg)</option>
+                            <option value="imperial">US Standard (inches / lbs)</option>
+                        </select>
+                    </div>
+                    <div class="input-group">
+                        <label for="body-gender">Silhouette Model</label>
+                        <select id="body-gender" class="orbit-select">
+                            <option value="female">Feminine Silhouette</option>
+                            <option value="male">Masculine Silhouette</option>
+                        </select>
+                    </div>
+                    <div class="input-group">
+                        <label for="body-height" id="label-height">Height (cm)</label>
+                        <input type="number" id="body-height" class="orbit-input" placeholder="e.g. 170">
+                    </div>
+                    <div class="input-group">
+                        <label for="body-weight" id="label-weight">Weight (kg)</label>
+                        <input type="number" id="body-weight" class="orbit-input" placeholder="e.g. 65">
+                    </div>
+                </div>
+                <button type="button" id="btn-calc-body" class="launch-btn">✨ Generate Visual BMI Silhouette</button>
+            </div>
+
+            <!-- SHARED VISUAL RESULT BOX -->
             <div id="body-result" class="result-box hidden">
                 <div class="silhouette-stage">
                     <div id="silhouette-svg-container"></div>
                     <div class="silhouette-metrics" id="silhouette-metrics-text"></div>
                 </div>
-                <div class="result-title" id="body-shape-title">Balanced Silhouette ✨</div>
-                <p class="result-desc" id="body-shape-desc">Optimal energy and harmony!</p>
+                <div class="result-title" id="body-shape-title">Hourglass Silhouette ✨</div>
+                <p class="result-desc" id="body-shape-desc"></p>
             </div>
         </section>
+
         <article class="seo-content">
-            <h2>How the Visual Body Shape & BMI Checker Works</h2>
-            <p>Understanding your body proportions and Body Mass Index (BMI) is a simple, visual way to track personal wellness goals—whether solo or as a couple staying active together. Unlike plain number calculators, the <strong>DuoOrbit Visual Silhouette Checker</strong> translates your height-to-weight ratio into an immediate visual outline.</p>
-            <h3>Understanding Your Silhouette Categories</h3>
-            <p><strong>Slender Silhouette (BMI under 18.5):</strong> Indicates a light, agile frame. Nutrient-rich meals and light resistance exercises help build steady energy and strength.</p>
-            <p><strong>Balanced Silhouette (BMI 18.5 – 24.9):</strong> Represents balanced height-to-weight proportions. Regular walking, stretching, and mindful nutrition help maintain optimal vitality.</p>
-            <p><strong>Curvy & Athletic Frame (BMI 25.0 – 29.9):</strong> Reflects a grounded, sturdy build. Enjoyable partner activities like hiking, cycling, or dancing support cardiovascular health.</p>
-            <p><strong>Full Silhouette (BMI 30.0 and above):</strong> Highlights a fuller frame where consistent, low-impact movement and sustainable daily habits bring lasting wellness benefits.</p>
+            <h2>Complete Guide to the 5 Classic Body Shapes</h2>
+            <p>Every body has unique, natural proportions. Using a <strong>Body Shape Calculator</strong> helps you understand how your shoulders/bust, waist, and hips relate to one another—making outfit styling, tailored shopping, and partner fitness routines effortless.</p>
+
+            <div class="shape-grid">
+                <div class="shape-item">
+                    <h4>⏳ Hourglass Shape</h4>
+                    <p>Bust and hip measurements are nearly equal (within 5% of each other) with a well-defined, narrower natural waist.</p>
+                </div>
+                <div class="shape-item">
+                    <h4>🍐 Pear (Triangle) Shape</h4>
+                    <p>Hips and thighs are noticeably wider than the shoulders and bust, creating a graceful lower-body curve and defined waist.</p>
+                </div>
+                <div class="shape-item">
+                    <h4>🔻 Inverted Triangle</h4>
+                    <p>Shoulders or bust are broader than the hips, giving a strong, athletic upper-body silhouette.</p>
+                </div>
+                <div class="shape-item">
+                    <h4>📏 Rectangle (Athletic)</h4>
+                    <p>Bust, waist, and hip measurements are closely aligned, forming a balanced, streamlined vertical frame.</p>
+                </div>
+                <div class="shape-item">
+                    <h4>🍎 Apple (Round) Shape</h4>
+                    <p>Weight is carried primarily around the midsection/waist relative to slender hips and legs.</p>
+                </div>
+            </div>
+
+            <h3>Frequently Asked Questions (FAQ)</h3>
+            <div class="faq-item">
+                <strong>How do I measure myself accurately for the Body Shape Calculator?</strong>
+                <p>Use a flexible measuring tape held snug (not tight) parallel to the floor: measure around the fullest part of your bust/chest, the narrowest part of your natural waist (just above the navel), and the widest part of your hips.</p>
+            </div>
+            <div class="faq-item">
+                <strong>Can I use centimeters instead of inches?</strong>
+                <p>Yes! Body shape classification is based on proportional ratios and percentage differences between your bust, waist, and hips, so both inches and centimeters produce the exact same result.</p>
+            </div>
+            <div class="faq-item">
+                <strong>What is a healthy Waist-to-Hip Ratio (WHR)?</strong>
+                <p>According to general wellness guidelines, a waist-to-hip ratio of 0.85 or lower for women and 0.90 or lower for men is associated with balanced cardiovascular wellness.</p>
+            </div>
         </article>
     </main>
+
     <footer>
-        © 2026 <a href="index.html">DuoOrbit</a> — Exploring cosmic love orbits & wellness together.
+        © 2026 <a href="index.html">DuoOrbit</a> |
+        <a href="zodiac-compatibility.html">Zodiac Compatibility</a> |
+        <a href="questions-for-couples.html">Questions for Couples</a> |
+        <a href="privacy.html">Privacy Policy</a>
     </footer>
+
     <script>
         document.addEventListener("DOMContentLoaded", function() {
-            const unitSelect = document.getElementById('body-unit');
-            const genderSelect = document.getElementById('body-gender');
-            const heightInput = document.getElementById('body-height');
-            const weightInput = document.getElementById('body-weight');
-            const labelHeight = document.getElementById('label-height');
-            const labelWeight = document.getElementById('label-weight');
+            // Mode Tab Switching
+            const tabTrue = document.getElementById('tab-true-shape');
+            const tabBmi = document.getElementById('tab-bmi-shape');
+            const panelTrue = document.getElementById('panel-true-shape');
+            const panelBmi = document.getElementById('panel-bmi-shape');
+            const resultBox = document.getElementById('body-result');
 
-            unitSelect.addEventListener('change', function() {
+            tabTrue.addEventListener('click', () => {
+                tabTrue.classList.add('active'); tabBmi.classList.remove('active');
+                panelTrue.classList.remove('hidden'); panelBmi.classList.add('hidden');
+                resultBox.classList.add('hidden');
+            });
+
+            tabBmi.addEventListener('click', () => {
+                tabBmi.classList.add('active'); tabTrue.classList.remove('active');
+                panelBmi.classList.remove('hidden'); panelTrue.classList.add('hidden');
+                resultBox.classList.add('hidden');
+            });
+
+            // Dynamic Unit Labels
+            document.getElementById('shape-unit').addEventListener('change', function() {
+                const u = this.value;
+                document.getElementById('label-bust').innerText = `Bust / Chest (${u})`;
+                document.getElementById('label-waist').innerText = `Natural Waist (${u})`;
+                document.getElementById('label-hip').innerText = `Hips (${u})`;
+                document.getElementById('meas-bust').placeholder = u === 'in' ? "e.g. 36" : "e.g. 92";
+                document.getElementById('meas-waist').placeholder = u === 'in' ? "e.g. 27" : "e.g. 68";
+                document.getElementById('meas-hip').placeholder = u === 'in' ? "e.g. 38" : "e.g. 96";
+            });
+
+            document.getElementById('body-unit').addEventListener('change', function() {
                 if (this.value === 'metric') {
-                    labelHeight.innerText = "Height (cm)"; labelWeight.innerText = "Weight (kg)";
-                    heightInput.placeholder = "e.g. 170"; weightInput.placeholder = "e.g. 65";
+                    document.getElementById('label-height').innerText = "Height (cm)";
+                    document.getElementById('label-weight').innerText = "Weight (kg)";
+                    document.getElementById('body-height').placeholder = "e.g. 170";
+                    document.getElementById('body-weight').placeholder = "e.g. 65";
                 } else {
-                    labelHeight.innerText = "Height (inches)"; labelWeight.innerText = "Weight (lbs)";
-                    heightInput.placeholder = "e.g. 67"; weightInput.placeholder = "e.g. 145";
+                    document.getElementById('label-height').innerText = "Height (inches)";
+                    document.getElementById('label-weight').innerText = "Weight (lbs)";
+                    document.getElementById('body-height').placeholder = "e.g. 67";
+                    document.getElementById('body-weight').placeholder = "e.g. 145";
                 }
             });
 
-            function generateSilhouetteSVG(gender, category) {
-                let shoulderW = 24, waistW = 14, hipW = 22, glowColor = "#f59e0b";
-                if (gender === "female") {
-                    if (category === "slender") { shoulderW = 20; waistW = 11; hipW = 19; glowColor = "#38bdf8"; }
-                    else if (category === "balanced") { shoulderW = 23; waistW = 13; hipW = 24; glowColor = "#f59e0b"; }
-                    else if (category === "curvy") { shoulderW = 26; waistW = 17; hipW = 29; glowColor = "#fb7185"; }
-                    else { shoulderW = 30; waistW = 24; hipW = 34; glowColor = "#f43f5e"; }
-                } else {
-                    if (category === "slender") { shoulderW = 24; waistW = 15; hipW = 17; glowColor = "#38bdf8"; }
-                    else if (category === "balanced") { shoulderW = 29; waistW = 18; hipW = 20; glowColor = "#f59e0b"; }
-                    else if (category === "curvy") { shoulderW = 33; waistW = 23; hipW = 24; glowColor = "#fb7185"; }
-                    else { shoulderW = 36; waistW = 29; hipW = 28; glowColor = "#f43f5e"; }
-                }
+            function renderSVG(shoulderW, waistW, hipW, glowColor) {
                 const cx = 60;
-                return `<svg class="silhouette-svg" viewBox="0 0 120 220" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="bodyGrad" x1="0%" y1="0%" x2="0%" y2="100%"><stop offset="0%" stop-color="${glowColor}" stop-opacity="0.88"/><stop offset="100%" stop-color="#f43f5e" stop-opacity="0.58"/></linearGradient></defs><line x1="15" y1="55" x2="105" y2="55" stroke="rgba(255,255,255,0.14)" stroke-dasharray="3,3"/><line x1="15" y1="100" x2="105" y2="100" stroke="rgba(255,255,255,0.14)" stroke-dasharray="3,3"/><line x1="15" y1="130" x2="105" y2="130" stroke="rgba(255,255,255,0.14)" stroke-dasharray="3,3"/><circle cx="${cx}" cy="24" r="13" fill="url(#bodyGrad)" stroke="#fff" stroke-width="1.2"/><path d="M ${cx - 5} 38 L ${cx - shoulderW} 52 Q ${cx - shoulderW - 6} 85, ${cx - shoulderW - 3} 115 L ${cx - shoulderW + 2} 115 L ${cx - shoulderW + 4} 68 Q ${cx - waistW} 95, ${cx - hipW} 125 L ${cx - 12} 205 L ${cx - 4} 205 L ${cx} 140 L ${cx + 4} 205 L ${cx + 12} 205 L ${cx + hipW} 125 Q ${cx + waistW} 95, ${cx + shoulderW - 4} 68 L ${cx + shoulderW - 2} 115 L ${cx + shoulderW + 3} 115 Q ${cx + shoulderW + 6} 85, ${cx + shoulderW} 52 L ${cx + 5} 38 Z" fill="url(#bodyGrad)" stroke="#ffffff" stroke-width="1.2"/></svg>`;
+                return `<svg class="silhouette-svg" viewBox="0 0 120 220" xmlns="http://www.w3.org/2000/svg">
+                    <defs>
+                        <linearGradient id="bodyGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+                            <stop offset="0%" stop-color="${glowColor}" stop-opacity="0.9"/>
+                            <stop offset="100%" stop-color="#f43f5e" stop-opacity="0.6"/>
+                        </linearGradient>
+                    </defs>
+                    <line x1="12" y1="55" x2="108" y2="55" stroke="rgba(255,255,255,0.14)" stroke-dasharray="3,3"/>
+                    <line x1="12" y1="100" x2="108" y2="100" stroke="rgba(255,255,255,0.14)" stroke-dasharray="3,3"/>
+                    <line x1="12" y1="130" x2="108" y2="130" stroke="rgba(255,255,255,0.14)" stroke-dasharray="3,3"/>
+                    <circle cx="${cx}" cy="24" r="13" fill="url(#bodyGrad)" stroke="#fff" stroke-width="1.2"/>
+                    <path d="M ${cx - 5} 38 L ${cx - shoulderW} 52 Q ${cx - shoulderW - 6} 85, ${cx - shoulderW - 3} 115 L ${cx - shoulderW + 2} 115 L ${cx - shoulderW + 4} 68 Q ${cx - waistW} 95, ${cx - hipW} 125 L ${cx - 12} 205 L ${cx - 4} 205 L ${cx} 140 L ${cx + 4} 205 L ${cx + 12} 205 L ${cx + hipW} 125 Q ${cx + waistW} 95, ${cx + shoulderW - 4} 68 L ${cx + shoulderW - 2} 115 L ${cx + shoulderW + 3} 115 Q ${cx + shoulderW + 6} 85, ${cx + shoulderW} 52 L ${cx + 5} 38 Z" fill="url(#bodyGrad)" stroke="#ffffff" stroke-width="1.2"/>
+                </svg>`;
             }
 
-            document.getElementById('btn-calc-body').addEventListener('click', function() {
-                const unit = unitSelect.value, gender = genderSelect.value;
-                const h = parseFloat(heightInput.value), w = parseFloat(weightInput.value);
-                if (!h || !w || h <= 0 || w <= 0) { alert("Please enter valid height and weight numbers!"); return; }
+            // Calculator 1: True Body Shape (Bust/Waist/Hip)
+            document.getElementById('btn-calc-true-shape').addEventListener('click', function() {
+                const bust = parseFloat(document.getElementById('meas-bust').value);
+                const waist = parseFloat(document.getElementById('meas-waist').value);
+                const hip = parseFloat(document.getElementById('meas-hip').value);
+                const unit = document.getElementById('shape-unit').value;
+                const gender = document.getElementById('shape-gender').value;
 
-                let bmi = 0, displayHeight = "", displayWeight = "";
-                if (unit === 'metric') {
-                    bmi = w / ((h / 100) * (h / 100)); displayHeight = `${h} cm`; displayWeight = `${w} kg`;
-                } else {
-                    bmi = (w / (h * h)) * 703; displayHeight = `${h} in`; displayWeight = `${w} lbs`;
+                if (!bust || !waist || !hip || bust <= 0 || waist <= 0 || hip <= 0) {
+                    alert("Please enter valid bust/chest, waist, and hip measurements!"); return;
                 }
 
-                const bmiRounded = bmi.toFixed(1);
-                let category = "", shapeTitle = "", shapeDesc = "", frameLabel = "";
-                if (bmi < 18.5) { category = "slender"; frameLabel = "Slender & Graceful"; shapeTitle = "Slender Silhouette 🌿"; shapeDesc = "Light, agile frame. Nourishing meals and light strength workouts boost vitality."; }
-                else if (bmi <= 24.9) { category = "balanced"; frameLabel = "Balanced & Proportioned"; shapeTitle = "Balanced Silhouette ✨"; shapeDesc = "Ideal body harmony! Keep up your active lifestyle and balanced nutrition."; }
-                else if (bmi <= 29.9) { category = "curvy"; frameLabel = "Curvy / Athletic"; shapeTitle = "Curvy & Athletic Frame 🔥"; shapeDesc = "Strong, grounded build. Fun cardio dates like hiking or dancing keep energy high."; }
-                else { category = "full"; frameLabel = "Full & Grounded"; shapeTitle = "Full Silhouette 💫"; shapeDesc = "Focus on steady, joyful movement together and mindful daily wellness habits."; }
+                const whr = (waist / hip).toFixed(2);
+                const bustHipDiff = Math.abs(bust - hip) / Math.max(bust, hip);
+                const waistToBust = waist / bust;
+                const waistToHip = waist / hip;
 
-                document.getElementById('silhouette-svg-container').innerHTML = generateSilhouetteSVG(gender, category);
-                document.getElementById('silhouette-metrics-text').innerHTML = `Height: <span>${displayHeight}</span><br>Weight: <span>${displayWeight}</span><br>BMI Index: <span>${bmiRounded}</span><br>Profile: <span>${frameLabel}</span>`;
+                let shapeName = "", title = "", desc = "", sw = 24, ww = 14, hw = 24, color = "#f59e0b";
+
+                if (waistToBust >= 0.88 && waistToHip >= 0.88) {
+                    shapeName = "Apple (Round)";
+                    title = "Apple Body Shape 🍎";
+                    desc = "Your proportions center gracefully around your midsection with slender legs and hips. V-necklines, empire waists, and core-strengthening walks complement your frame.";
+                    sw = gender === 'male' ? 30 : 25; ww = 24; hw = 21; color = "#fb7185";
+                } else if (bustHipDiff <= 0.06 && waistToBust <= 0.78 && waistToHip <= 0.78) {
+                    shapeName = "Hourglass";
+                    title = "Hourglass Body Shape ⏳";
+                    desc = "Your bust and hips are beautifully balanced with a well-defined, narrower natural waist. Fitted silhouettes and wrap styles highlight your natural symmetry.";
+                    sw = gender === 'male' ? 29 : 25; ww = 12; hw = 25; color = "#f59e0b";
+                } else if (hip > bust && (hip - bust) / hip > 0.05) {
+                    shapeName = "Pear (Triangle)";
+                    title = "Pear / Triangle Body Shape 🍐";
+                    desc = "Your hips are wider than your shoulders and bust, creating a classic lower-body curve and defined waist. Structured tops and A-line bottoms balance your silhouette effortlessly.";
+                    sw = 20; ww = 13; hw = 28; color = "#38bdf8";
+                } else if (bust > hip && (bust - hip) / bust > 0.05) {
+                    shapeName = "Inverted Triangle";
+                    title = "Inverted Triangle Body Shape 🔻";
+                    desc = "Your shoulders and chest are broader than your hips, giving you a strong, athletic upper-body frame. Flowy bottoms and tailored jackets create effortless balance.";
+                    sw = gender === 'male' ? 33 : 28; ww = 15; hw = 19; color = "#a855f7";
+                } else {
+                    shapeName = "Rectangle (Athletic)";
+                    title = "Rectangle Body Shape 📏";
+                    desc = "Your bust, waist, and hips are evenly aligned, creating a sleek, athletic vertical silhouette. Belted outfits and layered textures add dynamic dimension.";
+                    sw = gender === 'male' ? 28 : 23; ww = 18; hw = 22; color = "#10b981";
+                }
+
+                document.getElementById('silhouette-svg-container').innerHTML = renderSVG(sw, ww, hw, color);
+                document.getElementById('silhouette-metrics-text').innerHTML = `
+                    Body Type: <span>${shapeName}</span><br>
+                    Bust / Waist / Hip: <span>${bust} / ${waist} / ${hip} ${unit}</span><br>
+                    Waist-to-Hip Ratio: <span>${whr}</span>
+                `;
+                document.getElementById('body-shape-title').innerText = title;
+                document.getElementById('body-shape-desc').innerText = desc;
+                resultBox.classList.remove('hidden');
+            });
+
+            // Calculator 2: Visual BMI Silhouette
+            document.getElementById('btn-calc-body').addEventListener('click', function() {
+                const unit = document.getElementById('body-unit').value;
+                const gender = document.getElementById('body-gender').value;
+                const h = parseFloat(document.getElementById('body-height').value);
+                const w = parseFloat(document.getElementById('body-weight').value);
+
+                if (!h || !w || h <= 0 || w <= 0) {
+                    alert("Please enter valid height and weight numbers!"); return;
+                }
+
+                let bmi = unit === 'metric' ? w / ((h / 100) * (h / 100)) : (w / (h * h)) * 703;
+                let displayHeight = unit === 'metric' ? `${h} cm` : `${h} in`;
+                let displayWeight = unit === 'metric' ? `${w} kg` : `${w} lbs`;
+                const bmiRounded = bmi.toFixed(1);
+
+                let sw = 23, ww = 13, hw = 24, color = "#f59e0b", shapeTitle = "", shapeDesc = "", frameLabel = "";
+                if (bmi < 18.5) {
+                    frameLabel = "Slender & Graceful"; shapeTitle = "Slender Silhouette 🌿";
+                    shapeDesc = "Light, agile frame. Nourishing meals and light strength workouts boost vitality.";
+                    sw = gender === 'female' ? 20 : 24; ww = gender === 'female' ? 11 : 15; hw = gender === 'female' ? 19 : 17; color = "#38bdf8";
+                } else if (bmi <= 24.9) {
+                    frameLabel = "Balanced & Proportioned"; shapeTitle = "Balanced Silhouette ✨";
+                    shapeDesc = "Ideal body harmony! Keep up your active lifestyle and balanced nutrition.";
+                    sw = gender === 'female' ? 23 : 29; ww = gender === 'female' ? 13 : 18; hw = gender === 'female' ? 24 : 20; color = "#f59e0b";
+                } else if (bmi <= 29.9) {
+                    frameLabel = "Curvy / Athletic"; shapeTitle = "Curvy & Athletic Frame 🔥";
+                    shapeDesc = "Strong, grounded build. Fun cardio dates like hiking or dancing keep energy high.";
+                    sw = gender === 'female' ? 26 : 33; ww = gender === 'female' ? 17 : 23; hw = gender === 'female' ? 29 : 24; color = "#fb7185";
+                } else {
+                    frameLabel = "Full & Grounded"; shapeTitle = "Full Silhouette 💫";
+                    shapeDesc = "Focus on steady, joyful movement together and mindful daily wellness habits.";
+                    sw = gender === 'female' ? 30 : 36; ww = gender === 'female' ? 24 : 29; hw = gender === 'female' ? 34 : 28; color = "#f43f5e";
+                }
+
+                document.getElementById('silhouette-svg-container').innerHTML = renderSVG(sw, ww, hw, color);
+                document.getElementById('silhouette-metrics-text').innerHTML = `
+                    Height: <span>${displayHeight}</span><br>
+                    Weight: <span>${displayWeight}</span><br>
+                    BMI Index: <span>${bmiRounded}</span><br>
+                    Profile: <span>${frameLabel}</span>
+                `;
                 document.getElementById('body-shape-title').innerText = shapeTitle;
                 document.getElementById('body-shape-desc').innerText = shapeDesc;
-                document.getElementById('body-result').classList.remove('hidden');
+                resultBox.classList.remove('hidden');
             });
         });
     </script>
