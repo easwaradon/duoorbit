@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Visual Body Shape & BMI Silhouette Calculator | DuoOrbit</title>
+    <meta name="description" content="Free visual body shape and BMI calculator. Enter your height and weight in cm/kg or inches/lbs to generate a glowing body silhouette diagram and wellness harmony score.">
+    <meta name="keywords" content="body shape calculator, visual bmi calculator, body silhouette checker, height weight body shape, couple wellness tracker, DuoOrbit">
+    <meta name="author" content="DuoOrbit">
+    <link rel="canonical" href="https://duoorbit.com/body-shape-calculator.html">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Visual Body Shape & BMI Silhouette Calculator - DuoOrbit">
+    <meta property="og:description" content="Discover your visual body silhouette and BMI wellness balance instantly with our interactive calculator.">
+    <meta property="og:url" content="https://duoorbit.com/body-shape-calculator.html">
+    <meta property="og:site_name" content="DuoOrbit">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "DuoOrbit Visual Body Shape & BMI Calculator",
+      "url": "https://duoorbit.com/body-shape-calculator.html",
+      "applicationCategory": "HealthApplication",
+      "operatingSystem": "All",
+      "description": "Interactive visual body silhouette and BMI harmony calculator supporting both Metric (cm/kg) and US Standard (inches/lbs) measurements."
+    }
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root { --bg-dark: #05030a; --card-bg: rgba(18, 12, 34, 0.85); --card-border: rgba(255, 255, 255, 0.14); --pink-accent: #f43f5e; --gold-accent: #f59e0b; --pink-gradient: linear-gradient(135deg, #f43f5e, #fb7185); --text-main: #ffffff; --text-sub: #cbd5e1; }
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Outfit', sans-serif; }
+        body { background-color: var(--bg-dark); background-image: radial-gradient(circle at top right, rgba(244, 63, 94, 0.14), transparent 45%), radial-gradient(circle at bottom left, rgba(245, 158, 11, 0.12), transparent 45%); color: var(--text-main); min-height: 100vh; display: flex; flex-direction: column; }
+        header { background: rgba(12, 8, 23, 0.92); border-bottom: 1px solid rgba(255, 255, 255, 0.08); backdrop-filter: blur(20px); padding: 18px 6%; display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 50; }
+        .brand-logo { font-size: 1.4rem; font-weight: 800; letter-spacing: 1.5px; background: linear-gradient(135deg, #fff 0%, var(--gold-accent) 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; text-decoration: none; text-transform: uppercase; }
+        .nav-links { display: flex; gap: 20px; align-items: center; }
+        .nav-links a { color: var(--text-sub); text-decoration: none; font-size: 0.92rem; font-weight: 600; transition: color 0.2s; }
+        .nav-links a:hover, .nav-links a.active { color: var(--gold-accent); }
+        main { max-width: 920px; width: 100%; margin: 0 auto; padding: 50px 5%; flex: 1; }
+        .hero-header { text-align: center; margin-bottom: 40px; }
+        .card-tag { display: inline-block; background: rgba(245, 158, 11, 0.15); color: var(--gold-accent); font-size: 0.75rem; font-weight: 700; padding: 6px 14px; border-radius: 8px; margin-bottom: 14px; letter-spacing: 0.5px; border: 1px solid rgba(245, 158, 11, 0.25); }
+        h1 { font-size: 2.4rem; font-weight: 800; line-height: 1.2; margin-bottom: 14px; background: linear-gradient(135deg, #ffffff 0%, #fbbf24 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .hero-header p { color: var(--text-sub); font-size: 1.05rem; max-width: 640px; margin: 0 auto; line-height: 1.6; }
+        .calc-card { background: var(--card-bg); border: 1px solid var(--card-border); border-radius: 26px; padding: 36px; backdrop-filter: blur(22px); box-shadow: 0 25px 60px rgba(0, 0, 0, 0.6); margin-bottom: 45px; }
+        .input-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 20px; }
+        .input-group label { display: block; font-size: 0.85rem; font-weight: 600; color: var(--text-sub); margin-bottom: 8px; }
+        .orbit-input, .orbit-select { width: 100%; padding: 14px 16px; border-radius: 12px; background: rgba(255, 255, 255, 0.06); border: 1px solid rgba(255, 255, 255, 0.16); color: #ffffff; font-size: 0.95rem; outline: none; }
+        .orbit-select option { background-color: #120c22; color: #ffffff; }
+        .orbit-input:focus, .orbit-select:focus { border-color: var(--gold-accent); }
+        .launch-btn { width: 100%; padding: 16px; border-radius: 14px; background: var(--pink-gradient); color: white; font-weight: 700; font-size: 1.05rem; border: none; cursor: pointer; box-shadow: 0 6px 25px rgba(244, 63, 94, 0.45); transition: transform 0.2s, box-shadow 0.2s; }
+        .launch-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 30px rgba(244, 63, 94, 0.65); }
+        .hidden { display: none !important; }
+        .result-box { margin-top: 28px; padding: 26px; border-radius: 20px; background: rgba(245, 158, 11, 0.08); border: 1px solid rgba(245, 158, 11, 0.3); text-align: center; }
+        .silhouette-stage { display: flex; align-items: center; justify-content: center; gap: 32px; margin-bottom: 18px; padding: 18px; border-radius: 16px; background: rgba(5, 3, 12, 0.6); border: 1px solid rgba(255, 255, 255, 0.08); }
+        .silhouette-svg { height: 190px; width: auto; filter: drop-shadow(0 0 14px rgba(245, 158, 11, 0.5)); }
+        .silhouette-metrics { text-align: left; font-size: 0.95rem; color: #cbd5e1; line-height: 1.85; }
+        .silhouette-metrics span { color: #fbbf24; font-weight: 700; }
+        .result-title { font-size: 1.65rem; font-weight: 800; color: var(--gold-accent); margin-bottom: 8px; }
+        .result-desc { font-size: 0.96rem; color: #e2e8f0; line-height: 1.6; }
+        .seo-content { background: rgba(18, 12, 34, 0.55); border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 22px; padding: 32px; line-height: 1.75; color: var(--text-sub); }
+        .seo-content h2 { color: #ffffff; font-size: 1.45rem; margin-bottom: 12px; }
+        .seo-content h3 { color: var(--gold-accent); font-size: 1.15rem; margin: 20px 0 8px; }
+        .seo-content p { margin-bottom: 14px; font-size: 0.95rem; }
+        footer { text-align: center; padding: 24px; color: #94a3b8; font-size: 0.85rem; border-top: 1px solid rgba(255, 255, 255, 0.06); background: rgba(5, 3, 10, 0.9); }
+        footer a { color: var(--gold-accent); text-decoration: none; }
+        @media (max-width: 680px) { .input-grid { grid-template-columns: 1fr; } .silhouette-stage { flex-direction: column; gap: 14px; } h1 { font-size: 1.85rem; } }
+    </style>
+</head>
+<body>
+    <header>
+        <a href="index.html" class="brand-logo">DuoOrbit</a>
+        <nav class="nav-links">
+            <a href="index.html">🌌 Home</a>
+            <a href="body-shape-calculator.html" class="active">⚖️ Body Shape Tool</a>
+            <a href="zodiac-compatibility.html">🔮 Zodiac Matcher</a>
+        </nav>
+    </header>
+    <main>
+        <div class="hero-header">
+            <span class="card-tag">⚖️ VISUAL WELLNESS & SILHOUETTE CHECKER</span>
+            <h1>Visual Body Shape & BMI Calculator</h1>
+            <p>Enter your height and weight to generate an instant visual silhouette diagram, BMI score, and personalized wellness harmony insights.</p>
+        </div>
+        <section class="calc-card">
+            <div class="input-grid">
+                <div class="input-group">
+                    <label for="body-unit">Measurement System</label>
+                    <select id="body-unit" class="orbit-select">
+                        <option value="metric">Metric (cm / kg)</option>
+                        <option value="imperial">US Standard (inches / lbs)</option>
+                    </select>
+                </div>
+                <div class="input-group">
+                    <label for="body-gender">Silhouette Model</label>
+                    <select id="body-gender" class="orbit-select">
+                        <option value="female">Feminine Silhouette</option>
+                        <option value="male">Masculine Silhouette</option>
+                    </select>
+                </div>
+                <div class="input-group">
+                    <label for="body-height" id="label-height">Height (cm)</label>
+                    <input type="number" id="body-height" class="orbit-input" placeholder="e.g. 170">
+                </div>
+                <div class="input-group">
+                    <label for="body-weight" id="label-weight">Weight (kg)</label>
+                    <input type="number" id="body-weight" class="orbit-input" placeholder="e.g. 65">
+                </div>
+            </div>
+            <button type="button" id="btn-calc-body" class="launch-btn">✨ Generate Visual Silhouette & BMI</button>
+            <div id="body-result" class="result-box hidden">
+                <div class="silhouette-stage">
+                    <div id="silhouette-svg-container"></div>
+                    <div class="silhouette-metrics" id="silhouette-metrics-text"></div>
+                </div>
+                <div class="result-title" id="body-shape-title">Balanced Silhouette ✨</div>
+                <p class="result-desc" id="body-shape-desc">Optimal energy and harmony!</p>
+            </div>
+        </section>
+        <article class="seo-content">
+            <h2>How the Visual Body Shape & BMI Checker Works</h2>
+            <p>Understanding your body proportions and Body Mass Index (BMI) is a simple, visual way to track personal wellness goals—whether solo or as a couple staying active together. Unlike plain number calculators, the <strong>DuoOrbit Visual Silhouette Checker</strong> translates your height-to-weight ratio into an immediate visual outline.</p>
+            <h3>Understanding Your Silhouette Categories</h3>
+            <p><strong>Slender Silhouette (BMI under 18.5):</strong> Indicates a light, agile frame. Nutrient-rich meals and light resistance exercises help build steady energy and strength.</p>
+            <p><strong>Balanced Silhouette (BMI 18.5 – 24.9):</strong> Represents balanced height-to-weight proportions. Regular walking, stretching, and mindful nutrition help maintain optimal vitality.</p>
+            <p><strong>Curvy & Athletic Frame (BMI 25.0 – 29.9):</strong> Reflects a grounded, sturdy build. Enjoyable partner activities like hiking, cycling, or dancing support cardiovascular health.</p>
+            <p><strong>Full Silhouette (BMI 30.0 and above):</strong> Highlights a fuller frame where consistent, low-impact movement and sustainable daily habits bring lasting wellness benefits.</p>
+        </article>
+    </main>
+    <footer>
+        © 2026 <a href="index.html">DuoOrbit</a> — Exploring cosmic love orbits & wellness together.
+    </footer>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const unitSelect = document.getElementById('body-unit');
+            const genderSelect = document.getElementById('body-gender');
+            const heightInput = document.getElementById('body-height');
+            const weightInput = document.getElementById('body-weight');
+            const labelHeight = document.getElementById('label-height');
+            const labelWeight = document.getElementById('label-weight');
+
+            unitSelect.addEventListener('change', function() {
+                if (this.value === 'metric') {
+                    labelHeight.innerText = "Height (cm)"; labelWeight.innerText = "Weight (kg)";
+                    heightInput.placeholder = "e.g. 170"; weightInput.placeholder = "e.g. 65";
+                } else {
+                    labelHeight.innerText = "Height (inches)"; labelWeight.innerText = "Weight (lbs)";
+                    heightInput.placeholder = "e.g. 67"; weightInput.placeholder = "e.g. 145";
+                }
+            });
+
+            function generateSilhouetteSVG(gender, category) {
+                let shoulderW = 24, waistW = 14, hipW = 22, glowColor = "#f59e0b";
+                if (gender === "female") {
+                    if (category === "slender") { shoulderW = 20; waistW = 11; hipW = 19; glowColor = "#38bdf8"; }
+                    else if (category === "balanced") { shoulderW = 23; waistW = 13; hipW = 24; glowColor = "#f59e0b"; }
+                    else if (category === "curvy") { shoulderW = 26; waistW = 17; hipW = 29; glowColor = "#fb7185"; }
+                    else { shoulderW = 30; waistW = 24; hipW = 34; glowColor = "#f43f5e"; }
+                } else {
+                    if (category === "slender") { shoulderW = 24; waistW = 15; hipW = 17; glowColor = "#38bdf8"; }
+                    else if (category === "balanced") { shoulderW = 29; waistW = 18; hipW = 20; glowColor = "#f59e0b"; }
+                    else if (category === "curvy") { shoulderW = 33; waistW = 23; hipW = 24; glowColor = "#fb7185"; }
+                    else { shoulderW = 36; waistW = 29; hipW = 28; glowColor = "#f43f5e"; }
+                }
+                const cx = 60;
+                return `<svg class="silhouette-svg" viewBox="0 0 120 220" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="bodyGrad" x1="0%" y1="0%" x2="0%" y2="100%"><stop offset="0%" stop-color="${glowColor}" stop-opacity="0.88"/><stop offset="100%" stop-color="#f43f5e" stop-opacity="0.58"/></linearGradient></defs><line x1="15" y1="55" x2="105" y2="55" stroke="rgba(255,255,255,0.14)" stroke-dasharray="3,3"/><line x1="15" y1="100" x2="105" y2="100" stroke="rgba(255,255,255,0.14)" stroke-dasharray="3,3"/><line x1="15" y1="130" x2="105" y2="130" stroke="rgba(255,255,255,0.14)" stroke-dasharray="3,3"/><circle cx="${cx}" cy="24" r="13" fill="url(#bodyGrad)" stroke="#fff" stroke-width="1.2"/><path d="M ${cx - 5} 38 L ${cx - shoulderW} 52 Q ${cx - shoulderW - 6} 85, ${cx - shoulderW - 3} 115 L ${cx - shoulderW + 2} 115 L ${cx - shoulderW + 4} 68 Q ${cx - waistW} 95, ${cx - hipW} 125 L ${cx - 12} 205 L ${cx - 4} 205 L ${cx} 140 L ${cx + 4} 205 L ${cx + 12} 205 L ${cx + hipW} 125 Q ${cx + waistW} 95, ${cx + shoulderW - 4} 68 L ${cx + shoulderW - 2} 115 L ${cx + shoulderW + 3} 115 Q ${cx + shoulderW + 6} 85, ${cx + shoulderW} 52 L ${cx + 5} 38 Z" fill="url(#bodyGrad)" stroke="#ffffff" stroke-width="1.2"/></svg>`;
+            }
+
+            document.getElementById('btn-calc-body').addEventListener('click', function() {
+                const unit = unitSelect.value, gender = genderSelect.value;
+                const h = parseFloat(heightInput.value), w = parseFloat(weightInput.value);
+                if (!h || !w || h <= 0 || w <= 0) { alert("Please enter valid height and weight numbers!"); return; }
+
+                let bmi = 0, displayHeight = "", displayWeight = "";
+                if (unit === 'metric') {
+                    bmi = w / ((h / 100) * (h / 100)); displayHeight = `${h} cm`; displayWeight = `${w} kg`;
+                } else {
+                    bmi = (w / (h * h)) * 703; displayHeight = `${h} in`; displayWeight = `${w} lbs`;
+                }
+
+                const bmiRounded = bmi.toFixed(1);
+                let category = "", shapeTitle = "", shapeDesc = "", frameLabel = "";
+                if (bmi < 18.5) { category = "slender"; frameLabel = "Slender & Graceful"; shapeTitle = "Slender Silhouette 🌿"; shapeDesc = "Light, agile frame. Nourishing meals and light strength workouts boost vitality."; }
+                else if (bmi <= 24.9) { category = "balanced"; frameLabel = "Balanced & Proportioned"; shapeTitle = "Balanced Silhouette ✨"; shapeDesc = "Ideal body harmony! Keep up your active lifestyle and balanced nutrition."; }
+                else if (bmi <= 29.9) { category = "curvy"; frameLabel = "Curvy / Athletic"; shapeTitle = "Curvy & Athletic Frame 🔥"; shapeDesc = "Strong, grounded build. Fun cardio dates like hiking or dancing keep energy high."; }
+                else { category = "full"; frameLabel = "Full & Grounded"; shapeTitle = "Full Silhouette 💫"; shapeDesc = "Focus on steady, joyful movement together and mindful daily wellness habits."; }
+
+                document.getElementById('silhouette-svg-container').innerHTML = generateSilhouetteSVG(gender, category);
+                document.getElementById('silhouette-metrics-text').innerHTML = `Height: <span>${displayHeight}</span><br>Weight: <span>${displayWeight}</span><br>BMI Index: <span>${bmiRounded}</span><br>Profile: <span>${frameLabel}</span>`;
+                document.getElementById('body-shape-title').innerText = shapeTitle;
+                document.getElementById('body-shape-desc').innerText = shapeDesc;
+                document.getElementById('body-result').classList.remove('hidden');
+            });
+        });
+    </script>
+</body>
+</html>
