@@ -100,11 +100,11 @@
         .result-title { font-size: 1.7rem; font-weight: 800; color: var(--gold-accent); margin-bottom: 8px; }
         .result-desc { font-size: 0.98rem; color: #e2e8f0; line-height: 1.65; max-width: 640px; margin: 0 auto; }
 
-        /* Affiliate Style Recommendations */
+        /* Affiliate Style Recommendations (2x2 Balanced Grid) */
         .affiliate-box { margin-top: 26px; padding-top: 22px; border-top: 1px solid rgba(255, 255, 255, 0.12); text-align: center; }
         .affiliate-heading { font-size: 1.15rem; font-weight: 700; color: #ffffff; margin-bottom: 6px; }
         .affiliate-sub { font-size: 0.85rem; color: var(--text-sub); margin-bottom: 18px; }
-        .outfit-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 14px; text-align: left; }
+        .outfit-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; text-align: left; }
         .outfit-card { background: rgba(12, 8, 23, 0.85); border: 1px solid rgba(245, 158, 11, 0.28); border-radius: 14px; padding: 16px; display: flex; flex-direction: column; justify-content: space-between; transition: transform 0.2s, border-color 0.2s; }
         .outfit-card:hover { transform: translateY(-3px); border-color: var(--gold-accent); }
         .outfit-badge { display: inline-block; font-size: 0.72rem; font-weight: 700; color: var(--gold-accent); background: rgba(245, 158, 11, 0.14); padding: 3px 9px; border-radius: 6px; margin-bottom: 8px; width: fit-content; }
@@ -127,7 +127,7 @@
         footer { text-align: center; padding: 24px; color: #94a3b8; font-size: 0.85rem; border-top: 1px solid rgba(255, 255, 255, 0.06); background: rgba(5, 3, 10, 0.95); }
         footer a { color: var(--gold-accent); text-decoration: none; margin: 0 8px; }
         .footer-disclosure { max-width: 720px; margin: 10px auto 0; font-size: 0.76rem; color: #64748b; }
-        @media (max-width: 720px) { .input-grid, .input-grid-3 { grid-template-columns: 1fr; } .silhouette-stage { flex-direction: column; gap: 14px; } h1 { font-size: 1.85rem; } }
+        @media (max-width: 720px) { .input-grid, .input-grid-3, .outfit-grid { grid-template-columns: 1fr; } .silhouette-stage { flex-direction: column; gap: 14px; } h1 { font-size: 1.85rem; } }
     </style>
 </head>
 <body>
@@ -226,10 +226,10 @@
                 <div class="result-title" id="body-shape-title">Hourglass Silhouette ✨</div>
                 <p class="result-desc" id="body-shape-desc"></p>
 
-                <!-- DYNAMIC AMAZON AFFILIATE RECOMMENDATIONS -->
+                <!-- DYNAMIC AMAZON AFFILIATE RECOMMENDATIONS (4 CARDS) -->
                 <div class="affiliate-box" id="affiliate-recommendations">
                     <div class="affiliate-heading" id="affiliate-heading">✨ Curated Style Harmony Picks for Your Shape</div>
-                    <p class="affiliate-sub">Top-rated wardrobe essentials selected to flatter your exact silhouette proportions:</p>
+                    <p class="affiliate-sub">Top-rated outfits & seamless foundation essentials tailored to flatter your exact silhouette:</p>
                     <div class="outfit-grid" id="outfit-cards-container"></div>
                     <p class="affiliate-disclosure">As an Amazon Associate, DuoOrbit earns from qualifying purchases at no extra cost to you.</p>
                 </div>
@@ -291,60 +291,70 @@
         document.addEventListener("DOMContentLoaded", function() {
             const STORE_ID = "duoorbit-20";
 
-            // Curated Affiliate Outfit Recommendations by Shape & Gender
+            // Curated Affiliate Outfit & Foundation Recommendations by Shape & Gender (4 Cards each)
             const STYLE_PICKS = {
                 female: {
                     hourglass: [
                         { badge: "BEST FIT", title: "Belted Wrap Midi Dress", note: "Accentuates your defined waist while balancing bust and hip curves.", query: "womens+belted+wrap+midi+dress" },
                         { badge: "EVERYDAY ESSENTIAL", title: "High-Waisted Curve Jeans", note: "Contoured waistband eliminates gapping and highlights natural symmetry.", query: "womens+high+waisted+curvy+jeans" },
-                        { badge: "FLATTERING TOP", title: "V-Neck Fitted Bodysuit", note: "Clean, tailored lines that frame your shoulders and waist effortlessly.", query: "womens+v+neck+fitted+bodysuit" }
+                        { badge: "FLATTERING TOP", title: "V-Neck Fitted Bodysuit", note: "Clean, tailored lines that frame your shoulders and waist effortlessly.", query: "womens+v+neck+fitted+bodysuit" },
+                        { badge: "SEAMLESS FOUNDATION", title: "Sculpting Seamless Shapewear & No-Show Briefs", note: "Smooths under fitted dresses without flattening your natural waist curve.", query: "womens+seamless+sculpting+shapewear+shorts+no+show+underwear" }
                     ],
                     pear: [
                         { badge: "SILHOUETTE BALANCER", title: "Flowy A-Line Midi Skirt", note: "Skims gracefully over hips and thighs while cinching the waist.", query: "womens+high+waisted+a+line+midi+skirt" },
                         { badge: "UPPER BODY FOCUS", title: "Off-Shoulder & Boat Neck Tops", note: "Draws attention upward to balance narrower shoulders with fuller hips.", query: "womens+off+shoulder+blouse+top" },
-                        { badge: "TAILORED LAYER", title: "Cropped Structured Blazer", note: "Hits right at the natural waist to create crisp upper-body proportion.", query: "womens+cropped+tailored+blazer" }
+                        { badge: "TAILORED LAYER", title: "Cropped Structured Blazer", note: "Hits right at the natural waist to create crisp upper-body proportion.", query: "womens+cropped+tailored+blazer" },
+                        { badge: "SEAMLESS FOUNDATION", title: "Anti-Chafing Thigh-Slimming Seamless Shorts", note: "Invisible under skirts and dresses for all-day hip and thigh comfort.", query: "womens+seamless+thigh+slimming+slip+shorts+underwear" }
                     ],
                     apple: [
                         { badge: "MOST FLATTERING", title: "Empire Waist Flowy Dress", note: "Cinched just below the bust for an elongated, effortless drape.", query: "womens+empire+waist+maxi+dress" },
                         { badge: "WARDROBE STAPLE", title: "V-Neck Tunic Blouse", note: "Creates a vertical neckline that elongates the torso comfortably.", query: "womens+v+neck+tunic+blouse" },
-                        { badge: "COMFORT & STYLE", title: "High-Rise Wide Leg Trousers", note: "Smooth tummy-control waistband paired with leg-lengthening drape.", query: "womens+high+rise+wide+leg+dress+pants" }
+                        { badge: "COMFORT & STYLE", title: "High-Rise Wide Leg Trousers", note: "Smooth tummy-control waistband paired with leg-lengthening drape.", query: "womens+high+rise+wide+leg+dress+pants" },
+                        { badge: "SEAMLESS FOUNDATION", title: "High-Waisted Tummy Control Seamless Briefs", note: "Gentle core support that creates a sleek, smooth foundation under tops.", query: "womens+high+waisted+tummy+control+seamless+underwear" }
                     ],
                     inverted: [
                         { badge: "PROPORTION BUILDER", title: "Pleated Wide-Leg Palazzo Pants", note: "Adds graceful volume to the lower half to balance broader shoulders.", query: "womens+pleated+wide+leg+palazzo+pants" },
                         { badge: "SOFT NECKLINE", title: "Scoop & V-Neck Soft Knit Top", note: "Softens the shoulder line while maintaining a sleek, modern look.", query: "womens+v+neck+soft+knit+top" },
-                        { badge: "FEMININE CURVE", title: "Peplum Waist Blouse", note: "Creates instant hip definition and balances athletic upper proportions.", query: "womens+peplum+waist+blouse" }
+                        { badge: "FEMININE CURVE", title: "Peplum Waist Blouse", note: "Creates instant hip definition and balances athletic upper proportions.", query: "womens+peplum+waist+blouse" },
+                        { badge: "SEAMLESS FOUNDATION", title: "Supportive Wireless Smoothing Bra & Seamless Hipsters", note: "All-day upper support with smooth, invisible edges under fitted knits.", query: "womens+supportive+wireless+smoothing+bra+seamless+underwear" }
                     ],
                     rectangle: [
                         { badge: "CURVE CREATOR", title: "Fit & Flare Belted Dress", note: "Defines the waist and adds soft movement through the skirt.", query: "womens+fit+and+flare+belted+dress" },
                         { badge: "DIMENSION & TEXTURE", title: "Ruffle & Wrap Front Blouse", note: "Adds subtle volume and waist definition to an athletic frame.", query: "womens+wrap+front+ruffle+blouse" },
-                        { badge: "TAILORED DENIM", title: "Paperbag Waist Tapered Pants", note: "Cinched tie-waist creates an instant hourglass illusion.", query: "womens+paperbag+waist+pants" }
+                        { badge: "TAILORED DENIM", title: "Paperbag Waist Tapered Pants", note: "Cinched tie-waist creates an instant hourglass illusion.", query: "womens+paperbag+waist+pants" },
+                        { badge: "SEAMLESS FOUNDATION", title: "Waist-Defining Bodysuit & Seamless Cheeky Briefs", note: "Creates subtle waist contour and invisible comfort under any outfit.", query: "womens+waist+defining+seamless+bodysuit+shapewear" }
                     ]
                 },
                 male: {
                     hourglass: [
                         { badge: "TAILORED FIT", title: "Athletic Slim-Fit Oxford Shirt", note: "Tapered waist cut highlights balanced shoulders and chest.", query: "mens+athletic+fit+oxford+dress+shirt" },
                         { badge: "EVERYDAY ESSENTIAL", title: "Tapered Stretch Chino Pants", note: "Clean leg line that complements proportionate build.", query: "mens+athletic+tapered+stretch+chinos" },
-                        { badge: "SMART LAYER", title: "Structured Tailored Blazer", note: "Sharp shoulder framing with natural waist suppression.", query: "mens+slim+fit+casual+blazer" }
+                        { badge: "SMART LAYER", title: "Structured Tailored Blazer", note: "Sharp shoulder framing with natural waist suppression.", query: "mens+slim+fit+casual+blazer" },
+                        { badge: "DAILY COMFORT", title: "Breathable Modal Boxer Briefs", note: "No-ride-up athletic fit engineered for all-day tailored comfort.", query: "mens+breathable+modal+boxer+briefs" }
                     ],
                     pear: [
                         { badge: "SHOULDER BUILDER", title: "Structured Harrington Jacket", note: "Adds crisp structure to the upper torso for balanced proportions.", query: "mens+structured+harrington+jacket" },
                         { badge: "CLEAN SILHOUETTE", title: "Straight-Fit Dark Wash Jeans", note: "Streamlines the lower half for a tall, balanced profile.", query: "mens+straight+fit+dark+wash+jeans" },
-                        { badge: "UPPER FOCUS", title: "Textured Crewneck Sweater", note: "Draws visual focus upward to broaden the chest and shoulders.", query: "mens+textured+crewneck+sweater" }
+                        { badge: "UPPER FOCUS", title: "Textured Crewneck Sweater", note: "Draws visual focus upward to broaden the chest and shoulders.", query: "mens+textured+crewneck+sweater" },
+                        { badge: "DAILY COMFORT", title: "Performance Stretch Boxer Briefs", note: "Smooth, chafe-free leg fit for active movement and comfort.", query: "mens+performance+stretch+boxer+briefs" }
                     ],
                     apple: [
                         { badge: "VERTICAL LINE", title: "Unstructured Open Overshirt", note: "Creates clean vertical lines that elongate the torso.", query: "mens+casual+button+down+overshirt" },
                         { badge: "COMFORT FIT", title: "Flex-Waist Straight Trousers", note: "All-day waist comfort with a sharp, tailored leg drape.", query: "mens+flex+waist+straight+fit+chinos" },
-                        { badge: "CLASSIC STAPLE", title: "V-Neck Merino Layering Sweater", note: "Frames the face and elongates the upper body effortlessly.", query: "mens+v+neck+merino+wool+sweater" }
+                        { badge: "CLASSIC STAPLE", title: "V-Neck Merino Layering Sweater", note: "Frames the face and elongates the upper body effortlessly.", query: "mens+v+neck+merino+wool+sweater" },
+                        { badge: "DAILY COMFORT", title: "Soft-Waistband Cotton Stretch Trunks", note: "Roll-free comfort waistband designed for effortless daily wear.", query: "mens+soft+waistband+cotton+stretch+boxer+briefs" }
                     ],
                     inverted: [
                         { badge: "ATHLETIC CUT", title: "Muscle-Fit Stretch Polo Shirt", note: "Tailored to accommodate broad shoulders without billowing at the waist.", query: "mens+athletic+stretch+polo+shirt" },
                         { badge: "BALANCED LOWER", title: "Relaxed Straight-Leg Chinos", note: "Adds balanced proportion below a broad, athletic upper body.", query: "mens+relaxed+straight+chinos" },
-                        { badge: "SMART CASUAL", title: "Quarter-Zip Knit Pullover", note: "Clean, minimalist chest line tailored for athletic frames.", query: "mens+quarter+zip+knit+pullover" }
+                        { badge: "SMART CASUAL", title: "Quarter-Zip Knit Pullover", note: "Clean, minimalist chest line tailored for athletic frames.", query: "mens+quarter+zip+knit+pullover" },
+                        { badge: "DAILY COMFORT", title: "Fitted Crewneck Undershirt Multipack", note: "Smooth base layer under dress shirts and polos for athletic builds.", query: "mens+fitted+crewneck+undershirt+pack" }
                     ],
                     rectangle: [
                         { badge: "DIMENSION BUILDER", title: "Layered Bomber Jacket", note: "Adds structured shoulder width and modern layered depth.", query: "mens+classic+bomber+jacket" },
                         { badge: "TEXTURED TOP", title: "Waffle-Knit Henley Shirt", note: "Button placket and texture add visual interest to the chest.", query: "mens+waffle+knit+henley+shirt" },
-                        { badge: "MODERN FIT", title: "Slim-Straight Stretch Denim", note: "Clean, versatile cut suited for a balanced vertical frame.", query: "mens+slim+straight+stretch+jeans" }
+                        { badge: "MODERN FIT", title: "Slim-Straight Stretch Denim", note: "Clean, versatile cut suited for a balanced vertical frame.", query: "mens+slim+straight+stretch+jeans" },
+                        { badge: "DAILY COMFORT", title: "Micro-Modal Everyday Boxer Briefs", note: "Lightweight, breathable base layer for everyday versatility.", query: "mens+micro+modal+boxer+briefs" }
                     ]
                 }
             };
@@ -481,7 +491,7 @@
                 `;
                 document.getElementById('body-shape-title').innerText = title;
                 document.getElementById('body-shape-desc').innerText = desc;
-                renderOutfitRecommendations(shapeKey, gender, `✨ Best Flattering Outfits for ${shapeName} Shape`);
+                renderOutfitRecommendations(shapeKey, gender, `✨ Best Flattering Outfits & Essentials for ${shapeName} Shape`);
                 resultBox.classList.remove('hidden');
             });
 
@@ -529,7 +539,7 @@
                 `;
                 document.getElementById('body-shape-title').innerText = shapeTitle;
                 document.getElementById('body-shape-desc').innerText = shapeDesc;
-                renderOutfitRecommendations(shapeKey, gender, `✨ Curated Wardrobe Picks for Your Silhouette`);
+                renderOutfitRecommendations(shapeKey, gender, `✨ Curated Wardrobe & Foundation Picks for Your Silhouette`);
                 resultBox.classList.remove('hidden');
             });
         });
