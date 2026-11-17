@@ -52,13 +52,29 @@
         .score-badge { display: inline-block; font-size: 2.1rem; font-weight: 800; color: var(--gold-accent); margin-bottom: 8px; }
         .element-tag { display: inline-block; background: rgba(244, 63, 94, 0.18); color: #fb7185; border: 1px solid rgba(244, 63, 94, 0.35); padding: 4px 12px; border-radius: 99px; font-size: 0.82rem; font-weight: 700; margin-bottom: 14px; }
         .result-desc { font-size: 1rem; color: #e2e8f0; line-height: 1.65; max-width: 600px; margin: 0 auto; }
+
+        /* Affiliate Zodiac & Couple Gift Cards (2x2 Grid) */
+        .affiliate-box { margin-top: 26px; padding-top: 22px; border-top: 1px solid rgba(255, 255, 255, 0.12); text-align: center; }
+        .affiliate-heading { font-size: 1.15rem; font-weight: 700; color: #ffffff; margin-bottom: 6px; }
+        .affiliate-sub { font-size: 0.85rem; color: var(--text-sub); margin-bottom: 18px; }
+        .gift-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; text-align: left; }
+        .gift-card { background: rgba(12, 8, 23, 0.85); border: 1px solid rgba(245, 158, 11, 0.28); border-radius: 14px; padding: 16px; display: flex; flex-direction: column; justify-content: space-between; transition: transform 0.2s, border-color 0.2s; }
+        .gift-card:hover { transform: translateY(-3px); border-color: var(--gold-accent); }
+        .gift-badge { display: inline-block; font-size: 0.72rem; font-weight: 700; color: var(--gold-accent); background: rgba(245, 158, 11, 0.14); padding: 3px 9px; border-radius: 6px; margin-bottom: 8px; width: fit-content; }
+        .gift-title { font-size: 0.98rem; font-weight: 700; color: #ffffff; margin-bottom: 6px; }
+        .gift-note { font-size: 0.82rem; color: #cbd5e1; line-height: 1.45; margin-bottom: 14px; }
+        .amazon-btn { display: block; text-align: center; padding: 10px 14px; border-radius: 10px; background: linear-gradient(135deg, #f59e0b, #d97706); color: #05030a; font-weight: 800; font-size: 0.85rem; text-decoration: none; transition: opacity 0.2s; }
+        .amazon-btn:hover { opacity: 0.92; }
+        .affiliate-disclosure { font-size: 0.74rem; color: #94a3b8; margin-top: 14px; font-style: italic; }
+
         .seo-content { background: rgba(18, 12, 34, 0.55); border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 22px; padding: 32px; line-height: 1.75; color: var(--text-sub); }
         .seo-content h2 { color: #ffffff; font-size: 1.45rem; margin-bottom: 12px; }
         .seo-content h3 { color: var(--gold-accent); font-size: 1.15rem; margin: 20px 0 8px; }
         .seo-content p { margin-bottom: 14px; font-size: 0.95rem; }
         footer { text-align: center; padding: 24px; color: #94a3b8; font-size: 0.85rem; border-top: 1px solid rgba(255, 255, 255, 0.06); background: rgba(5, 3, 10, 0.9); }
         footer a { color: var(--gold-accent); text-decoration: none; }
-        @media (max-width: 680px) { .input-grid { grid-template-columns: 1fr; } h1 { font-size: 1.85rem; } }
+        .footer-disclosure { max-width: 720px; margin: 10px auto 0; font-size: 0.76rem; color: #64748b; }
+        @media (max-width: 680px) { .input-grid, .gift-grid { grid-template-columns: 1fr; } h1 { font-size: 1.85rem; } }
     </style>
 </head>
 <body>
@@ -126,6 +142,14 @@
                 <div class="score-badge" id="zodiac-score">94% Cosmic Sync ✨</div><br>
                 <span class="element-tag" id="element-pairing">🔥 Fire + 🔥 Fire Harmony</span>
                 <p class="result-desc" id="zodiac-desc">An unstoppable cosmic spark!</p>
+
+                <!-- DYNAMIC AMAZON AFFILIATE ZODIAC & COUPLE PICKS (4 CARDS) -->
+                <div class="affiliate-box">
+                    <div class="affiliate-heading" id="zodiac-gift-heading">✨ Cosmic Keepsakes & Couple Picks for Your Orbit</div>
+                    <p class="affiliate-sub">Meaningful astrology keepsakes, date night games, and couple journals curated for your sign pairing:</p>
+                    <div class="gift-grid" id="zodiac-cards-container"></div>
+                    <p class="affiliate-disclosure">As an Amazon Associate, DuoOrbit earns from qualifying purchases at no extra cost to you.</p>
+                </div>
             </div>
         </section>
         <article class="seo-content">
@@ -143,15 +167,59 @@
     </main>
     <footer>
         © 2026 <a href="index.html">DuoOrbit</a> — Exploring cosmic love orbits together.
+        <p class="footer-disclosure">Affiliate Disclosure: As an Amazon Associate I earn from qualifying purchases.</p>
     </footer>
     <script>
         document.addEventListener("DOMContentLoaded", function() {
+            const STORE_ID = "duoorbit-20";
             const elementsMap = {
                 Aries: "🔥 Fire", Leo: "🔥 Fire", Sagittarius: "🔥 Fire",
                 Taurus: "🌿 Earth", Virgo: "🌿 Earth", Capricorn: "🌿 Earth",
                 Gemini: "💨 Air", Libra: "💨 Air", Aquarius: "💨 Air",
                 Cancer: "💧 Water", Scorpio: "💧 Water", Pisces: "💧 Water"
             };
+
+            function renderZodiacGifts(s1, s2) {
+                document.getElementById('zodiac-gift-heading').innerText = `✨ Curated Cosmic Picks for ${s1} & ${s2}`;
+                const picks = [
+                    {
+                        badge: "CELESTIAL KEEPSAKE",
+                        title: `${s1} & ${s2} Constellation Jewelry`,
+                        note: "Dainty zodiac constellation necklaces and matching bracelets to celebrate your star signs.",
+                        query: `${s1}+${s2}+zodiac+constellation+necklace+couple+gift`
+                    },
+                    {
+                        badge: "ASTROLOGY GUIDE",
+                        title: "The Astrology of Love & Compatibility Book",
+                        note: "Dive deeper into sun, moon, and rising sign synastry for couples.",
+                        query: "astrology+of+love+and+compatibility+book+synastry"
+                    },
+                    {
+                        badge: "DATE NIGHT GAME",
+                        title: "Deep Connection Couple Conversation Cards",
+                        note: "Spark meaningful late-night talks and strengthen your emotional chemistry.",
+                        query: "couple+conversation+card+game+date+night"
+                    },
+                    {
+                        badge: "SHARED MEMORY",
+                        title: "Couples Adventure & Bucket List Journal",
+                        note: "Capture your favorite dates, milestones, and cosmic memories together.",
+                        query: "couples+adventure+challenge+book+scrapbook+journal"
+                    }
+                ];
+
+                document.getElementById('zodiac-cards-container').innerHTML = picks.map(item => `
+                    <div class="gift-card">
+                        <div>
+                            <span class="gift-badge">${item.badge}</span>
+                            <div class="gift-title">${item.title}</div>
+                            <p class="gift-note">${item.note}</p>
+                        </div>
+                        <a href="https://www.amazon.com/s?k=${item.query}&tag=${STORE_ID}" target="_blank" rel="nofollow sponsored noopener" class="amazon-btn">Explore on Amazon →</a>
+                    </div>
+                `).join('');
+            }
+
             document.getElementById('btn-calc-zodiac').addEventListener('click', function() {
                 const n1 = document.getElementById('partner1-name').value.trim() || "Partner 1";
                 const n2 = document.getElementById('partner2-name').value.trim() || "Partner 2";
@@ -169,6 +237,7 @@
                 document.getElementById('zodiac-score').innerText = `${score}% Cosmic Sync ✨`;
                 document.getElementById('element-pairing').innerText = `${elementsMap[s1]} + ${elementsMap[s2]} Alignment`;
                 document.getElementById('zodiac-desc').innerText = messages[Math.abs(hash) % messages.length];
+                renderZodiacGifts(s1, s2);
                 document.getElementById('zodiac-result').classList.remove('hidden');
             });
         });
